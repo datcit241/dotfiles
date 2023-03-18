@@ -1,0 +1,341 @@
+:root {
+    --gradient-dir1: to top right;
+    --gradient-dir2: to bottom left;
+    --gradient-dir3: to right top;
+    --gradient-dir4: to left bottom;
+    --gradient-dir5: to top left;
+    --size: 5px;
+}
+.mtk10,
+.mtk15 {
+    color: transparent;
+    background-image: linear-gradient(var(--gradient-dir4), #fc806c, #ff1bd1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.mtk5,
+.mtk26 {
+    color: transparent;
+    background-image: linear-gradient(
+        var(--gradient-dir1),
+        #4dd78a,
+        #20e3b2,
+        #a2de6a
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.mtk26 {
+    background-image: linear-gradient(
+        var(--gradient-dir5),
+        #4dd78a,
+        #20e3b2,
+        #a2de6a
+    );
+    font-style: italic;
+}
+.mtk5.mtki,
+.mtk26.mtki {
+    -webkit-font-smoothing: auto;
+    font-family: "Dank Mono", monospace;
+    font-size: 16px;
+}
+.mtk23,
+.mtk16 {
+    color: transparent;
+    background-image: linear-gradient(var(--gradient-dir1), #d66efd, #6a5af9);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.mtk9,
+.mtk17 {
+    color: transparent;
+    background-image: linear-gradient(
+        var(--gradient-dir2),
+        #098dff,
+        #2cccff,
+        #2979ff
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+.mtk18 {
+    color: transparent;
+    background-image: linear-gradient(var(--gradient-dir2), #b0beff, #fed9ff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-style: normal;
+}
+.mtk3 {
+    color: transparent;
+    background-image: linear-gradient(to right top, #bd93f9, #ff2ced);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* .mtk3 {
+  color: transparent;
+  background-image: linear-gradient(
+    var(--gradient-dir1),
+    #c29ffd,
+    #ffb4dc,
+    #e39bf7
+  );
+  background-image: linear-gradient(to top, #fce1d0, #ffadd6, #e39bf7);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+} */
+.mtk7 {
+    color: transparent;
+    background-image: linear-gradient(var(--gradient-dir2), #fc6c8f, #ffb86c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.mtk8,
+.mtk14 {
+    color: transparent;
+    /* background-image: linear-gradient(to right, #ffb88c, #eac394); */
+    background-image: linear-gradient(
+        to bottom left,
+        #c19e64 20%,
+        #ffb88c 60%
+            /* to right bottom,
+        #ffb88c 60%,
+        #c19e64 20% */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.monaco-workbench
+    .activitybar
+    > .content
+    :not(.monaco-menu)
+    > .monaco-action-bar
+    .action-item.checked
+    .active-item-indicator:before {
+    border: 0;
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(45deg, #fc6c8f, #ff2ced);
+}
+.monaco-workbench
+    .activitybar
+    > .content
+    :not(.monaco-menu)
+    > .monaco-action-bar
+    .badge
+    .badge-content {
+    background-image: linear-gradient(45deg, #fc6c8f, #ff2ced);
+}
+/* .monaco-editor .cursors-layer .cursor {
+    background-image: linear-gradient(
+        to top,
+        #6a5af9,
+        #d66efd,
+        #fc6c8f,
+        #ff2ced
+    );
+} */
+.mtki {
+    /* font-style: normal; */
+}
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active.tab-border-top
+    > .tab-border-top-container {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active.tab-border-top
+    > .tab-border-top-container:before,
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active.tab-border-top
+    > .tab-border-top-container:after {
+    content: "";
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    border: 2px solid;
+    border-image-slice: 1;
+}
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active.tab-border-top
+    > .tab-border-top-container:before {
+    top: 0;
+    left: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-image-source: linear-gradient(-45deg, #4dd78a, #20e3b2);
+}
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active.tab-border-top
+    > .tab-border-top-container:after {
+    right: 0;
+    bottom: 0;
+    border-top: 0;
+    border-left: 0;
+    border-image-source: linear-gradient(-45deg, #6a5af9, #d66efd);
+}
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active:before,
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active:after {
+    content: "";
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    border: 2px solid;
+    border-image-slice: 1;
+}
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active:before {
+    left: 0;
+    bottom: 0;
+    border-top: 0;
+    border-right: 0;
+    border-image-source: linear-gradient(-45deg, #fc6c8f, #ffb86c);
+}
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.active:after {
+    top: 0;
+    right: 0;
+    border-left: 0;
+    border-bottom: 0;
+    border-image-source: linear-gradient(-45deg, #098dff, #2cccff);
+}
+.monaco-editor .cursors-layer .cursor {
+    background: #12c2e9;
+    background: -webkit-linear-gradient(to top, #f64f59, #c471ed, #12c2e9);
+    background: linear-gradient(to top, #f64f59, #c471ed, #12c2e9);
+}
+
+.monaco-editor .relative-current-line-number {
+    color: transparent;
+    background-image: linear-gradient(var(--gradient-dir4), #fc806c, #ff1bd1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.line-numbers.lh-odd {
+    color: transparent;
+    background-image: linear-gradient(var(--gradient-dir2), #fc6c8f, #ffb86c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container.active
+    > .title
+    .tabs-container
+    > .tab.dirty
+    > .tab-actions
+    .action-label:not(:hover):before,
+.monaco-workbench
+    .part.editor
+    > .content
+    .editor-group-container
+    > .title
+    .tabs-container
+    > .tab.dirty
+    > .tab-actions
+    .action-label:not(:hover):before {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* background-image: linear-gradient(45deg, red, orange); */
+    background-image: linear-gradient(
+        var(--gradient-dir1),
+        #4dd78a,
+        #20e3b2,
+        #a2de6a
+    );
+}
+
+.codicon-close:before {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* background-image: linear-gradient(45deg, red, orange); */
+    /* background-image: linear-gradient(
+        var(--gradient-dir1),
+        #4dd78a,
+        #20e3b2,
+        #a2de6a
+    ); */
+    background-image: linear-gradient(
+        var(--gradient-dir2),
+        #098dff,
+        #2cccff,
+        #2979ff
+    );
+}
+
+.monaco-action-bar:not(.vertical) .codicon-close.action-label:not(.disabled):hover::before {
+/* .monaco-action-bar:not(.vertical) .codicon-close:not(.disabled):hover::before { */
+    background-image: linear-gradient(45deg, red, orange);
+}

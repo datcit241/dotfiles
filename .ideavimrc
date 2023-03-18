@@ -1,0 +1,45 @@
+set surround
+set incsearch
+let mapleader = ','
+
+# map escape button
+inoremap fj <esc>
+vnoremap fj <esc>
+
+# copy
+nnoremap <leader>a ggVG
+# nnoremap ya maggVG"*y`azz
+nnoremap ya :%y+<CR>
+vnoremap <leader>y "*y
+nnoremap <leader>yy "*yy
+
+# split tab
+nnoremap <leader>s <c-w>s<c-w>k:wq<CR><c-w>j
+nnoremap <leader>v <c-w>v<c-w>h:wq<CR><c-w>l
+
+# nnoremap <BS> ge
+vnoremap <BS> ge
+
+# move line
+imap <A-j> <Esc>:m .+1<CR>==gi
+imap <A-k> <Esc>:m .-2<CR>==gi
+
+nmap <A-j> :m .+1<CR>==
+nmap <A-k> :m .-2<CR>==
+
+vmap <A-j> :m '>+1<CR>gv-gv
+vmap <A-k> :m '<-2<CR>gv-gv
+
+vmap > >gv
+vmap < <gv
+
+# navigaton
+# nmap <A-Up> <C-\\><C-N><C-w>k
+# nmap <A-Down> <C-\\><C-N><C-w>j
+# nmap <A-Left> C-\\><C-N><C-w>h
+# nmap <A-Right> <C-\\><C-N><C-w>l
+
+# go to most recent tabs (does not work)
+# au TabLeave * let g:lasttab = tabpagenr()
+# nnoremap <silent> <esc> :exe "tabn ".g:lasttab<cr>
+# vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
