@@ -8,6 +8,6 @@ links=(
 )
 
 for link in ${links[@]}; do
-  # ln -sr "$PWD/$link ~/$link"
-  echo "ln -sr $PWD/$link $HOME/$link"
+  ln -s "$PWD/$link" "$HOME/$link"
+  # echo"ln -s $PWD/$link $HOME/$link"
 done
