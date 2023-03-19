@@ -1,7 +1,7 @@
 return {
   leader = "space",
   reload_config_on_save = true,
-  colorscheme = "tokyonight",
+  colorscheme = "material",
   transparent_window = false,
   format_on_save = {
     ---@usage boolean: format on save (Default: false)
@@ -14,16 +14,12 @@ return {
     filter = require("lvim.lsp.utils").format_filter,
   },
   keys = {},
-
   use_icons = true,
   icons = require "lvim.icons",
-
   builtin = {},
-
   plugins = {
     -- use config.lua for this not put here
   },
-
   autocommands = {},
   lang = {},
   log = {

@@ -504,39 +504,37 @@ local core_plugins = {
     "lunarvim/lunar.nvim",
   },
   {
+    "navarasu/onedark.nvim",
+  },
+  {
+    "marko-cerovac/material.nvim"
+  },
+  {
     "lunarvim/onedarker.nvim",
     branch = "freeze",
-    config = function()
-      pcall(function()
-        if lvim and lvim.colorscheme == "onedarker" then
-          require("onedarker").setup()
-          lvim.builtin.lualine.options.theme = "onedarker"
-        end
-      end)
-    end,
-    enabled = lvim.colorscheme == "onedarker",
+    -- config = function()
+    --   pcall(function()
+    --     if lvim and lvim.colorscheme == "onedarker" then
+    --       require("onedarker").setup()
+    --       lvim.builtin.lualine.options.theme = "onedarker"
+    --     end
+    --   end)
+    -- end,
+    -- enabled = lvim.colorscheme == "onedarker",
   },
   { "Mofiqul/dracula.nvim" },
+  {
+    "Mofiqul/vscode.nvim",
+    -- config = function()
+    --   require("lvim.core.vscode").setup()
+    -- end
+  },
 
   -- Looks and feels
   {
     'xiyaowong/nvim-transparent',
     config = function()
-      require("transparent").setup({
-        enable = true,   -- boolean: enable transparent
-        extra_groups = { -- table/string: additional groups that should be cleared
-          -- In particular, when you set it to 'all', that means all available groups
-
-          -- example of akinsho/nvim-bufferline.lua
-          "BufferLineTabClose",
-          "BufferlineBufferSelected",
-          "BufferLineFill",
-          "BufferLineBackground",
-          "BufferLineSeparator",
-          "BufferLineIndicatorSelected",
-        },
-        exclude = {}, -- table: groups you don't want to clear
-      })
+      require("lvim.core.nvim-transparent").setup()
     end
   },
   -- { 'gen740/SmoothCursor.nvim',
