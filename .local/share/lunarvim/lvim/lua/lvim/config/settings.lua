@@ -96,15 +96,15 @@ M.load_headless_options = function()
 end
 
 M.load_neovide_options = function()
-  vim.opt.winblend = 60
-  vim.opt.pumblend = 60
-  vim.g.neovide_transparency = 0.55
-  vim.g.transparency = 0.55
-  vim.g.neovide_floating_tranparency = 0.6
-  vim.g.neovide_window_floating_opacity = 0.6
-  vim.g.neovide_floating_blur = 60
-  vim.g.neovide_floating_opacity = 60
-  vim.g.neovide_window_floating_bur = 60
+  -- vim.opt.winblend = 60
+  -- vim.opt.pumblend = 60
+  -- vim.g.neovide_transparency = 0.55
+  -- vim.g.transparency = 0.55
+  -- vim.g.neovide_floating_tranparency = 0.6
+  -- vim.g.neovide_window_floating_opacity = 0.6
+  -- vim.g.neovide_floating_blur = 60
+  -- vim.g.neovide_floating_opacity = 60
+  -- vim.g.neovide_window_floating_bur = 60
   vim.g.neovide_cursor_vfx_mode = "torpedo"
 end
 
