@@ -1,24 +1,39 @@
 set surround
+
+set ignorecase smartcase
 set incsearch
+set hlsearch
+
+set which-key
+set notimeout
+# set timeoutlen=500
+
 let mapleader = ','
 
 # map escape button
-inoremap fj <esc>
-vnoremap fj <esc>
+imap fj <esc>
+vmap fj <esc>
 
 # copy
-nnoremap <leader>a ggVG
-# nnoremap ya maggVG"*y`azz
-nnoremap ya :%y+<CR>
-vnoremap <leader>y "*y
-nnoremap <leader>yy "*yy
+let g:WhichKeyDesc_select_all = "<leader>a Select allYank"
+map <leader>a ggVG
+
+let g:WhichKeyDesc_yank = "<leader>y Yank"
+
+let g:WhichKeyDesc_yank_all = "<leader>ya All"
+nmap <leader>ya :%y+<CR>
+vmap <leader>y "*y
+let g:WhichKeyDesc_yank_line = "<leader>yy Yank"
+nmap <leader>yy "*yy
 
 # split tab
-nnoremap <leader>s <c-w>s<c-w>k:wq<CR><c-w>j
-nnoremap <leader>v <c-w>v<c-w>h:wq<CR><c-w>l
+let g:WhichKeyDesc_split = "<leader>\\ Split"
+let g:WhichKeyDesc_split_horizontally = "<leader>\\s Split horizontally"
+map <leader>\\s <c-w>s<c-w>k:wq<CR><c-w>j
+let g:WhichKeyDesc_split_vertically = "<leader>\\v Split vertically"
+map <leader>\\v <c-w>v<c-w>h:wq<CR><c-w>l
 
-# nnoremap <BS> ge
-vnoremap <BS> ge
+map <BS> ge
 
 # move line
 imap <A-j> <Esc>:m .+1<CR>==gi
@@ -27,13 +42,21 @@ imap <A-k> <Esc>:m .-2<CR>==gi
 nmap <A-j> :m .+1<CR>==
 nmap <A-k> :m .-2<CR>==
 
-vmap <A-j> :m '>+1<CR>gv-gv
-vmap <A-k> :m '<-2<CR>gv-gv
+vmap <A-j> <Action>(MoveStatementDown)
+vmap <A-k> <Action>(MoveStatementUp)
+
+# vmap <A-j> :m '>+1<CR>gv-gv
+# vmap <A-k> :m '<-2<CR>gv-gv
 
 vmap > >gv
 vmap < <gv
 
-# navigaton
+# navigation
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
 # nmap <A-Up> <C-\\><C-N><C-w>k
 # nmap <A-Down> <C-\\><C-N><C-w>j
 # nmap <A-Left> C-\\><C-N><C-w>h
@@ -43,3 +66,268 @@ vmap < <gv
 # au TabLeave * let g:lasttab = tabpagenr()
 # nnoremap <silent> <esc> :exe "tabn ".g:lasttab<cr>
 # vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+
+# emulate neovim
+let g:WhichKeyDesc_new = "<leader>n New"
+map <leader>n <Action>(NewElement)
+
+let g:WhichKeyDesc_noh = "<leader>h No highlight"
+map <leader>h :noh<Cr>
+
+let g:WhichKeyDesc_mark = "<leader>m Mark"
+map <leader>m <Action>(ToggleBookmark)
+
+# Window
+let g:WhichKeyDesc_explorer = "<leader>e Explorer"
+map <leader>e <Action>(ActivateProjectToolWindow)
+
+let g:WhichKeyDesc_window = "<leader>w Window"
+map <leader>w<esc> <esc>
+
+let g:WhichKeyDesc_bookmarks = "<leader>wb Bookmarks"
+map <leader>wb <Action>(ActivateBookmarksToolWindow)
+
+let g:WhichKeyDesc_todo = "<leader>wT TODO"
+map <leader>wT <Action>(ActivateTODOToolWindow)
+
+let g:WhichKeyDesc_services = "<leader>ws Services"
+map <leader>ws <Action>(ActivateServicesToolWindow)
+
+let g:WhichKeyDesc_terminal = "<leader>wt Terminal"
+map <leader>wt <Action>(ActivateTerminalToolWindow)
+
+let g:WhichKeyDesc_run_window = "<leader>wr Run"
+map <leader>wr <Action>(ActivateRunToolWindow)
+
+let g:WhichKeyDesc_version = "<leader>wv Version control"
+map <leader>wv <Action>(ActivateVersionControlToolWindow)
+
+let g:WhichKeyDesc_problems = "<leader>wp Problems"
+map <leader>wp <Action>(ActivateProblemsViewToolWindow)
+
+let g:WhichKeyDesc_endpoints = "<leader>we Endpoints"
+map <leader>we <Action>(ActivateEndpointsToolWindow)
+
+let g:WhichKeyDesc_dependencies = "<leader>wd Dependencies"
+map <leader>wd <Action>(ActivateDependenciesToolWindow)
+
+let g:WhichKeyDesc_database = "<leader>wD Database"
+map <leader>wD <Action>(ActivateDatabaseToolWindow)
+
+let g:WhichKeyDesc_notifications = "<leader>wn Notifications"
+map <leader>wn <Action>(ActivateNotificationsToolWindow)
+
+let g:WhichKeyDesc_hide_window = "<leader>q Quit window"
+map q <Action>(HideActiveWindow)
+
+# Intellij
+let g:WhichKeyDesc_intellij = "<leader>i Intellij"
+map <leader>i<esc> <esc>
+
+let g:WhichKeyDesc_settings = "<leader>is Settings"
+map <leader>is <Action>(ShowSettings)
+
+let g:WhichKeyDesc_plugins = "<leader>ip Plugins"
+map <leader>ip <Action>(WelcomeScreen.Plugins)
+
+let g:WhichKeyDesc_cwm = "<leader>ic Code with me"
+map <leader>ic <Action>(CWMHostShowPopupAction)
+
+let g:WhichKeyDesc_toolbar = "<leader>it Toolbar"
+map <leader>it <Action>(AtomFileIcons.OldToolbar)
+
+let g:WhichKeyDesc_increaseFontSize = "<leader>if Increase font size"
+map <leader>if <Action>(EditorIncreaseFontSizeGlobal)
+let g:WhichKeyDesc_decreaseFontSize = "<leader>iF Decrease font size"
+map <leader>iF <Action>(EditorDecreaseFontSizeGlobal)
+
+# Telescope like actions
+let g:WhichKeyDesc_telescope = "<leader>t Telescope"
+map <leader>t <Action>(SearchEverywhere)
+
+let g:WhichKeyDesc_files = "<leader>f Find files"
+map <leader>f <Action>(GotoFile)
+
+let g:WhichKeyDesc_search = "<leader>s Search"
+map <leader>s<esc> <esc>
+
+let g:WhichKeyDesc_action = "<leader>sa Actions"
+map <leader>sa <Action>(GotoAction)
+
+let g:WhichKeyDesc_old_files = "<leader>sr Recent files"
+map <leader>sr <Action>(RecentFiles)
+
+let g:WhichKeyDesc_files2 = "<leader>sf Find files"
+map <leader>sf <Action>(GotoFile)
+
+let g:WhichKeyDesc_find = "<leader>st Find"
+map <leader>st <Action>(Find)
+let g:WhichKeyDesc_find_in_path = "<leader>sT Find in path"
+map <leader>sT <Action>(FindInPath)
+
+let g:WhichKeyDesc_replace = "<leader>ss Replace"
+map <leader>ss <Action>(Replace)
+let g:WhichKeyDesc_replace_in_path = "<leader>sS Replace in path"
+map <leader>sS <Action>(ReplaceInPath)
+
+# Navigation
+let g:WhichKeyDesc_jump = "<leader>j Jump"
+map <leader>j<esc> <esc>
+
+let g:WhichKeyDesc_last_change = "<leader>jr Last change"
+map <leader>jr <Action>(JumpToLastChange)
+
+let g:WhichKeyDesc_impl = "<leader>ji Implementation"
+map <leader>ji <Action>(GotoImplementation)
+let g:WhichKeyDesc_quick_impl = "<leader>jI Quick implementations"
+map <leader>jI <Action>(QuickImplementations)
+
+let g:WhichKeyDesc_system_explorer = "<leader>je System Explorer"
+map <leader>je <Action>(RevealIn)
+
+let g:WhichKeyDesc_test = "<leader>jt Test"
+map <leader>jt <Action>(GotoTest)
+
+let g:WhichKeyDesc_recent_locations = "<leader>jl Recent locations"
+map <leader>jl <Action>(RecentLocations)
+
+let g:WhichKeyDesc_backward = "<leader>jb Backward"
+map <leader>jb <Action>(Back)
+let g:WhichKeyDesc_forward = "<leader>jB Forward"
+map <leader>jB <Action>(Forward)
+
+# Project
+let g:WhichKeyDesc_project = "<leader>p Project"
+map <leader>p<esc> <esc>
+
+let g:WhichKeyDesc_recent_projects = "<leader>pr Recent projects"
+map <leader>pr <Action>($LRU)
+
+let g:WhichKeyDesc_structure = "<leader>ps Project structure"
+map <leader>ps <Action>(ShowProjectStructureSettings)
+
+let g:WhichKeyDesc_new_project = "<leader>pn New project"
+map <leader>pn <Action>(WelcomeScreen.CreateNewProject)
+
+let g:WhichKeyDesc_import_project = "<leader>pi Import project"
+map <leader>pi <Action>(ImportProject)
+
+let g:WhichKeyDesc_vsc_project = "<leader>pv VSC project"
+map <leader>pv <Action>(ProjectFromVersionControl)
+
+let g:WhichKeyDesc_close_project = "<leader>pc Close project"
+map <leader>pc <Action>(CloseProject)
+
+# Debug
+let g:WhichKeyDesc_Debug = "<leader>d Debug"
+map <leader>d<esc> <esc>
+
+let g:WhichKeyDesc_build = "<leader>dB Build"
+map <leader>dB <Action>(CompileDirty)
+
+let g:WhichKeyDesc_run = "<leader>dr Run"
+map <leader>dr <Action>(Run)
+let g:WhichKeyDesc_run_project = "<leader>dc Run configuration"
+map <leader>dc <Action>(ChooseRunConfiguration)
+let g:WhichKeyDesc_debug = "<leader>dd Debug"
+map <leader>dd <Action>(Debug)
+
+let g:WhichKeyDesc_rerun = "<leader>dR Rerun"
+map <leader>dR <Action>(Rerun)
+let g:WhichKeyDesc_stop = "<leader>ds Stop"
+map <leader>ds <Action>(Stop)
+
+let g:WhichKeyDesc_toggle_breakpoint = "<leader>db Toggle breakpoint"
+map <leader>db <Action>(ToggleLineBreakpoint)
+let g:WhichKeyDesc_view_breakpoints = "<leader>dv View breakpoints"
+map <leader>dv <Action>(ViewBreakpoints)
+
+let g:WhichKeyDesc_pause = "<leader>dp Pause"
+map <leader>dp <Action>(Pause)
+let g:WhichKeyDesc_resume = "<leader>dP Resume"
+map <leader>dP <Action>(Resume)
+
+let g:WhichKeyDesc_step_over = "<leader>dn Step over"
+map <leader>dn <Action>(StepOver)
+let g:WhichKeyDesc_step_into = "<leader>di Step into"
+map <leader>di <Action>(StepInto)
+let g:WhichKeyDesc_step_out = "<leader>do Step out"
+map <leader>do <Action>(StepOut)
+
+let g:WhichKeyDesc_evaluate = "<leader>de Evaluate"
+map <leader>de <Action>(EvaluateExpression)
+
+#Git
+let g:WhichKeyDesc_git = "<leader>g Git"
+map <leader>g<esc> <esc>
+
+let g:WhichKeyDesc_commit = "<leader>gc Commit"
+map <leader>gc <Action>(CheckinProject)
+
+let g:WhichKeyDesc_versions = "<leader>gv Versions"
+map <leader>gv <Action>(ActivateVersionControlToolWindow)
+
+let g:WhichKeyDesc_groups = "<leader>gg Git"
+map <leader>gg <Action>(VcsGroups)
+
+let g:WhichKeyDesc_github = "<leader>gh GitHub"
+map <leader>gh <Action>(GitHub.MainMenu)
+
+let g:WhichKeyDesc_branches = "<leader>gb Branches"
+map <leader>gb <Action>(Git.Branches)
+
+# Lsp
+let g:WhichKeyDesc_lsp = "<leader>l Lsp"
+map <leader>l<esc> <esc>
+
+let g:WhichKeyDesc_actions = "<leader>la Actions"
+map <leader>la <Action>(ShowIntentionActions)
+
+let g:WhichKeyDesc_problems = "<leader>lp Problems"
+map <leader>lp <Action>(ActivateProblemsViewToolWindow)
+
+let g:WhichKeyDesc_rename = "<leader>lr Rename"
+map <leader>lr <Action>(RenameElement)
+
+let g:WhichKeyDesc_generate = "<leader>lg Generate"
+map <leader>lg <Action>(Generate)
+
+let g:WhichKeyDesc_implement_methods = "<leader>li Implement methods"
+map <leader>li <Action>(ImplementMethods)
+
+map <leader>le <Action>(GotoNextError)
+map <leader>lE <Action>(GotoPreviousError)
+
+let g:WhichKeyDesc_def_type = "<leader>K Type definition"
+map <leader>K <Action>(QuickTypeDefinition)
+
+# Buffer
+let g:WhichKeyDesc_buffer = "<leader>b Buffer"
+map <leader>b<esc> <esc>
+
+let g:WhichKeyDesc_buffer_previous = "<leader>bb Previous"
+map <leader>bb gT
+let g:WhichKeyDesc_buffer_next = "<leader>bn Next"
+map <leader>bn gt
+
+let g:WhichKeyDesc_close = "<leader>c Close"
+map <leader>c :q<CR>
+
+# Fold
+let g:WhichKeyDesc_fold = "<leader>z Fold"
+map <leader>z<esc> <esc>
+
+let g:WhichKeyDesc_collapseAll = "<leader>zC Collapse all"
+map <leader>zC <Action>(CollapseAllRegions)
+
+let g:WhichKeyDesc_collapse = "<leader>zc Collapse"
+map <leader>zc <Action>(CollapseRegionRecursively)
+
+let g:WhichKeyDesc_expandAll = "<leader>zO Expand all"
+map <leader>zO <Action>(ExpandAllRegions)
+
+let g:WhichKeyDesc_expand = "<leader>zo Expand"
+map <leader>zo <Action>(ExpandRegionRecursively)
+
+let g:WhichKeyDesc_toggle = "<leader>zt Toggle"
+map <leader>zt <Action>(ExpandCollapseToggleAction)
