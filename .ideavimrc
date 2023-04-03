@@ -261,8 +261,10 @@ map <leader>de <Action>(EvaluateExpression)
 let g:WhichKeyDesc_git = "<leader>g Git"
 map <leader>g<esc> <esc>
 
-let g:WhichKeyDesc_commit = "<leader>gc Commit"
+let g:WhichKeyDesc_commit = "<leader>gc Check in"
 map <leader>gc <Action>(CheckinProject)
+
+map <leader>gC <Action>(Git.Commit.And.Push.Executor)
 
 let g:WhichKeyDesc_versions = "<leader>gv Versions"
 map <leader>gv <Action>(ActivateVersionControlToolWindow)
