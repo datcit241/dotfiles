@@ -1,12 +1,23 @@
-set surround
+set nu rnu
+set visualbell
 
-set ignorecase smartcase
 set incsearch
+set ignorecase smartcase
 set hlsearch
+
+set surround
+set ideajoin
 
 set which-key
 set notimeout
 # set timeoutlen=500
+
+
+set NERDTree
+
+let g:NERDTreeMapActivateMode = 'l'
+
+let g:NERDTreeMapJumpParent = 'h'
 
 let mapleader = ','
 
@@ -14,11 +25,12 @@ let mapleader = ','
 imap fj <esc>
 vmap fj <esc>
 
-# copy
-let g:WhichKeyDesc_select_all = "<leader>a Select allYank"
+let g:WhichKeyDesc_select_all = "<leader>a Select all"
 map <leader>a ggVG
 
+# copy
 let g:WhichKeyDesc_yank = "<leader>y Yank"
+nmap <leader>y<esc> <esc>
 
 let g:WhichKeyDesc_yank_all = "<leader>ya All"
 nmap <leader>ya :%y+<CR>
@@ -102,7 +114,7 @@ map <leader>wr <Action>(ActivateRunToolWindow)
 let g:WhichKeyDesc_version = "<leader>wv Version control"
 map <leader>wv <Action>(ActivateVersionControlToolWindow)
 
-let g:WhichKeyDesc_problems = "<leader>wp Problems"
+let g:WhichKeyDesc_problemsView = "<leader>wp Problems"
 map <leader>wp <Action>(ActivateProblemsViewToolWindow)
 
 let g:WhichKeyDesc_endpoints = "<leader>we Endpoints"
@@ -169,6 +181,13 @@ let g:WhichKeyDesc_replace = "<leader>ss Replace"
 map <leader>ss <Action>(Replace)
 let g:WhichKeyDesc_replace_in_path = "<leader>sS Replace in path"
 map <leader>sS <Action>(ReplaceInPath)
+
+let g:WhichKeyDesc_change_theme = "<leader>sc Change theme"
+map <leader>sc <Action>(ChangeLaf)
+let g:WhichKeyDesc_colorscheme = "<leader>sC Change editor color scheme"
+map <leader>sC <Action>(ChangeColorScheme)
+let g:WhichKeyDesc_material_theme = "<leader>sm Material theme chooser"
+map <leader>sm <Action>(MaterialTheme.ThemeChooser)
 
 # Navigation
 let g:WhichKeyDesc_jump = "<leader>j Jump"
@@ -264,8 +283,6 @@ map <leader>g<esc> <esc>
 let g:WhichKeyDesc_commit = "<leader>gc Check in"
 map <leader>gc <Action>(CheckinProject)
 
-map <leader>gC <Action>(Git.Commit.And.Push.Executor)
-
 let g:WhichKeyDesc_versions = "<leader>gv Versions"
 map <leader>gv <Action>(ActivateVersionControlToolWindow)
 
@@ -282,8 +299,11 @@ map <leader>gb <Action>(Git.Branches)
 let g:WhichKeyDesc_lsp = "<leader>l Lsp"
 map <leader>l<esc> <esc>
 
-let g:WhichKeyDesc_actions = "<leader>la Actions"
+let g:WhichKeyDesc_intent_actions = "<leader>la Actions"
 map <leader>la <Action>(ShowIntentionActions)
+
+let g:WhichKeyDesc_actions = "<leader>lf Reformat"
+map <leader>lf <Action>(ReformatCode)
 
 let g:WhichKeyDesc_problems = "<leader>lp Problems"
 map <leader>lp <Action>(ActivateProblemsViewToolWindow)
@@ -321,13 +341,11 @@ map <leader>z<esc> <esc>
 
 let g:WhichKeyDesc_collapseAll = "<leader>zC Collapse all"
 map <leader>zC <Action>(CollapseAllRegions)
-
 let g:WhichKeyDesc_collapse = "<leader>zc Collapse"
 map <leader>zc <Action>(CollapseRegionRecursively)
 
 let g:WhichKeyDesc_expandAll = "<leader>zO Expand all"
 map <leader>zO <Action>(ExpandAllRegions)
-
 let g:WhichKeyDesc_expand = "<leader>zo Expand"
 map <leader>zo <Action>(ExpandRegionRecursively)
 

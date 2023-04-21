@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3cca7827-1d55-4ca0-bbdb-c61213a00da8" name="Changes" comment=".ideavimrc: Map ide actions and which-key">
+      <change beforePath="$PROJECT_DIR$/.config/Code/User/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.config/Code/User/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.config/nvim/lua/plugins.lua" beforeDir="false" afterPath="$PROJECT_DIR$/.config/nvim/lua/plugins.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ideavimrc" beforeDir="false" afterPath="$PROJECT_DIR$/.ideavimrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/config/settings.lua" beforeDir="false" afterPath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/config/settings.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/core/dressing.lua" beforeDir="false" afterPath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/core/dressing.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/core/gitsigns.lua" beforeDir="false" afterPath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/core/gitsigns.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/core/theme.lua" beforeDir="false" afterPath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/core/theme.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/core/which-key.lua" beforeDir="false" afterPath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/core/which-key.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/plugins.lua" beforeDir="false" afterPath="$PROJECT_DIR$/.local/share/lunarvim/lvim/lua/lvim/plugins.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.zshrc" beforeDir="false" afterPath="$PROJECT_DIR$/.zshrc" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6ba1c8c0-7efa-4791-8985-142d12e14b92" />
+        <option name="url" value="https://github.com/datcit241/dotfiles" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NC6GOhWvrysPLuSVsZ4uMVohxW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/datvo/IdeaProjects&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3cca7827-1d55-4ca0-bbdb-c61213a00da8" name="Changes" comment="" />
+      <created>1679155624218</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679155624218</updated>
+      <workItem from="1679155627291" duration="1361000" />
+      <workItem from="1679162741925" duration="47000" />
+      <workItem from="1679210041426" duration="1887000" />
+      <workItem from="1680523957246" duration="575000" />
+      <workItem from="1680524571983" duration="45000" />
+      <workItem from="1680525746152" duration="27000" />
+    </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1679155688097</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679155688097</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix ln command to run properly">
+      <created>1679159974187</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679159974187</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add vscode's settings.json and its custom css">
+      <created>1679160417320</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679160417320</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fix link.sh to work properly">
+      <created>1679211182398</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679211182398</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Add vscode's settings.json">
+      <created>1679211201777</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679211201777</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Simply the process of setting transparency">
+      <created>1679211275427</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679211275427</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add more themes and simplify theme settings">
+      <created>1679211326887</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679211326887</updated>
+    </task>
+    <task id="LOCAL-00008" summary=".ideavimrc: Map ide actions and which-key">
+      <created>1680524144191</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680524144191</updated>
+    </task>
+    <task id="LOCAL-00009" summary=".ideavimrc: Map ide actions and which-key">
+      <created>1680524250057</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680524250057</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <MESSAGE value="Fix ln command to run properly" />
+    <MESSAGE value="Add vscode's settings.json and its custom css" />
+    <MESSAGE value="Fix link.sh to work properly" />
+    <MESSAGE value="Add vscode's settings.json" />
+    <MESSAGE value="Simply the process of setting transparency" />
+    <MESSAGE value="Add more themes and simplify theme settings" />
+    <MESSAGE value=".ideavimrc: Map ide actions and which-key" />
+    <option name="LAST_COMMIT_MESSAGE" value=".ideavimrc: Map ide actions and which-key" />
+  </component>
+</project>

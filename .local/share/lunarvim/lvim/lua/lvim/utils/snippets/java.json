@@ -1,0 +1,10 @@
+{
+  "im": {
+    "prefix": "im",
+    "body": [
+      "import java.io.*;",
+      "import java.util.*;",
+    ],
+    "description": "im"
+  }
+}

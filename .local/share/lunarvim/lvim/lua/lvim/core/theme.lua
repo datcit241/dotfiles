@@ -1,5 +1,4 @@
 local Log = require "lvim.core.log"
-
 local M = {}
 
 M.config = function()
@@ -72,23 +71,50 @@ M.config = function()
   }
 end
 
-function set_highlights()
-  vim.cmd("hi CursorLineNr guifg=#FFA630")
-  vim.cmd("hi LineNr guifg=#e2e8f0")
+function set_highlights(transparent)
+  vim.cmd("hi Comment guifg=#a1a1a1")
+  vim.cmd("hi @comment guifg=#a1a1a1")
+
+  vim.cmd("hi LineNr guifg=#aaaaaa")
+  vim.api.nvim_set_hl(0, "CursorLineNr", { link = "Special" })
+
+  if transparent then
+    vim.cmd("hi NormalFloat guibg=NONE")
+  end
 
   -- Telescope and NvimTree to sync with Nvim
   vim.api.nvim_set_hl(0, "TelescopeNormal", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "Special" })
+
   vim.api.nvim_set_hl(0, "NvimTreeNormal", { link = "Normal" })
   vim.api.nvim_set_hl(0, "NvimTreeNormalNC", { link = "Normal" })
+  vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", { link = "Function" })
+
   vim.api.nvim_set_hl(0, "Spectre", { link = "Normal" })
+
   vim.api.nvim_set_hl(0, "GitDiffNormal", { link = "Normal" })
   vim.api.nvim_set_hl(0, 'GitSignsCurrentLineBlame', { link = "Normal" });
+
   vim.api.nvim_set_hl(0, 'StatusLine', { link = "Normal" });
   vim.api.nvim_set_hl(0, 'StatusLineNC', { link = "Normal" });
 
   -- Set transparent to floating elements and set WhichKey to follow it
-  vim.cmd("hi NormalFloat guibg=NONE")
   vim.api.nvim_set_hl(0, "WhichKeyFloat", { link = "NormalFloat" })
+  vim.api.nvim_set_hl(0, "WhichKeyBorder", { link = "Keyword" })
+
+  vim.cmd("hi IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine")
+  vim.cmd("hi IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine")
+  vim.cmd("hi IndentBlanklineIndent3 guifg=#98C379 gui=nocombine")
+  vim.cmd("hi IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine")
+  vim.cmd("hi IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine")
+  vim.cmd("hi IndentBlanklineIndent6 guifg=#C678DD gui=nocombine")
+
+  vim.api.nvim_set_hl(0, "rainbowcol1", { link = "IndentBlanklineIndent1" })
+  vim.api.nvim_set_hl(0, "rainbowcol2", { link = "IndentBlanklineIndent2" })
+  vim.api.nvim_set_hl(0, "rainbowcol3", { link = "IndentBlanklineIndent3" })
+  vim.api.nvim_set_hl(0, "rainbowcol4", { link = "IndentBlanklineIndent4" })
+  vim.api.nvim_set_hl(0, "rainbowcol5", { link = "IndentBlanklineIndent5" })
+  vim.api.nvim_set_hl(0, "rainbowcol6", { link = "IndentBlanklineIndent6" })
 end
 
 M.setup = function()
@@ -120,7 +146,7 @@ M.setup = function()
   vim.g.colors_name = selected_theme -- vim.cmd [[colorscheme dracula]]
   vim.cmd("colorscheme " .. selected_theme)
 
-  set_highlights()
+  set_highlights(lvim.transparent_window)
 
   require("lvim.core.lualine").setup()
   require("lvim.core.lir").icon_setup()

@@ -165,7 +165,8 @@ export PATH=$PATH:~/.dotnet/tools
 export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-$HOME/.config/lvim}"
 export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-$HOME/.local/share/lunarvim}"
 export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-$HOME/.cache/lvim}"
-alias neo='~/neovide -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"'
+# alias neo='~/neovide -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"'
+export OPENAI_API_KEY="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"
 # alias neo="~/neovide -- -u ~/.local/share/lunarvim/lvim/init.lua --cmd 'set runtimepath+=~/.local/share/lunarvim/lvim'"
 
 # ln -s ~/.local/share/lunarvim/lvim ~/.config/nvim
@@ -175,3 +176,31 @@ alias neo='~/neovide -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"'
 # export LUNARVIM_BASE_DIR="/root/.local/share/$NVIM_APPNAME/core"
 
 # alias nvim = 'nvim -u "$LUNARVIM_BASE_DIR/init.lua" "$@"'
+
+alias lazy="NVIM_APPNAME=LazyVim nvim"
+alias kickstart="NVIM_APPNAME=Kickstart nvim"
+alias nvchad="NVIM_APPNAME=NvChad nvim"
+alias astro="NVIM_APPNAME=AstroNvim nvim"
+
+PATH=$PATH:$HOME/.local/share/bob/nvim-bin
+#a alias nvim=$HOME/.local/share/bob/nvim-bin/nvim
+
+function nvims() {
+  items=("default" "Kickstart" "LazyVim" "NvChad" "AstroNvim")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  NVIM_APPNAME=$config nvim $@
+  echo $@
+}
+
+bindkey -s ^a "nvims\n"
+
+# alias for lock the screen
+alias lock='xdg-screensaver lock'
+
+alias lvim="nvim -u ~/.local/share/lunarvim/lvim/init.lua"

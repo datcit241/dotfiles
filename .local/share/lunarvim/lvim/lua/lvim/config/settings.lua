@@ -19,7 +19,7 @@ M.load_default_options = function()
     fileencoding = "utf-8",         -- the encoding written to a file
     foldmethod = "manual",          -- folding, set to "expr" for treesitter based folding
     foldexpr = "",                  -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
-    guifont = "Jetbrains Mono:h10", -- the font used in graphical neovim applications
+    guifont = "Jetbrains Mono:h30", -- the font used in graphical neovim applications
     hidden = true,                  -- required to keep multiple buffers and open multiple buffers
     hlsearch = true,                -- highlight all matches on previous search pattern
     ignorecase = true,              -- ignore case in search patterns
@@ -64,13 +64,6 @@ M.load_default_options = function()
 
   vim.opt.listchars:append "space:⋅"
   vim.opt.listchars:append "eol:↴"
-
-  vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
-  vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
-  vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
-  vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
-  vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
-  vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 
   for k, v in pairs(default_options) do
     vim.opt[k] = v

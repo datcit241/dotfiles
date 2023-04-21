@@ -56,6 +56,9 @@ local core_plugins = {
       { "nvim-treesitter/nvim-treesitter" }
     }
   },
+  {
+    'jose-elias-alvarez/nvim-lsp-ts-utils'
+  },
 
   -- LSP Cmp
   {
@@ -115,6 +118,7 @@ local core_plugins = {
     dependencies = 'nvim-lua/plenary.nvim',
   },
   { "saadparwaiz1/cmp_luasnip", lazy = true },
+  { "Exafunction/codeium.vim" },
 
   -- LSP Addons
   -- Popup to code action, nvim-tree
@@ -149,7 +153,7 @@ local core_plugins = {
     "folke/neodev.nvim",
     lazy = true,
   },
-  { "jose-elias-alvarez/null-ls.nvim",          lazy = true },
+  { "jose-elias-alvarez/null-ls.nvim", lazy = true },
   -- SchemaStore
   {
     "b0o/schemastore.nvim",
@@ -179,7 +183,7 @@ local core_plugins = {
   },
   { "cljoly/telescope-repo.nvim", },
   -- Better quickfix
-  { "kevinhwang91/nvim-bqf",      ft = "qf" },
+  { "kevinhwang91/nvim-bqf",                    ft = "qf" },
   -- Find and replace
   { "nvim-pack/nvim-spectre" },
   {
@@ -375,7 +379,11 @@ local core_plugins = {
       "friendly-snippets",
     },
   },
-  { "rafamadriz/friendly-snippets",   lazy = true, cond = lvim.builtin.luasnip.sources.friendly_snippets },
+  {
+    "rafamadriz/friendly-snippets",
+    lazy = true,
+    cond = lvim.builtin.luasnip.sources.friendly_snippets
+  },
 
   -- Syntax
   {
@@ -431,6 +439,14 @@ local core_plugins = {
     "windwp/nvim-ts-autotag",
     config = function()
       require('nvim-ts-autotag').setup()
+    end
+  },
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = 'kevinhwang91/promise-async',
+    config = function()
+      require('ufo').setup()
+      require('lvim.core.nvim-ufo').setup()
     end
   },
 
@@ -510,6 +526,17 @@ local core_plugins = {
     "marko-cerovac/material.nvim"
   },
   {
+    "AmeerTaweel/todo.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = function()
+      require("todo").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  },
+  {
     "lunarvim/onedarker.nvim",
     branch = "freeze",
     -- config = function()
@@ -528,6 +555,55 @@ local core_plugins = {
     -- config = function()
     --   require("lvim.core.vscode").setup()
     -- end
+  },
+  { "svrana/neosolarized.nvim" },
+  {
+    "catppuccin/nvim",
+    setup = function()
+      require("catppuccin").setup({
+        flavour = "macchiato", -- latte, frappe, macchiato, mocha
+        background = {
+          -- :h background
+          light = "latte",
+          dark = "mocha",
+        },
+        transparent_background = true,
+        show_end_of_buffer = false, -- show the '~' characters after the end of buffers
+        term_colors = false,
+        dim_inactive = {
+          enabled = false,
+          shade = "dark",
+          percentage = 0.15,
+        },
+        no_italic = false, -- Force no italic
+        no_bold = false,   -- Force no bold
+        styles = {
+          comments = { "italic" },
+          conditionals = { "italic" },
+          loops = {},
+          functions = {},
+          keywords = {},
+          strings = {},
+          variables = {},
+          numbers = {},
+          booleans = {},
+          properties = {},
+          types = {},
+          operators = {},
+        },
+        color_overrides = {},
+        custom_highlights = {},
+        integrations = {
+          cmp = true,
+          gitsigns = true,
+          nvimtree = true,
+          telescope = true,
+          notify = false,
+          mini = false,
+          -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+        },
+      })
+    end
   },
 
   -- Looks and feels
@@ -552,8 +628,31 @@ local core_plugins = {
     end,
     enabled = lvim.builtin.bigfile.active,
   },
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
+  },
 
   { "Tastyep/structlog.nvim" },
+  {
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require('chatgpt').setup({
+        keymaps = {
+          submit = "<A-Enter>"
+        }
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
 
   -- {
   --   'nvim-lua/completion-nvim',
@@ -591,7 +690,6 @@ local get_short_name = function(long_name)
   local slash = name:reverse():find("/", 1, true) --[[@as number?]]
   return slash and name:sub(#name - slash + 2) or long_name:gsub("%W+", "_")
 end
-
 local get_default_sha1 = function(spec)
   local short_name = get_short_name(spec[1])
   return default_sha1[short_name] and default_sha1[short_name].commit

@@ -124,12 +124,13 @@ M.config = function()
       },
       ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
       ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-      ["t"] = { "<cmd>Telescope<cr>", "Telescrope" },
+      ["t"] = { "<cmd>Telescope<cr>", "Telescope" },
       ["\\"] = {
         name = "Split",
         v = { "<c-w>v", "Split vertically" },
         s = { "<c-w>s", "Split horizontally" }
       },
+      a = { 'ggVG', 'Select all' },
       b = {
         name = "Buffers",
         -- q = { "<cmd>BufferKill<cr>", "Close" },
@@ -349,25 +350,31 @@ M.config = function()
         name = "Treesitter",
         i = { ":TSConfigInfo<cr>", "Info" },
       },
-      v = {
-        name = 'Select',
-        a = { 'ggVG', 'Select all' }
-      },
       y = {
         name = 'Yank',
         a = { '<cmd>%y+<Cr>', 'Yank all' },
         y = { '"+yy', 'Yank' },
         d = { '"+yydd', 'Delete' },
         p = { '"+p', 'Patse' }
+      },
+      z = {
+        name = "Folds",
+        t = { "za", "Toggle" },
+        T = { "zA", "Toggle recursively" },
+        o = { "zr", "Open" },
+        O = { "zR", "Open all" },
+        c = { "zm", "Close" },
+        C = { "zM", "Close all" },
+        -- O = { "<cmd>lua require('ufo').openAllFolds()<cr>", "Open all" },
+        -- C = { "<cmd>lua require('ufo').closeAllFolds<cr><cr>", "Close all" },
       }
     },
   }
 end
-
 M.setup = function()
   local which_key = require "which-key"
-
   which_key.setup(lvim.builtin.which_key.setup)
+
 
   local opts = lvim.builtin.which_key.opts
   local vopts = lvim.builtin.which_key.vopts

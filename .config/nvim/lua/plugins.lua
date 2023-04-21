@@ -106,7 +106,10 @@ return require('packer').startup({
     use { 'airblade/vim-rooter', setup = function() vim.g.rooter_patterns = EcoVim.plugins.rooter.patterns end }
     use { 'Shatur/neovim-session-manager', config = "require('plugins.session-manager')" }
     use { 'kylechui/nvim-surround', config = function() require("nvim-surround").setup({}) end }
-    use { 'sunjon/shade.nvim', config = function() require("shade").setup(); require("shade").toggle(); end }
+    use { 'sunjon/shade.nvim', config = function()
+      require("shade").setup();
+      require("shade").toggle();
+    end }
     use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async', config = "require('plugins.nvim-ufo')" }
     use { 'echasnovski/mini.nvim', config = function() require("mini.align").setup() end }
 
