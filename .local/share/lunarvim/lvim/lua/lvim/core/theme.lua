@@ -3,7 +3,7 @@ local M = {}
 
 M.config = function()
   lvim.builtin.theme = {
-    name = "onedark",
+    name = "tokyonight",
     lunar = {
       options = { -- currently unused
       },
@@ -78,8 +78,16 @@ function set_highlights(transparent)
   vim.cmd("hi LineNr guifg=#aaaaaa")
   vim.api.nvim_set_hl(0, "CursorLineNr", { link = "Special" })
 
+  vim.cmd("hi Buf guifg=#aaaaaa")
+  vim.api.nvim_set_hl(0, "BufferLineBuffer", { link = "Buf" })
+  vim.api.nvim_set_hl(0, "BufferLineInfo", { link = "Buf" })
+  vim.api.nvim_set_hl(0, "BufferLineWarning", { link = "Buf" })
+  vim.api.nvim_set_hl(0, "BufferLineTab", { link = "Buf" })
+  vim.api.nvim_set_hl(0, "BufferLineHint", { link = "Buf" })
+
   if transparent then
     vim.cmd("hi NormalFloat guibg=NONE")
+    vim.cmd("hi CodeActionNormal guibg=NONE")
   end
 
   -- Telescope and NvimTree to sync with Nvim

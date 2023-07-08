@@ -153,6 +153,11 @@ export PNPM_HOME="/home/datvo/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+# mongodb
+export PATH=$PATH:/usr/local/mongodb/bin
+
+alias cl=clear
+
 export CAPACITOR_ANDROID_STUDIO_PATH=/snap/android-studio/current/android-studio/bin/studio.sh
 alias android=/snap/android-studio/current/android-studio/bin/studio.sh
 alias ij=/snap/intellij-idea-ultimate/current/bin/idea.sh
@@ -166,7 +171,7 @@ export LUNARVIM_CONFIG_DIR="${LUNARVIM_CONFIG_DIR:-$HOME/.config/lvim}"
 export LUNARVIM_RUNTIME_DIR="${LUNARVIM_RUNTIME_DIR:-$HOME/.local/share/lunarvim}"
 export LUNARVIM_CACHE_DIR="${LUNARVIM_CACHE_DIR:-$HOME/.cache/lvim}"
 # alias neo='~/neovide -- -u "$LUNARVIM_RUNTIME_DIR/lvim/init.lua" "$@"'
-export OPENAI_API_KEY="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"
+export OPENAI_API_KEY="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"
 # alias neo="~/neovide -- -u ~/.local/share/lunarvim/lvim/init.lua --cmd 'set runtimepath+=~/.local/share/lunarvim/lvim'"
 
 # ln -s ~/.local/share/lunarvim/lvim ~/.config/nvim
@@ -198,9 +203,21 @@ function nvims() {
   echo $@
 }
 
+functions anydeskRemove() {
+  sudo apt purge anydesk
+  sudo apt autoclean
+  sudo apt autoremove
+}
+
+function anydeskInstall() {
+  sudo apt install -f
+  sudo dpkg -i $HOME/Downloads/Programs/anydesk_6.2.1-1_amd64.deb
+}
+
 bindkey -s ^a "nvims\n"
 
 # alias for lock the screen
-alias lock='xdg-screensaver lock'
+alias lock="xdg-screensaver lock"
+alias out="gnome-session-quit" $@
 
 alias lvim="nvim -u ~/.local/share/lunarvim/lvim/init.lua"

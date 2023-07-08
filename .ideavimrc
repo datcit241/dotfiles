@@ -12,6 +12,13 @@ set which-key
 set notimeout
 # set timeoutlen=500
 
+set keep-english-in-normal-and-restore-in-insert 
+
+set multicursor
+
+set quickscope
+
+set easymotion
 
 set NERDTree
 
@@ -21,9 +28,18 @@ let g:NERDTreeMapJumpParent = 'h'
 
 let mapleader = ','
 
-# map escape button
+# map escape
 imap fj <esc>
 vmap fj <esc>
+nmap fj <esc>
+
+map as{ c{<esc>p
+map as( c(<esc>p
+map as[ c[<esc>p
+
+map asw{ viwc{<esc>p
+map asw( viwc(<esc>p
+map asw[ viwc[<esc>p
 
 let g:WhichKeyDesc_select_all = "<leader>a Select all"
 map <leader>a ggVG
@@ -37,6 +53,8 @@ nmap <leader>ya :%y+<CR>
 vmap <leader>y "*y
 let g:WhichKeyDesc_yank_line = "<leader>yy Yank"
 nmap <leader>yy "*yy
+let g:WhichKeyDesc_paste = "<leader>yp Paste"
+nmap <leader>yp "*p
 
 # split tab
 let g:WhichKeyDesc_split = "<leader>\\ Split"
@@ -132,9 +150,12 @@ map <leader>wn <Action>(ActivateNotificationsToolWindow)
 let g:WhichKeyDesc_hide_window = "<leader>q Quit window"
 map q <Action>(HideActiveWindow)
 
-# Intellij
-let g:WhichKeyDesc_intellij = "<leader>i Intellij"
+# IDE
+let g:WhichKeyDesc_ide = "<leader>i IDE"
 map <leader>i<esc> <esc>
+
+let g:WhichKeyDesc_restart = "<leader>ir Restart IDE"
+map <leader>ir <Action>(RestartIde)
 
 let g:WhichKeyDesc_settings = "<leader>is Settings"
 map <leader>is <Action>(ShowSettings)
@@ -162,7 +183,6 @@ map <leader>f <Action>(GotoFile)
 
 let g:WhichKeyDesc_search = "<leader>s Search"
 map <leader>s<esc> <esc>
-
 let g:WhichKeyDesc_action = "<leader>sa Actions"
 map <leader>sa <Action>(GotoAction)
 
@@ -311,6 +331,9 @@ map <leader>lp <Action>(ActivateProblemsViewToolWindow)
 let g:WhichKeyDesc_rename = "<leader>lr Rename"
 map <leader>lr <Action>(RenameElement)
 
+let g:WhichKeyDesc_optimizeImports = "<leader>lo Optimize imports"
+map <leader>lo <Action>(OptimizeImports)
+
 let g:WhichKeyDesc_generate = "<leader>lg Generate"
 map <leader>lg <Action>(Generate)
 
@@ -351,3 +374,13 @@ map <leader>zo <Action>(ExpandRegionRecursively)
 
 let g:WhichKeyDesc_toggle = "<leader>zt Toggle"
 map <leader>zt <Action>(ExpandCollapseToggleAction)
+
+# View
+let g:WhichKeyDesc_view = "<leader>v View"
+map <leader>v<esc> <esc>
+let g:WhichKeyDesc_presentation = "<leader>vp Toggle presentation mode"
+map <leader>vp <Action>(TogglePresentationMode)
+let g:WhichKeyDesc_zen = "<leader>vz Toggle zen mode"
+map <leader>vz <Action>(ToggleZenMode)
+let g:WhichKeyDesc_distractionFree = "<leader>vd Toggle distraction free mode"
+map <leader>vd <Action>(ToggleDistractionFreeMode);

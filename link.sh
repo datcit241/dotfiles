@@ -11,6 +11,7 @@ links=(
   ".zshrc"
   ".ideavimrc"
   ".vscode.css"
+  ".config/dconf"
 )
 
 for link in ${links[@]}; do
