@@ -246,11 +246,40 @@ map <leader>sm <Action>(MaterialTheme.ThemeChooser)
 let g:WhichKeyDesc_jump = "<leader>j Jump"
 map <leader>j<esc> <esc>
 
+let g:WhichKeyDesc_declaration = "<leader>jd Declaration or usages"
+map <leader>jd <Action>(GotoDeclaration)
+
+let g:WhichKeyDesc_compare = "<leader>jc Compare"
+let g:WhichKeyDesc_compare_files = "<leader>jcf Compare files"
+map <leader>jcf <Action>(CompareTwoFiles)
+
+let g:WhichKeyDesc_compare_clipboard = "<leader>jcc Compare with clipboard"
+map <leader>jcc <Action>(CompareClipboardWithSelection)
+
+let g:WhichKeyDesc_compare_revision = "<leader>jcr Compare with revision"
+map <leader>jcr <Action>(Compare.Selected)
+
+let g:WhichKeyDesc_compare_lastRepoVersion = "<leader>jcl Compare with previous"
+map <leader>jcl <Action>(Compare.LastVersion)
+
+let g:WhichKeyDesc_compare_diff = "<leader>jcd Compare diff"
+map <leader>jcd <Action>(Compare.SameVersion)
+
+let g:WhichKeyDesc_compare_branch = "<leader>jcb Compare with branch"
+map <leader>jcb <Action>(Git.CompareWithBranch)
+
+let g:WhichKeyDesc_next_diff = "<leader>jcn Next diff"
+map <leader>jcn <Action>(NextDiff)
+
+let g:WhichKeyDesc_previous_diff = "<leader>jcN Previous diff"
+map <leader>jcN <Action>(PreviousDiff)
+
 let g:WhichKeyDesc_last_change = "<leader>jr Last change"
 map <leader>jr <Action>(JumpToLastChange)
 
 let g:WhichKeyDesc_impl = "<leader>ji Implementation"
 map <leader>ji <Action>(GotoImplementation)
+
 let g:WhichKeyDesc_quick_impl = "<leader>jI Quick implementations"
 map <leader>jI <Action>(QuickImplementations)
 
@@ -259,7 +288,6 @@ map <leader>je <Action>(RevealIn)
 
 let g:WhichKeyDesc_test = "<leader>jt Test"
 map <leader>jt <Action>(GotoTest)
-
 let g:WhichKeyDesc_recent_locations = "<leader>jl Recent locations"
 map <leader>jl <Action>(RecentLocations)
 
@@ -332,6 +360,15 @@ map <leader>de <Action>(EvaluateExpression)
 #Git
 let g:WhichKeyDesc_git = "<leader>g Git"
 map <leader>g<esc> <esc>
+
+let g:WhichKeyDesc_next_diff = "<leader>gn Next diff"
+map <leader>gn <Action>(NextDiff)
+
+let g:WhichKeyDesc_previous_diff = "<leader>gN Previous diff"
+map <leader>gN <Action>(PreviousDiff)
+
+let g:WhichKeyDesc_blame = "<leader>gB Blame"
+map <leader>gB <Action>(Annotate)
 
 let g:WhichKeyDesc_commit = "<leader>gc Check in"
 map <leader>gc <Action>(CheckinProject)
