@@ -361,12 +361,6 @@ map <leader>de <Action>(EvaluateExpression)
 let g:WhichKeyDesc_git = "<leader>g Git"
 map <leader>g<esc> <esc>
 
-let g:WhichKeyDesc_next_diff = "<leader>gn Next diff"
-map <leader>gn <Action>(NextDiff)
-
-let g:WhichKeyDesc_previous_diff = "<leader>gN Previous diff"
-map <leader>gN <Action>(PreviousDiff)
-
 let g:WhichKeyDesc_blame = "<leader>gB Blame"
 map <leader>gB <Action>(Annotate)
 
@@ -424,6 +418,18 @@ let g:WhichKeyDesc_buffer_previous = "<leader>bb Previous"
 map <leader>bb gT
 let g:WhichKeyDesc_buffer_next = "<leader>bn Next"
 map <leader>bn gt
+let g:WhichKeyDesc_bufferTop = "<leader>b0 Top"
+map <leader>b0 0gt
+
+let g:WhichKeyDesc_buffer_closeOthers = "<leader>bo Close other buffers"
+map <leader>bo :tabo<CR>
+
+let g:WhichKeyDesc_buffer_move = "<leader>bm Move buffer"
+map <leader>bm :tabm<Space>
+let g:WhichKeyDesc_buffer_moveRight = "<leader>b> Move buffer to the right"
+map <leader>b> :tabm +1<CR>
+let g:WhichKeyDesc_buffer_moveLeft = "<leader>b< Move buffer to the left"
+map <leader>b< :tabm -1<CR>
 
 let g:WhichKeyDesc_close = "<leader>c Close"
 map <leader>c :q<CR>
