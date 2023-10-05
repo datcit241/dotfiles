@@ -72,6 +72,8 @@ map asw{ viwc{<esc>p
 map asw( viwc(<esc>p
 map asw[ viwc[<esc>p
 
+vmap nt <esc>vatmzgv`z
+
 let g:WhichKeyDesc_select_all = "<leader>a Select all"
 map <leader>a ggVG
 
