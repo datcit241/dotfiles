@@ -140,12 +140,17 @@ map <leader>h :noh<Cr>
 let g:WhichKeyDesc_mark = "<leader>m Mark"
 map <leader>m <Action>(ToggleBookmark)
 
+let g:WhichKeyDesc_openFile = "<leader>o Open File"
+map <leader>o <Action>(OpenFile)
 # Window
 let g:WhichKeyDesc_explorer = "<leader>e Explorer"
 map <leader>e <Action>(ActivateProjectToolWindow)
 
 let g:WhichKeyDesc_window = "<leader>w Window"
 map <leader>w<esc> <esc>
+
+let g:WhichKeyDesc_hideAllWindows = "<leader>wq Toggle Hide All Windows"
+map <leader>wq <Action>(HideAllWindows)
 
 let g:WhichKeyDesc_bookmarks = "<leader>wb Bookmarks"
 map <leader>wb <Action>(ActivateBookmarksToolWindow)
