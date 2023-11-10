@@ -25,7 +25,8 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
+    lazy = false,
   },
 
   {
@@ -53,6 +54,14 @@ local plugins = {
       require("custom.configs.dressing").setup()
     end,
     dependencies = { "MunifTanjim/nui.nvim" },
+    lazy = false,
+  },
+
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require('custom.configs.nvim-ts-autotag')
+    end,
     lazy = false,
   },
 
