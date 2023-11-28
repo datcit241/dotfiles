@@ -6,7 +6,7 @@ local fn = vim.fn
 g.mapleader = ","
 opt.relativenumber = true
 
-if fn.has('win32') then
+if fn.has('win64') == 1 or fn.has('win32') == 1 or fn.has('win16') == 1 then
   opt.shell = "powershell.exe"
   opt.shellcmdflag="-command"
   opt.shellquote='\"'

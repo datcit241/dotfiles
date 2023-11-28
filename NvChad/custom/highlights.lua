@@ -8,6 +8,12 @@ M.override = {
   Comment = {
     italic = true,
   },
+  NvimTreeGitNew = { fg = "#98c379" },
+  NvimTreeGitDeleted = { fg = "#e06c75" },
+  NvimTreeGitDirty = { fg = "#e5c07b" },
+  NvimTreeGitRenamed = { fg = "#e5c07b" },
+  NvimTreeGitStaged = { fg = "#98c379" },
+  NvimTreeGitUnstaged = { fg = "#e06c75" },
 }
 
 ---@type HLTable
