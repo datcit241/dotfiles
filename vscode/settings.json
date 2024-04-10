@@ -4,7 +4,10 @@
     "editor.cursorBlinking": "expand",
     "editor.fontLigatures": true,
     "editor.guides.bracketPairs": true,
-
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "emmet.triggerExpansionOnTab": true,
     "vim.vimrc.path": "~/.vimrc",
     "vim.vimrc.enable": true,
     "vim.incsearch": true,
@@ -30,6 +33,7 @@
                 "workbench.view.explorer"
             ]
         },
+        // Search
         {
             "before": [
                 "leader",
@@ -43,11 +47,11 @@
         {
             "before": [
                 "leader",
-                "w",
+                "s",
                 "t"
             ],
             "commands": [
-                "workbench.action.terminal.toggleTerminal"
+                "actions.find"
             ]
         },
         {
@@ -57,7 +61,70 @@
                 "T"
             ],
             "commands": [
-                "workbench.action.findInFiles"
+                "workbench.view.search"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "s",
+                "s"
+            ],
+            "commands": [
+                "editor.action.startFindReplaceAction"
+            ]
+        },
+        // Window
+        {
+            "before": [
+                "leader",
+                "w",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ]
+        },
+        // IDE
+        {
+            "before": [
+                "leader",
+                "i",
+                "p"
+            ],
+            "commands": [
+                "workbench.view.extensions"
+            ]
+        },
+        // LSP
+        {
+            "before": [
+                "leader",
+                "l",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "o"
+            ],
+            "commands": [
+                "editor.action.organizeImports"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
             ]
         }
     ],
@@ -69,7 +136,17 @@
             "commands": [
                 "whichkey.show"
             ]
-        }
+        },
+        {
+            "before": [
+                "leader",
+                "l",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument"
+            ]
+        },
     ],
     "workbench.colorTheme": "Atom One Dark"
 }
