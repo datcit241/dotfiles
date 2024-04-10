@@ -1,0 +1,75 @@
+{
+    "editor.formatOnPaste": true,
+    "editor.lineNumbers": "relative",
+    "editor.cursorBlinking": "expand",
+    "editor.fontLigatures": true,
+    "editor.guides.bracketPairs": true,
+
+    "vim.vimrc.path": "~/.vimrc",
+    "vim.vimrc.enable": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.autoindent": true,
+    "vim.highlightedyank.enable": true,
+    "vim.leader": ",",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "leader"
+            ],
+            "commands": [
+                "whichkey.show"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "s",
+                "r"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "w",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ]
+        },
+        {
+            "before": [
+                "leader",
+                "s",
+                "T"
+            ],
+            "commands": [
+                "workbench.action.findInFiles"
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "leader"
+            ],
+            "commands": [
+                "whichkey.show"
+            ]
+        }
+    ],
+    "workbench.colorTheme": "Atom One Dark"
+}
