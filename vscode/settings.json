@@ -86,6 +86,19 @@
             "command": "workbench.view.explorer"
         },
         {
+            "key": "a",
+            "name": "Copy All",
+            "type": "command",
+            "command": "runCommands",
+            "args": {
+                "commands": [
+                    "editor.action.selectAll",
+                    "editor.action.clipboardCopyAction",
+                    "extension.vim_escape"
+                ]
+            }
+        },
+        {
             "key": "l",
             "name": "LSP",
             "type": "bindings",
