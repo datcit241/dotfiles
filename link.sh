@@ -1,17 +1,18 @@
 #!/bin/bash
 
 links=(
-  ".local/share/lunarvim/lvim"
-  ".config/nvim"
-  ".config/NvChad"
-  ".config/Kickstart"
-  ".config/AstroNvim"
-  ".config/LazyVim"
-  ".config/Code/User/settings.json"
+  # ".local/share/lunarvim/lvim"
+  # ".config/nvim"
+  # ".config/NvChad"
+  # ".config/Kickstart"
+  # ".config/AstroNvim"
+  # ".config/LazyVim"
+  # ".config/Code/User/settings.json"
   ".zshrc"
   ".ideavimrc"
+  ".tmux.conf"
   ".vscode.css"
-  ".config/dconf"
+  # ".config/dconf"
 )
 
 for link in ${links[@]}; do

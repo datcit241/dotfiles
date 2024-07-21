@@ -35,7 +35,10 @@ local plugins = {
 			wk.register({
 				-- add group
 				["<leader>"] = {
-					f = { name = "+file" },
+					f = { name = "find" },
+					g = { name = "git" },
+					l = { name = "lsp" },
+					m = { name = "bookmark" },
 				},
 			})
 		end,
