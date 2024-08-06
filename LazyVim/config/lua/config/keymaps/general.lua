@@ -10,6 +10,8 @@ map("n", "<esc>", "<cmd>nohl<CR>")
 map("v", ">", ">gv", { desc = "Indent" })
 map("v", "<", "<gv", { desc = "Indent" })
 
+map("n", "<leader>a", "ggVG", { desc = "Select all" })
+
 map("n", "<leader>/", "gcc", { desc = "comment toggle", remap = true })
 map("v", "<leader>/", "gc", { desc = "comment toggle", remap = true })
 

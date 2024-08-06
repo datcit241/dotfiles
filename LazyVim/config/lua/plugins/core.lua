@@ -12,12 +12,16 @@ return {
       },
     },
   },
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   enabled = false,
-  -- },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    keys = clear_keymaps,
+  },
   {
     "folke/which-key.nvim",
+    keys = clear_keymaps,
+  },
+  {
+    "williamboman/mason.nvim",
     keys = clear_keymaps,
   },
   {
@@ -148,6 +152,16 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = clear_keymaps,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = function()
+      local tsc = require("treesitter-context")
+
+      return {
+        max_lines = 3,
+      }
+    end,
   },
   {
     "folke/persistence.nvim",

@@ -8,5 +8,12 @@ map("n", "<leader>isn", function()
   require("notify").dismiss({ silent = true, pending = true })
 end, { desc = "Dismiss All Notifications" })
 map("n", "<leader>ir", "<cmd>lua require('persistence').load()<CR>", { desc = "Reload session" })
+LazyVim.toggle.map("<leader>isd", LazyVim.toggle.diagnostics)
+LazyVim.toggle.map("<leader>isf", LazyVim.toggle.format())
+LazyVim.toggle.map("<leader>isF", LazyVim.toggle.format(true))
+LazyVim.toggle.map("<leader>isT", LazyVim.toggle.treesitter)
+if vim.lsp.inlay_hint then
+  LazyVim.toggle.map("<leader>ish", LazyVim.toggle.inlay_hints)
+end
 
 -- TODO: copy disable autoformat (buffer, cwd), inlay hints, mini pairs, treesitter highlight
