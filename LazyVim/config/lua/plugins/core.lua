@@ -29,11 +29,143 @@ return {
       },
       window = {
         mappings = {
-          ["P"] = "none",
           ["C"] = "none",
-          ["L"] = "expand_all_nodes",
+          ["L"] = {
+            function(state)
+              local fs = require("neo-tree.sources.filesystem")
+              local commands = require("neo-tree.sources.common.commands")
+              local node = state.tree:get_node()
+              commands.expand_all_nodes(state, node, fs.prefetcher)
+            end,
+            desc = "Expand nodes recursively",
+          },
+          ["Z"] = "expand_all_nodes",
           ["H"] = "close_all_subnodes",
-          ["<space>"] = { "toggle_preview", config = { use_float = false } },
+          ["e"] = {
+            function(state, callback)
+              local loop = vim.loop
+              local utils = require("neo-tree.utils")
+              local inputs = require("neo-tree.ui.inputs")
+              local events = require("neo-tree.events")
+              local log = require("neo-tree.log")
+
+              local tree = state.tree
+              local node = tree:get_node()
+              if node.type == "message" then
+                return
+              end
+
+              local function rename_buffer(old_path, new_path)
+                local force_save = function()
+                  vim.cmd("silent! write!")
+                end
+
+                for _, buf in pairs(vim.api.nvim_list_bufs()) do
+                  if vim.api.nvim_buf_is_loaded(buf) then
+                    local buf_name = vim.api.nvim_buf_get_name(buf)
+                    local new_buf_name = nil
+                    if old_path == buf_name then
+                      new_buf_name = new_path
+                    elseif utils.is_subpath(old_path, buf_name) then
+                      new_buf_name = new_path .. buf_name:sub(#old_path + 1)
+                    end
+                    if utils.truthy(new_buf_name) then
+                      local new_buf = vim.fn.bufadd(new_buf_name)
+                      vim.fn.bufload(new_buf)
+                      vim.api.nvim_buf_set_option(new_buf, "buflisted", true)
+                      replace_buffer_in_windows(buf, new_buf)
+
+                      if vim.api.nvim_buf_get_option(buf, "buftype") == "" then
+                        local modified = vim.api.nvim_buf_get_option(buf, "modified")
+                        if modified then
+                          local old_buffer_lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
+                          vim.api.nvim_buf_set_lines(new_buf, 0, -1, false, old_buffer_lines)
+
+                          local msg = buf_name .. " has been modified. Save under new name? (y/n) "
+                          inputs.confirm(msg, function(confirmed)
+                            if confirmed then
+                              vim.api.nvim_buf_call(new_buf, force_save)
+                              log.trace("Force saving renamed buffer with changes")
+                            else
+                              vim.cmd("echohl WarningMsg")
+                              vim.cmd(
+                                [[echo "Skipping force save. You'll need to save it with `:w!` when you are ready to force writing with the new name."]]
+                              )
+                              vim.cmd("echohl NONE")
+                            end
+                          end)
+                        end
+                      end
+                      vim.api.nvim_buf_delete(buf, { force = true })
+                    end
+                  end
+                end
+              end
+
+              local rename_node = function(path, callback)
+                local parent_path, _ = utils.split_path(path)
+                local name = vim.fn.fnamemodify(path, ":t:r")
+                local msg = string.format('Enter new name for "%s":', name)
+                local extension = vim.fn.fnamemodify(path, ":e")
+
+                inputs.input(msg, name, function(new_name)
+                  -- If cancelled
+                  if not new_name or new_name == "" then
+                    log.info("Operation canceled")
+                    return
+                  end
+
+                  local destination = parent_path
+                    .. utils.path_separator
+                    .. new_name
+                    .. (extension:len() == 0 and "" or "." .. extension)
+
+                  -- If aleady exists
+                  if loop.fs_stat(destination) then
+                    log.warn(destination, " already exists")
+                    return
+                  end
+
+                  local complete = vim.schedule_wrap(function()
+                    rename_buffer(path, destination)
+                    events.fire_event(events.FILE_RENAMED, {
+                      source = path,
+                      destination = destination,
+                    })
+                    if callback then
+                      callback(path, destination)
+                    end
+                    log.info("Renamed " .. new_name .. " successfully")
+                  end)
+
+                  local function fs_rename()
+                    loop.fs_rename(path, destination, function(err)
+                      if err then
+                        log.warn("Could not rename the files")
+                        return
+                      else
+                        complete()
+                      end
+                    end)
+                  end
+
+                  local event_result = events.fire_event(events.BEFORE_FILE_RENAME, {
+                    source = path,
+                    destination = destination,
+                    callback = fs_rename,
+                  }) or {}
+                  if event_result.handled then
+                    return
+                  end
+                  fs_rename()
+                end)
+              end
+
+              rename_node(node.path, callback)
+            end,
+            desc = "Rename basename",
+          },
+          ["E"] = "toggle_auto_expand_width",
         },
       },
       filesystem = {
