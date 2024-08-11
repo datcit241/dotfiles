@@ -50,6 +50,7 @@ return {
             ["gu"] = "none",
             ["ga"] = "none",
             ["gr"] = "none",
+            ["gc"] = "none",
             ["gp"] = "none",
             ["gg"] = "none",
             ["a"] = "git_add_all",
