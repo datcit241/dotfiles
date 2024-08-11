@@ -31,6 +31,12 @@ map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 map("n", "P", "]P")
 
-if not require("utils.is_windows") then
-  create_user_command("SudoWrite", "lua require'utils.sudo_write'()", {})
+local io = require("utils.io")
+
+if not io.get_system_info().is_windows then
+  create_user_command("SudoWrite", "lua require'utils.sudo.sudo_write'()", {})
 end
+--
+-- vim.keymap.set("n", "gx", function()
+--   vim.fn.jobstart({ open_command, url_repo() }, { detach = true })
+-- end, { silent = true })

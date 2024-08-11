@@ -30,6 +30,9 @@ return {
       "clang-format",
       "clangd",
 
+      -- java
+      "java-debug-adapter",
+
       -- c#
       "csharp-language-server",
       "csharpier",

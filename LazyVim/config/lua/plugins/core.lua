@@ -15,6 +15,54 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     keys = clear_keymaps,
+    opts = {
+      event_handlers = {
+        {
+          event = "file_open_requested",
+          handler = function()
+            -- auto close
+            -- vimc.cmd("Neotree close")
+            -- OR
+            require("neo-tree.command").execute({ action = "close" })
+          end,
+        },
+      },
+      window = {
+        mappings = {
+          ["P"] = "none",
+          ["C"] = "none",
+          ["L"] = "expand_all_nodes",
+          ["H"] = "close_all_subnodes",
+          ["<space>"] = { "toggle_preview", config = { use_float = false } },
+        },
+      },
+      filesystem = {
+        window = {
+          mappings = {
+            [","] = "toggle_hidden",
+          },
+        },
+      },
+      git_status = {
+        window = {
+          mappings = {
+            ["A"] = "none",
+            ["gu"] = "none",
+            ["ga"] = "none",
+            ["gr"] = "none",
+            ["gp"] = "none",
+            ["gg"] = "none",
+            ["a"] = "git_add_all",
+            ["<space>"] = "git_add_file",
+            ["<C-space>"] = "git_unstage_file",
+            ["d"] = "git_revert_file",
+            ["c"] = "git_commit",
+            ["P"] = "git_push",
+            ["C"] = "git_commit_and_push",
+          },
+        },
+      },
+    },
   },
   {
     "folke/which-key.nvim",
