@@ -1,5 +1,8 @@
 local M = {}
 
+---@param name string
+---@param level number
+---@return function(message: string, opts?: table)
 local function notify_at_level(name, level)
   return function(message, opts)
     vim.notify(message, level, opts or { title = name })

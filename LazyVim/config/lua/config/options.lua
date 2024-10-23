@@ -5,10 +5,16 @@ local opt = vim.opt
 
 _G.Utils = require("utils")
 
-require("utils.io").get_system_info()
 if require("utils.io").get_system_info().is_windows then
   opt.shell = "powershell.exe"
   opt.shellcmdflag = "-command"
   opt.shellquote = '"'
   opt.shellxquote = ""
 end
+
+opt.clipboard = ""
+
+-- sync buffers automatically
+opt.autoread = true
+-- disable neovim generating a swapfile and showing the error
+opt.swapfile = false

@@ -4,8 +4,6 @@ local function load_highlights(theme)
       for index, value in ipairs(theme) do
         dofile(vim.g.base46_cache .. value)
       end
-      for i = 1, #theme do
-      end
     else
       dofile(vim.g.base46_cache .. theme)
     end
@@ -16,15 +14,13 @@ end
 return {
   {
     "NvChad/base46",
-    lazy = false,
-    branch = "v2.5",
+    lazy = true,
     build = function()
       require("base46").load_all_highlights()
     end,
   },
   {
     "NvChad/ui",
-    branch = "v2.5",
     lazy = false,
     config = function()
       require("nvchad")
@@ -38,7 +34,6 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     opts = load_highlights("blankline"),
   },
-
   {
     "folke/which-key.nvim",
     opts = load_highlights("whichkey"),
@@ -57,7 +52,7 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = load_highlights({ "syntax", "treesitter" }),
+    opts = load_highlights("treesitter"),
   },
   {
     "lewis6991/gitsigns.nvim",

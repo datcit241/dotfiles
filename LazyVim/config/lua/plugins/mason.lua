@@ -4,6 +4,7 @@ return {
     ensure_installed = {
       -- shell
       "shfmt",
+      "shellcheck",
 
       -- lua
       "lua-language-server",
@@ -11,20 +12,18 @@ return {
       "stylua",
 
       -- web
-      "biome",
+      -- "biome",
       "css-lsp",
       "css-variables-language-server",
       "cssmodules-language-server",
-      -- "deno",
       "emmet-language-server",
-      "eslint-lsp",
-      "glint",
+      -- "eslint-lsp",
       "html-lsp",
       "js-debug-adapter",
       "quick-lint-js",
       "stylelint",
       "tailwindcss-language-server",
-      "typescript-language-server",
+      -- "typescript-language-server",
 
       -- c/cpp
       "clang-format",
@@ -32,9 +31,10 @@ return {
 
       -- java
       "java-debug-adapter",
+      "vscode-java-decompiler",
 
       -- c#
-      "csharp-language-server",
+      -- "csharp-language-server",
       "csharpier",
       "netcoredbg",
       "omnisharp",

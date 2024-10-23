@@ -41,130 +41,6 @@ return {
           },
           ["Z"] = "expand_all_nodes",
           ["H"] = "close_all_subnodes",
-          ["e"] = {
-            function(state, callback)
-              local loop = vim.loop
-              local utils = require("neo-tree.utils")
-              local inputs = require("neo-tree.ui.inputs")
-              local events = require("neo-tree.events")
-              local log = require("neo-tree.log")
-
-              local tree = state.tree
-              local node = tree:get_node()
-              if node.type == "message" then
-                return
-              end
-
-              local function rename_buffer(old_path, new_path)
-                local force_save = function()
-                  vim.cmd("silent! write!")
-                end
-
-                for _, buf in pairs(vim.api.nvim_list_bufs()) do
-                  if vim.api.nvim_buf_is_loaded(buf) then
-                    local buf_name = vim.api.nvim_buf_get_name(buf)
-                    local new_buf_name = nil
-                    if old_path == buf_name then
-                      new_buf_name = new_path
-                    elseif utils.is_subpath(old_path, buf_name) then
-                      new_buf_name = new_path .. buf_name:sub(#old_path + 1)
-                    end
-                    if utils.truthy(new_buf_name) then
-                      local new_buf = vim.fn.bufadd(new_buf_name)
-                      vim.fn.bufload(new_buf)
-                      vim.api.nvim_buf_set_option(new_buf, "buflisted", true)
-                      replace_buffer_in_windows(buf, new_buf)
-
-                      if vim.api.nvim_buf_get_option(buf, "buftype") == "" then
-                        local modified = vim.api.nvim_buf_get_option(buf, "modified")
-                        if modified then
-                          local old_buffer_lines = vim.api.nvim_buf_get_lines(buf, 0, -1, false)
-                          vim.api.nvim_buf_set_lines(new_buf, 0, -1, false, old_buffer_lines)
-
-                          local msg = buf_name .. " has been modified. Save under new name? (y/n) "
-                          inputs.confirm(msg, function(confirmed)
-                            if confirmed then
-                              vim.api.nvim_buf_call(new_buf, force_save)
-                              log.trace("Force saving renamed buffer with changes")
-                            else
-                              vim.cmd("echohl WarningMsg")
-                              vim.cmd(
-                                [[echo "Skipping force save. You'll need to save it with `:w!` when you are ready to force writing with the new name."]]
-                              )
-                              vim.cmd("echohl NONE")
-                            end
-                          end)
-                        end
-                      end
-                      vim.api.nvim_buf_delete(buf, { force = true })
-                    end
-                  end
-                end
-              end
-
-              local rename_node = function(path, callback)
-                local parent_path, _ = utils.split_path(path)
-                local name = vim.fn.fnamemodify(path, ":t:r")
-                local msg = string.format('Enter new name for "%s":', name)
-                local extension = vim.fn.fnamemodify(path, ":e")
-
-                inputs.input(msg, name, function(new_name)
-                  -- If cancelled
-                  if not new_name or new_name == "" then
-                    log.info("Operation canceled")
-                    return
-                  end
-
-                  local destination = parent_path
-                    .. utils.path_separator
-                    .. new_name
-                    .. (extension:len() == 0 and "" or "." .. extension)
-
-                  -- If aleady exists
-                  if loop.fs_stat(destination) then
-                    log.warn(destination, " already exists")
-                    return
-                  end
-
-                  local complete = vim.schedule_wrap(function()
-                    rename_buffer(path, destination)
-                    events.fire_event(events.FILE_RENAMED, {
-                      source = path,
-                      destination = destination,
-                    })
-                    if callback then
-                      callback(path, destination)
-                    end
-                    log.info("Renamed " .. new_name .. " successfully")
-                  end)
-
-                  local function fs_rename()
-                    loop.fs_rename(path, destination, function(err)
-                      if err then
-                        log.warn("Could not rename the files")
-                        return
-                      else
-                        complete()
-                      end
-                    end)
-                  end
-
-                  local event_result = events.fire_event(events.BEFORE_FILE_RENAME, {
-                    source = path,
-                    destination = destination,
-                    callback = fs_rename,
-                  }) or {}
-                  if event_result.handled then
-                    return
-                  end
-                  fs_rename()
-                end)
-              end
-
-              rename_node(node.path, callback)
-            end,
-            desc = "Rename basename",
-          },
           ["E"] = "toggle_auto_expand_width",
         },
       },
@@ -192,6 +68,24 @@ return {
             ["c"] = "git_commit",
             ["P"] = "git_push",
             ["C"] = "git_commit_and_push",
+          },
+        },
+      },
+    },
+  },
+  {
+    "dunix241/neo-tree.nvim",
+    branch = "feat-add-rename-basename",
+    opts = {
+      window = {
+        mappings = {
+          -- ["b"] = "rename_basename",
+          ["O"] = {
+            function(state)
+              -- require("lazy.util").open(state.tree:get_node().path, { system = true })
+              require("utils.io").shell_open(state.tree:get_node().path)
+            end,
+            desc = "Open with System Application",
           },
         },
       },
@@ -234,11 +128,54 @@ return {
       keys[#keys + 1] = { "<leader>cs", false }
       keys[#keys + 1] = { "<leader>cS", false }
 
-      table.insert(opts, {
+      opts = vim.tbl_deep_extend("force", {}, opts, {
+        servers = {
+          bashls = {
+            -- filetypes = { "sh", "zsh" },
+          },
+          -- grammarly = {},
+          powershell_es = {
+            filetypes = { "ps1" },
+            cmd = {
+              "pwsh.exe",
+              "-NoLogo",
+              "-NoProfile",
+              "-Command",
+              "&",
+              "'C:\\Users\\datvo\\AppData\\Local\\nvim-data\\mason\\packages\\powershell-editor-services/PowerShellEditorServices/Start-EditorServices.ps1'",
+              "-BundledModulesPath",
+              "'C:\\Users\\datvo\\AppData\\Local\\nvim-data\\mason\\packages\\powershell-editor-services'",
+              "-LogPath",
+              "'C:\\Users\\datvo\\AppData\\Local\\Temp\\nvim/powershell_es.log'",
+              "-SessionDetailsPath",
+              "'C:\\Users\\datvo\\AppData\\Local\\Temp\\nvim/powershell_es.session.json'",
+              "-FeatureFlags",
+              "@()",
+              "-AdditionalModules",
+              "@()",
+              "-HostName",
+              "nvim",
+              "-HostProfileId",
+              "0",
+              "-HostVersion",
+              "1.0.0",
+              "-Stdio",
+              "-LogLevel",
+              "Normal",
+            },
+          },
+          ltex = {
+            -- additionalRules = {
+            --   languageModel = "~/ngrams/",
+            -- },
+          },
+          -- textlsp = {},
+        },
         document_highlight = {
           enabled = false,
         },
       })
+
       return opts
     end,
   },
@@ -254,14 +191,63 @@ return {
   },
   {
     "folke/flash.nvim",
-    enabled = false,
-    opts = {},
+    -- enabled = false,
+    opts = {
+      modes = {
+        search = {
+          enabled = true,
+        },
+      },
+    },
     keys = clear_keymaps,
   },
   {
     "hrsh7th/nvim-cmp",
     opts = function(_, opts)
       local cmp = require("cmp")
+      opts.formatting = {
+        format = function(entry, item)
+          local icons = LazyVim.config.icons.kinds
+          if icons[item.kind] then
+            if entry.source.name == "buffer" then
+              item.kind = "Buffer"
+            elseif entry.source.name == "nuget" then
+              item.kind = "NuGet"
+            end
+
+            item.kind = (icons[item.kind] or "") .. (item.kind or "")
+            -- require("utils.notify").info(item.kind)
+          end
+
+          if entry.source.name == "nvim_lsp" then
+            item.menu = "{" .. entry.source.source.client.name .. "}"
+          end
+
+          local widths = {
+            abbr = vim.g.cmp_widths and vim.g.cmp_widths.abbr or 40,
+            menu = vim.g.cmp_widths and vim.g.cmp_widths.menu or 30,
+          }
+
+          for key, width in pairs(widths) do
+            if item[key] and vim.fn.strdisplaywidth(item[key]) > width then
+              item[key] = vim.fn.strcharpart(item[key], 0, width - 1) .. "…"
+            end
+          end
+
+          return item
+        end,
+        --   format = function(entry, vim_item)
+        --     if entry.source.name == "buffer" then
+        --       vim_item.menu = "[Buffer]"
+        --     elseif entry.source.name == "nvim_lsp" then
+        --       vim_item.menu = "{" .. entry.source.source.client.name .. "}"
+        --     else
+        --       vim_item.menu = "[" .. entry.source.name .. "]"
+        --     end
+        --
+        --     return vim_item
+        --   end,
+      }
       opts.mapping = {
         ["<Down>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -313,18 +299,26 @@ return {
   {
     "folke/noice.nvim",
     opts = function(_, opts)
-      opts.lsp.signature = {
-        enabled = false,
-        auto_open = { enabled = false },
-      }
+      opts = vim.tbl_deep_extend("force", {}, opts, {
+        lsp = {
+          signature = {
+            enabled = false,
+            auto_open = { enabled = false },
+          },
+          hover = {
+            eanbled = true,
+            silent = true,
+          },
+        },
+      })
       return opts
     end,
     keys = clear_keymaps,
   },
-  {
-    "nvim-pack/nvim-spectre",
-    keys = clear_keymaps,
-  },
+  -- {
+  --   "nvim-pack/nvim-spectre",
+  --   keys = clear_keymaps,
+  -- },
   {
     "folke/todo-comments.nvim",
     opts = {},
@@ -333,9 +327,23 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     keys = clear_keymaps,
+    opts = {
+      defaults = {
+        mappings = {
+          n = {
+            ["s"] = "select_vertical",
+            ["S"] = "select_horizontal",
+          },
+        },
+        file_ignore_patterns = {
+          "node_modules",
+        },
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
+    enabled = false,
     opts = function()
       local tsc = require("treesitter-context")
 
@@ -364,7 +372,6 @@ return {
   },
   {
     "kristijanhusak/vim-dadbod-ui",
-    opts = {},
     keys = clear_keymaps,
   },
 }

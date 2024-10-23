@@ -1,10 +1,23 @@
 -- derived from: https://github.com/Exafunction/codeium.nvim/blob/main/lua/codeium/io.lua
 
+---@class SystemInfo
+---@field os string<"linux"|"macos"|"windows">
+---@field arch string<"x86_64"|"aarch64"|"arm">
+---@field is_arm boolean
+---@field is_aarch boolean
+---@field is_x86 boolean
+---@field is_unix boolean
+---@field is_windows boolean
+---@field is_wsl boolean
+
 local M = {}
 
 local uv = vim.loop
 
+---@type SystemInfo
 local system_info_cache = nil
+
+---@return SystemInfo
 function M.get_system_info()
   if system_info_cache then
     return system_info_cache
@@ -20,7 +33,7 @@ function M.get_system_info()
   elseif os == "Windows_NT" or string.find(os, "MINGW32_NT") then
     os = "windows"
   else
-    require("codeium.notify").warn("Unknown sysname: ", os)
+    require("utils.notify").warn("Unknown sysname: " .. os)
   end
 
   local arch = uname.machine
@@ -37,19 +50,31 @@ function M.get_system_info()
     is_x86 = arch == "x86_64",
     is_unix = os == "linux" or os == "macos",
     is_windows = os == "windows",
+    is_wsl = uname.release:lower():find("microsoft") and true or false,
   }
   return system_info_cache
 end
 
-function M.shell_open(url)
+---@param url string
+---@return string
+function M.get_open_command(url)
   local info = M.get_system_info()
-  if info.os == "linux" then
-    return M.get_command_output("xdg-open", url)
-  elseif info.os == "macos" then
-    return M.get_command_output("/usr/bin/open", url)
+  if info.is_windows == "windows" or info.is_wsl then
+    if vim.fn.executable("wsl-open") == 0 then
+      return "cmd.exe /C start " .. url:gsub("&", "^&")
+    end
+    return "wsl-open " .. url
+  elseif info.os == "linux" then
+    return "xdg-open " .. url
   else
-    return M.get_command_output("cmd", "/C start " .. url:gsub("&", "^&"))
+    return "open " .. url
   end
+end
+
+---@param url string
+function M.shell_open(url)
+  local command = M.get_open_command(url)
+  vim.fn.system(command)
 end
 
 return M

@@ -37,7 +37,7 @@ function M.sudo_write(tmpfile, filepath)
   local cmd = string.format("dd if=%s of=%s bs=1048576", vim.fn.shellescape(tmpfile), vim.fn.shellescape(filepath))
   -- no need to check error as this fails the entire function
   vim.api.nvim_exec2(string.format("write! %s", tmpfile), { output = true })
-  if sudo_exec(cmd) then
+  if M.sudo_exec(cmd) then
     -- refreshes the buffer and prints the "written" message
     vim.cmd.checktime()
     -- exit command mode

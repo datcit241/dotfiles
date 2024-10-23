@@ -4,16 +4,18 @@ return {
     opts.spec = {
       {
         mode = { "n", "v" },
-        { "<leader>l", group = "Lsp" },
         { "<leader>c", group = nil },
+        { "<leader>d", group = "Debug" },
+        { "<leader>f", group = "Find" },
+        { "<leader>g", group = "Git" },
         { "<leader>i", group = "IDE" },
         { "<leader>is", group = "Settings" },
-        { "<leader>g", group = "Git" },
+        { "<leader>l", group = "Lsp" },
+        { "<leader>mc", group = "Multicursors" },
         { "<leader>t", group = "Test" },
-        { "<leader>f", group = "Find" },
-        { "<leader>d", group = "Debug" },
         { "<leader>w", group = "Window" },
         { "<leader>wt", group = "Terminal" },
+        { "<leader>y", group = "System clipboard" },
       },
     }
     return opts

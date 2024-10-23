@@ -3,7 +3,12 @@ local map = vim.keymap.set
 map("n", "<leader>da", function()
   require("dap").continue({ before = get_args })
 end, { desc = "Run with Args" })
-map("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", { desc = "Toggle breakpoint" })
+map(
+  "n",
+  "<leader>db",
+  "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<CR>",
+  { desc = "Toggle breakpoint" }
+)
 map("n", "<leader>dd", "<cmd>lua require('dap').continue()<CR>", { desc = "Continue" })
 map("n", "<leader>do", '<cmd>lua require("dap").step_over()<cr>', { desc = "Step over" })
 map("n", "<leader>di", '<cmd>lua require("dap").step_into()<cr>', { desc = "Step into" })

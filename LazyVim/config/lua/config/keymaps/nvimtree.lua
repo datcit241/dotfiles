@@ -1,21 +1,5 @@
 local map = vim.keymap.set
 
-local error, nvim_tree = pcall(require, "nvim-tree")
-
-if not error then
-  map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Explorer" })
-  map("", "<C-\\>", require("utils.open_file_in_vertical_split"))
-  map("", "<C-->", require("utils.open_file_in_horizontal_split"))
-  map("", "<C-|>", require("utils.open_file_in_vertical_split"))
-  map("", "<C-_>", require("utils.open_file_in_horizontal_split"))
-  map("", "<F5>", function()
-    local api = require("nvim-tree.api")
-    if api.tree.focus then
-      api.tree.reload()
-    end
-  end)
-end
-
 local tree_focused = function(timeout)
   return vim.api.nvim_buf_get_option(0, "filetype") == "neo-tree"
 end
@@ -38,15 +22,30 @@ local get_state = function(source_name, winid)
   return state
 end
 
-if error then
+local error, nvim_tree = pcall(require, "nvim-tree")
+if not error and type(nvim_tree) ~= "string" then
+  vim.notify("nvim_tree" .. vim.inspect(nvim_tree))
+  map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Explorer" })
+  map("", "<C-\\>", require("utils.open_file_in_vertical_split"))
+  map("", "<C-->", require("utils.open_file_in_horizontal_split"))
+  map("", "<C-|>", require("utils.open_file_in_vertical_split"))
+  map("", "<C-_>", require("utils.open_file_in_horizontal_split"))
+  map("", "<F5>", function()
+    local api = require("nvim-tree.api")
+    if api.tree.focus then
+      api.tree.reload()
+    end
+  end)
+else
+  local command = require("neo-tree.command")
   map("n", "<leader>e", function()
     if not get_state() or not tree_focused() then
-      require("neo-tree.command").execute({ action = "focus", dir = LazyVim.root() })
+      command.execute({ action = "focus", dir = vim.uv.cwd() })
       return
     end
-    require("neo-tree.command").execute({ action = "close" })
+    command.execute({ action = "close" })
   end, { desc = "Explorer" })
   map("n", "<leader>ge", function()
-    require("neo-tree.command").execute({ source = "git_status", toggle = true })
+    command.execute({ source = "git_status", toggle = true })
   end, { desc = "Git Explorer" })
 end

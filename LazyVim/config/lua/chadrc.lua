@@ -2,22 +2,40 @@
 -- https://github.com/NvChad/ui/blob/v2.5/lua/nvconfig.lua
 
 ---@type ChadrcConfig
-local M = {}
 
 local highlights = require("highlights")
 
-M.ui = {
-  theme = "everforest",
-  theme_toggle = { "everforest", "everforest" },
+-- local M = {}
+-- M.ui = {
+--   theme = "vscode_dark",
+--   theme_toggle = { "vscode_dark", "catpuccin" },
+--
+--   hl_override = highlights.override,
+--   hl_add = highlights.add,
+--   transparency = false,
+--
+--   -- hl_override = {
+--   -- 	Comment = { italic = true },
+--   -- 	["@comment"] = { italic = true },
+--   -- },
+-- }
 
-  hl_override = highlights.override,
-  hl_add = highlights.add,
-  transparency = false,
+local options = {
+  base46 = {
+    theme = "nightfox", -- default theme
+    hl_add = highlights.add,
+    hl_override = highlights.override,
+    integrations = {},
+    changed_themes = {},
+    transparency = false,
+    -- theme_toggle = { "nightfox", "catppuccin" },
+  },
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+  ui = {
+    --   statusline = {
+    --     enabled = false,
+    --   },
+  },
 }
 
-return M
+return options

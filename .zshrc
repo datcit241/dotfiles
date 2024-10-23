@@ -77,7 +77,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+# zsh-syntax-highlighting 
+plugins=(git zsh-autosuggestions fast-syntax-highlighting zsh-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,6 +98,22 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$PATH:$DOTNET_ROOT"
+
+export PATH=$PATH:/usr/local/go/bin
+
+export PATH=$PATH:$HOME/.local/bin
+
+export GRADLE_HOME=/opt/gradle/gradle-8.9
+export PATH=${GRADLE_HOME}/bin:${PATH}
+
+export PATH=$PATH:/usr/local/texlive/2024/bin/x86_64-linux
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
@@ -118,19 +135,30 @@ source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias cwd="cd /mnt/c/Users/datvo/"
+alias c="cd /mnt/c"
+# alias d="cd /mnt/d"
+# alias e="cd /mnt/e"
+# alias f="cd /mnt/f"
+# alias dot="cd /mnt/f/dotfiles"
+alias nvimc="cd /mnt/f/dotfiles/LazyVim/config && nvim init.lua && cd -"
+alias ob="cd /mnt/f/Obsidian_Vault"
+alias obp="cd /mnt/f/Personal_Vault"
+alias vi=nvim
+alias xdg-open=wsl-open
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+vide() {
+    neovide.exe --wsl "$@"
+}
+alias videc="cd /mnt/f/dotfiles/LazyVim/config && neovide.exe --wsl init.lua && cd -"
 
-export DOTNET_ROOT="$HOME/.dotnet"
-export PATH="$PATH:$DOTNET_ROOT"
+# home & end buttons fix
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
 
-export PATH=$PATH:/usr/local/go/bin
-
-export PATH=$PATH:$HOME/.local/bin
-
-export GRADLE_HOME=/opt/gradle/gradle-8.9
-export PATH=${GRADLE_HOME}/bin:${PATH}
-
-
+# pnpm
+export PNPM_HOME="/home/dunix/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

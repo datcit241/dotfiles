@@ -14,4 +14,6 @@ return {
   opts = {
     lang = "java",
   },
+  lazy = true,
+  cmd = "Leet",
 }

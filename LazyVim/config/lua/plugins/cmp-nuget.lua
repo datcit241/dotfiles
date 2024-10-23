@@ -13,12 +13,12 @@ return {
         name = "nuget",
       })
 
-      opts.formatting.format = function(entry, vim_item)
-        if entry.source.name == "nuget" then
-          vim_item.kind = "NuGet"
-        end
-        return vim_item
-      end
+      -- opts.formatting.format = function(entry, vim_item)
+      --   if entry.source.name == "nuget" then
+      --     vim_item.kind = "NuGet"
+      --   end
+      --   return vim_item
+      -- end
     end,
   },
 }
