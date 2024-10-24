@@ -87,6 +87,41 @@ return {
             end,
             desc = "Open with System Application",
           },
+          ["E"] = {
+            function(state)
+              local sys_info = require("utils.io").get_system_info()
+              local path = state.tree:get_node().path
+              local stat = vim.loop.fs_stat(path)
+              local uri = (stat and stat.type == "directory") and path or vim.fn.fnamemodify(path, ":p:h")
+
+              local cmd
+              if sys_info.is_windows or sys_info.is_wsl then
+                if sys_info.is_wsl then
+                  local handle = io.popen("wslpath -w " .. uri)
+                  uri = handle:read("*a"):gsub("\n", "")
+                  handle:close()
+                end
+                cmd = { "explorer.exe", uri }
+              elseif vim.fn.has("macunix") == 1 then
+                cmd = { "open", uri }
+              else
+                if vim.fn.executable("nautilus") == 1 then
+                  cmd = { "nautilus", uri }
+                end
+              end
+
+              local ret = vim.fn.jobstart(cmd, { detach = true })
+              if ret <= 0 then
+                local msg = {
+                  "Failed to open uri",
+                  ret,
+                  vim.inspect(cmd),
+                }
+                vim.notify(table.concat(msg, "\n"), vim.log.levels.ERROR)
+              end
+            end,
+            desc = "Open with System Explorer",
+          },
         },
       },
     },

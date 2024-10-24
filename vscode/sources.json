@@ -1,0 +1,10 @@
+{
+  "unix": [
+    ["./settings.json", "$HOME/.config/Code/User/settings.json"],
+    ["./keybindings.json", "$HOME/.config/Code/User/keybindings.json"]
+  ],
+  "win": [
+    ["./settings.json", "%APPDATA%\\Code\\User\\settings.json"],
+    ["./keybindings.json", "%APPDATA%\\Code\\User\\keybindings.json"]
+  ]
+}

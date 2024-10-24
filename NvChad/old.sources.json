@@ -1,0 +1,4 @@
+{
+  "unix": [["./custom", "$HOME/.config/nvim/custom"]],
+  "win": [["./custom", "%HOMEDRIVE%%HOMEPATH%\\AppData\\Local\\nvim\\custom"]]
+}

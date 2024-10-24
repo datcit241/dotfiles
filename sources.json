@@ -1,0 +1,12 @@
+{
+  "unix": [
+    [".ideavimrc", "~/.ideavimrc.test"],
+    [".tmux.conf", "~/.tmux.conf.test"],
+    ["./.config/wezterm", "~/.wezterm"],
+    [".zshrc", "~/.zshrc"]
+  ],
+  "win": [
+    [".ideavimrc", "%USERPROFILE%\\.ideavimrc"],
+    [".\\.config\\wezterm", "%USERPROFILE%\\.config\\.wezterm"]
+  ]
+}
