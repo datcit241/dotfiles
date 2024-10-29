@@ -2,8 +2,9 @@
   "unix": [
     [".ideavimrc", "~/.ideavimrc.test"],
     [".tmux.conf", "~/.tmux.conf.test"],
-    ["./.config/wezterm", "~/.wezterm"],
-    [".zshrc", "~/.zshrc"]
+    ["./.config/wezterm", "~/.config/.wezterm"],
+    [".zshrc", "~/.zshrc"],
+    [".zprofile", "~/.zprofile"]
   ],
   "win": [
     [".ideavimrc", "%USERPROFILE%\\.ideavimrc"],

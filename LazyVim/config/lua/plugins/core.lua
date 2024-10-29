@@ -409,4 +409,12 @@ return {
     "kristijanhusak/vim-dadbod-ui",
     keys = clear_keymaps,
   },
+  {
+    "folke/tokyonight.nvim",
+    enabled = false,
+  },
+  {
+    "catppuccin/nvim",
+    enabled = false,
+  },
 }

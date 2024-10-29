@@ -2,6 +2,7 @@ local g = vim.g
 local o = vim.o
 local map = vim.keymap.set
 
+o.guifont = "CaskaydiaCove Nerd Font:h12"
 if g.neovide then
   o.guifont = "CaskaydiaCove Nerd Font:h12"
 

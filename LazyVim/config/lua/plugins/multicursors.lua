@@ -36,23 +36,23 @@ return {
   -- },
   {
     "jake-stewart/multicursor.nvim",
+    lazy = true,
     opts = {},
     keys = function()
       local mc = require("multicursor-nvim")
-      local toggle_cursors = function(cb)
+      local toggle_cursors = function()
         if not mc.cursorsEnabled() then
           mc.enableCursors()
         elseif mc.hasCursors() then
           mc.clearCursors()
-        else
-          cb()
         end
       end
 
       return {
+        { "m", "", desc = "Multicursors", mode = { "n", "v" } },
         {
           mode = { "n", "v" },
-          "mck",
+          "<up>",
           function()
             mc.lineAddCursor(-1)
           end,
@@ -60,7 +60,7 @@ return {
         },
         {
           mode = { "n", "v" },
-          "mcj",
+          "<down>",
           function()
             mc.lineAddCursor(1)
           end,
@@ -68,7 +68,7 @@ return {
         },
         {
           mode = { "n", "v" },
-          "mcK",
+          "m<up>",
           function()
             mc.lineSkipCursor(-1)
           end,
@@ -76,7 +76,7 @@ return {
         },
         {
           mode = { "n", "v" },
-          "mcJ",
+          "m<down>",
           function()
             mc.lineSkipCursor(1)
           end,

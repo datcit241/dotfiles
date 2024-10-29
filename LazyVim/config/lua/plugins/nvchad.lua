@@ -21,7 +21,8 @@ return {
   },
   {
     "NvChad/ui",
-    lazy = false,
+    lazy = true,
+    event = "VeryLazy",
     config = function()
       require("nvchad")
     end,

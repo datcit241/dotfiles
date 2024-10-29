@@ -3,6 +3,10 @@ return {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
+    keys = {
+      { "<leader>po", "", desc = "Obsidian" },
+      { "<leader>po<space>", "", desc = "Toggle check box" },
+    },
     ft = "markdown",
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     -- event = {
@@ -39,6 +43,15 @@ return {
         ui = { enable = false },
       })
 
+      opts.mappings = {
+        ["<leader>po<space>"] = {
+          action = function()
+            return require("obsidian").util.toggle_checkbox()
+          end,
+          opts = { buffer = true },
+        },
+      }
+
       return opts
     end,
   },
@@ -46,6 +59,8 @@ return {
     -- "backdround/global-note.nvim",
     -- dir = "/home/dunix/projects/nvim/global-note.nvim/",
     "dunix241/global-note.nvim",
+    lazy = true,
+    cmd = { "GlobalNote", "GlobalNoteCreate", "GlobalNotePick" },
     opts = function(_, opts)
       local loop = vim.loop
       local is_windows = require("utils.io").get_system_info().is_windows
@@ -118,5 +133,11 @@ return {
     -- end,
     -- lazy = true,
     -- cmd = { "GlobalNote", "GlobalNoteCreate", "GlobalNoteSelect" },
+  },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    config = function(_, opts)
+      require("render-markdown").setup(opts)
+    end,
   },
 }

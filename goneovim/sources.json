@@ -1,0 +1,4 @@
+{
+  "unix": [["./config", "~/.config/goneovim"]],
+  "win": [[".\\config", "%USERPROFILE%\\.config\\goneovim"]]
+}
