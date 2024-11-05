@@ -1,13 +1,15 @@
 return {
-  "isakbm/gitgraph.nvim",
-  lazy = true,
-  keys = {
-    {
-      "<leader>gv",
-      function()
-        require("gitgraph").draw({}, { all = true, max_count = 5000 })
-      end,
-      desc = "Git history",
+  {
+    "isakbm/gitgraph.nvim",
+    lazy = true,
+    keys = {
+      {
+        "<leader>gv",
+        function()
+          require("gitgraph").draw({}, { all = true, max_count = 5000 })
+        end,
+        desc = "Git history",
+      },
     },
   },
   {

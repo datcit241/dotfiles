@@ -1,0 +1,7 @@
+{
+  "unix": [["stable", "$HOME/.config/LazyVim"]],
+  "win": [
+    ["stable", "%HOMEDRIVE%%HOMEPATH%\\AppData\\Local\\nvim"],
+    ["config", "%HOMEDRIVE%%HOMEPATH%\\AppData\\Local\\nvim-beta"]
+  ]
+}

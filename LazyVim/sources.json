@@ -1,4 +1,10 @@
 {
-  "unix": [["config", "$HOME/.config/nvim"]],
-  "win": [["config", "%HOMEDRIVE%%HOMEPATH%\\AppData\\Local\\nvim"]]
+  "unix": [
+    ["stable", "$HOME/.config/nvim"],
+    ["config", "$HOME/.config/nvim-beta"]
+  ],
+  "win": [
+    ["stable", "%HOMEDRIVE%%HOMEPATH%\\AppData\\Local\\nvim"],
+    ["config", "%HOMEDRIVE%%HOMEPATH%\\AppData\\Local\\nvim-beta"]
+  ]
 }

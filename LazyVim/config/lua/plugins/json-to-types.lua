@@ -1,10 +1,13 @@
-local sys_info = require("utils.io").get_system_info()
-if sys_info.is_windows then
-  return {}
-end
-
 return {
   "Redoxahmii/json-to-types.nvim",
-  build = "sh install.sh npm",
+  build = "npm install",
   lazy = true,
+  cmd = { "ConvertJSONtoLang", "ConvertJSONtoLangBuffer" },
+  keys = {
+    { "<leader>pj", "", desc = "Convert JSON" },
+    { "<leader>pjc", "<cmd>ConvertJSONtoLang cs<CR>", desc = "C#" },
+    { "<leader>pjj", "<cmd>ConvertJSONtoLang java<CR>", desc = "Java" },
+    { "<leader>pjs", "<cmd>ConvertJSONtoLang javascript<CR>", desc = "Javascript" },
+    { "<leader>pjt", "<cmd>ConvertJSONtoLang typescript<CR>", desc = "Typescript" },
+  },
 }

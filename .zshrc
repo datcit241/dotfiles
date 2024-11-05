@@ -115,31 +115,35 @@ source ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k/powerlevel10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# zsh home & end buttons fix
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+
+alias bv="NVIM_APPNAME=nvim-beta nvim"
+alias nvimc="cd $HOME/.config/nvim && nvim init.lua && cd -"
+alias ob="cd /mnt/f/Obsidian_Vault"
+alias obp="cd /mnt/f/Personal_Vault"
+alias v=nvim
+alias vc="cd $HOME/.config/nvim && nvim init.lua && cd -"
+alias xdg-open=wsl-open
+
+vide() {
+    neovide.exe --wsl "$@" & disown
+}
+alias videc="cd $HOME/.config/nvim && neovide.exe --wsl init.lua && cd -"
+
+gon() {
+    goneovim.exe --wsl "$@" & disown
+}
+alias gonc="cd $HOME/.config/nvim && goneovim.exe --wsl init.lua & disown && cd -"
+
+nvy() {
+    nvy=nvy.exe "$@" & disown
+}
+
 alias cwd="cd /mnt/c/Users/datvo/"
 alias c="cd /mnt/c"
 # alias d="cd /mnt/d"
 # alias e="cd /mnt/e"
 # alias f="cd /mnt/f"
 # alias dot="cd /mnt/f/dotfiles"
-alias nvimc="cd /mnt/f/dotfiles/LazyVim/config && nvim init.lua && cd -"
-alias ob="cd /mnt/f/Obsidian_Vault"
-alias obp="cd /mnt/f/Personal_Vault"
-alias vi=nvim
-alias vic="cd /mnt/f/dotfiles/LazyVim/config && nvim init.lua && cd -"
-alias xdg-open=wsl-open
-
-vide() {
-    neovide.exe --wsl "$@" & disown
-}
-alias videc="cd /mnt/f/dotfiles/LazyVim/config && neovide.exe --wsl init.lua && cd -"
-
-gon() {
-    goneovim.exe --wsl "$@" & disown
-}
-alias gonc="cd /mnt/f/dotfiles/LazyVim/config && goneovim.exe --wsl init.lua & disown && cd -"
-
-alias nvy=nvy.exe & disown
-
-# home & end buttons fix
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line

@@ -28,7 +28,7 @@ local options = {
     integrations = {},
     changed_themes = {},
     transparency = false,
-    -- theme_toggle = { "nightfox", "catppuccin" },
+    theme_toggle = { "nightfox", "onenord" },
   },
 
   ui = {

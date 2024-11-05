@@ -7,6 +7,9 @@ map("n", "<leader>ff", LazyVim.pick("files", { root = false }), { desc = "Find F
 map("n", "<leader>fo", LazyVim.pick("oldfiles", { cwd = vim.uv.cwd() }), { desc = "Old files" })
 map("n", "<leader>fT", "<cmd>Telescope live_grep<CR>", { desc = "Find text in path" })
 map("n", "<leader>ft", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Find text" })
+map("n", "<leader>fw", "<cmd>Telescope grep_string root=false word_match='-w'<cr>", { desc = "Find word" })
+map("v", "<leader>:", "<cmd>Telescope grep_string root=false<cr>", { desc = "Find word" })
+map("n", "<leader>R", "<cmd>Telescope resume<CR>", { desc = "Resume" })
 
 map("n", "<leader>fs", function()
   require("spectre").open()

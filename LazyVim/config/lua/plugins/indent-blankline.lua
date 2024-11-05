@@ -29,32 +29,56 @@ return {
           "#56B6C2",
         },
       },
-      -- blank = {
-      --   enable = true,
-      --   chars = {
-      --     " ",
-      --   },
-      --   style = {
-      --     -- { bg = "#434437" },
-      --     -- { bg = "#2f4440" },
-      --     -- { bg = "#433054" },
-      --     -- { bg = "#284251" },
-      --     --
-      --     { bg = "#E06C75" },
-      --     { bg = "#E5C07B" },
-      --     { bg = "#61AFEF" },
-      --     { bg = "#D19A66" },
-      --     { bg = "#98C379" },
-      --     -- {bg = "#C678DD"},
-      --     { bg = "#56B6C2" },
-      --   },
-      -- },
+      blank = {
+        enable = false,
+        chars = {
+          " ",
+        },
+        style = {
+          -- { bg = "#434437" },
+          -- { bg = "#2f4440" },
+          -- { bg = "#433054" },
+          -- { bg = "#284251" },
+          --
+          { bg = "#E06C75" },
+          { bg = "#E5C07B" },
+          { bg = "#61AFEF" },
+          { bg = "#D19A66" },
+          { bg = "#98C379" },
+          -- {bg = "#C678DD"},
+          { bg = "#56B6C2" },
+        },
+      },
     },
-    -- config = function()
-    --   require("hlchunk").setup({})
-    -- end,
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
+    config = function(_, opts)
+      local function register_mod(mod_name, lhs, name)
+        local Mod = require("hlchunk.mods." .. mod_name)
+        local mod = Mod(opts[mod_name])
+
+        if opts[mod_name] and opts[mod_name].enable then
+          mod:enable()
+        end
+
+        LazyVim.toggle.map(lhs, {
+          name = name or ("Highlight " .. mod_name),
+          get = function()
+            return mod.conf.enable
+          end,
+          set = function(state)
+            if state then
+              mod:enable()
+            else
+              mod:disable()
+            end
+          end,
+        })
+      end
+      register_mod("chunk", "<leader>Thc", "Highlight chunk")
+      register_mod("indent", "<leader>Thi", "Highlight indent")
+      register_mod("blank", "<leader>Thb", "Highlight blank")
+    end,
   },
   {
     "lukas-reineke/indent-blankline.nvim",

@@ -1,7 +1,7 @@
 -- Install Rust: https://www.rust-lang.org/tools/install
 local is_windows = require("utils.io").get_system_info().is_windows
 
-local windows_codesnap_config = {
+local win_config = {
   "mistricky/codesnap.nvim",
   version = "0.0.11",
   build = "make",
@@ -9,7 +9,7 @@ local windows_codesnap_config = {
   cmd = { "CodeSnapPreviewOn" },
   keys = {
     {
-      "<leader>ys",
+      "<leader>ps",
       "<cmd>CodeSnapPreviewOn<cr>",
       mode = "x",
       desc = "Open code snapshot review page",
@@ -23,16 +23,17 @@ local windows_codesnap_config = {
     }
   end,
 }
-local linux_codesnap_config = {
+local linux_config = {
   "mistricky/codesnap.nvim",
   -- dir = "/home/dunix/projects/nvim/codesnap.nvim",
   build = "make",
   lazy = true,
   cmd = { "CodeSnapSave", "CodeSnapSaveHighlight", "CodeSnap", "CodeSnapHighlight", "CodeSnapASCII" },
   keys = {
-    { "<leader>ys", "<esc><cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
+    { "<leader>ps", "", desc = "Code snap" },
+    { "<leader>pss", "<esc><cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
     {
-      "<leader>yh",
+      "<leader>psh",
       "<esc><cmd>CodeSnapSaveHighlight<cr>",
       mode = "x",
       desc = "Save selected code and highlight in ~/Pictures ",
@@ -58,4 +59,4 @@ local linux_codesnap_config = {
   end,
 }
 
-return is_windows and windows_codesnap_config or linux_codesnap_config
+return is_windows and win_config or linux_config

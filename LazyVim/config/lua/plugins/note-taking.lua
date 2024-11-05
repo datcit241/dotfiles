@@ -1,3 +1,9 @@
+local is_windows = Utils.io.get_system_info().is_windows
+
+local obsidian_paths = {
+  is_windows and "F:\\Obsidian_Vault" or "/mnt/f/Obsidian_Vault",
+  is_windows and "F:\\Personal_Vault" or "/mnt/f/Personal_Vault",
+}
 return {
   {
     "epwalsh/obsidian.nvim",
@@ -22,17 +28,9 @@ return {
       -- see below for full list of optional dependencies 👇
     },
     opts = function(_, opts)
-      local io = require("utils.io")
-      local is_windows = io.get_system_info().is_windows
-
-      local paths = {
-        is_windows and "F:\\Obsidian_Vault" or "/mnt/f/Obsidian_Vault",
-        is_windows and "F:\\Personal_Vault" or "/mnt/f/Personal_Vault",
-      }
-
       local workspaces = {}
 
-      for _, path in ipairs(paths) do
+      for _, path in ipairs(obsidian_paths) do
         if vim.loop.fs_stat(path) then
           table.insert(workspaces, { name = vim.fn.fnamemodify(path, ":t"), path = path })
         end
@@ -61,11 +59,16 @@ return {
     "dunix241/global-note.nvim",
     lazy = true,
     cmd = { "GlobalNote", "GlobalNoteCreate", "GlobalNotePick" },
+    keys = {
+      { "<leader>pg", "", desc = "Global note" },
+      { "<leader>pgg", "<cmd>GlobalNote<CR>", desc = "Global note" },
+      { "<leader>pgc", "<cmd>GlobalNoteCreate<CR>", desc = "Create note" },
+      { "<leader>pgp", "<cmd>GlobalNotePick<CR>", desc = "Create note" },
+    },
     opts = function(_, opts)
       local loop = vim.loop
       local is_windows = require("utils.io").get_system_info().is_windows
-      local path = is_windows and "F:\\Obsidian_Vault\\Main\\Notes\\Categories\\Nvim Notes\\"
-        or "/mnt/f/Obsidian_Vault/Main/Notes/Categories/Nvim Notes/"
+      local path = obsidian_paths[1]
 
       if not loop.fs_stat(path) then
         return opts
@@ -101,43 +104,7 @@ return {
           },
         },
       })
-
-      -- local create_user_command = vim.api.nvim_create_user_command
-      -- create_user_command("GlobalNoteCreate", function()
-      --   local name = vim.fn.input("Note name: ")
-      --   local destination = path .. name .. ".md"
-      --
-      --   local open_mode = loop.constants.O_CREAT + loop.constants.O_WRONLY + loop.constants.O_TRUNC
-      --   local fd = loop.fs_open(destination, open_mode, 420)
-      --   if not fd then
-      --     if not loop.fs_stat(destination) then
-      --       vim.api.nvim_err_writeln("Could not create note " .. destination)
-      --       return
-      --     else
-      --       require("utils.notify").warn("Failed to complete file creation of " .. destination)
-      --     end
-      --   else
-      --     loop.fs_close(fd)
-      --     require("global-note").toggle_note(name)
-      --   end
-      -- end, { nargs = 0 })
-      -- create_user_command("GlobalNoteSelect", function()
-      --   require("global-note").toggle_note()
-      -- end, { nargs = 0 })
-
       return opts
-    end,
-    -- config = function(opts)
-    --   require("global-note").setup()
-    --   local create_user_command = vim.api.nvim_create_user_command
-    -- end,
-    -- lazy = true,
-    -- cmd = { "GlobalNote", "GlobalNoteCreate", "GlobalNoteSelect" },
-  },
-  {
-    "MeanderingProgrammer/render-markdown.nvim",
-    config = function(_, opts)
-      require("render-markdown").setup(opts)
     end,
   },
 }

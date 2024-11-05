@@ -1,0 +1,18 @@
+return {
+  select_all = "<leader>a",
+  comment_toggle = "<leader>/",
+  ranger_toggle = "<leader>E",
+  toggle_settings_prefix = "<leader>T",
+  yank_prefix = "<leader>y",
+  open_prefix = "<leader>o",
+  database_prefix = "<leader>od",
+  lsp_prefix = "<leader>l",
+  lsp_problems_prefix = "<leader>lp",
+  lsp_line_problem = "<leader>ld",
+  plugin_prefix = "<leader>p",
+  toggle_screenkey = "<leader>pk",
+  json_to_types_prefix = "<leader>pj",
+  codesnap_prefix = "<leader>ps",
+  timer_prefix = "<leader>pt",
+  gitsigns_prefix = "<leader>Tg",
+}

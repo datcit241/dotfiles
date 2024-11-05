@@ -26,7 +26,7 @@ return {
       return {
         { "<leader>pc", "", desc = "Copilot" },
         {
-          "<leader>pca",
+          "<leader>pcq",
           function()
             local input = vim.fn.input("Quick Chat: ")
             if input ~= "" then

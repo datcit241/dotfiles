@@ -97,7 +97,7 @@ return {
               local cmd
               if sys_info.is_windows or sys_info.is_wsl then
                 if sys_info.is_wsl then
-                  local handle = io.popen("wslpath -w " .. uri)
+                  local handle = io.popen("wslpath -w " .. vim.fn.shellescape(uri))
                   uri = handle:read("*a"):gsub("\n", "")
                   handle:close()
                 end

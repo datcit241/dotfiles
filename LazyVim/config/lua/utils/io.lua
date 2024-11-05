@@ -73,7 +73,7 @@ end
 
 ---@param url string
 function M.shell_open(url)
-  local command = M.get_open_command(url)
+  local command = M.get_open_command(vim.fn.shellescape(url))
   vim.fn.system(command)
 end
 
