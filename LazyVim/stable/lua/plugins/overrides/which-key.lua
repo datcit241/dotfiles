@@ -5,8 +5,9 @@ return {
       {
         mode = { "n", "v" },
         { K.plugin_prefix, group = "plugins", icon = { icon = " ", color = "cyan" } },
-        { K.lsp_prefix, group = "lsp", icon = { icon = " ", color = "yellow" } },
+        { K.lsp_prefix, group = "lsp", icon = { icon = " ", color = "yellow" } },
         { K.yank_prefix, group = "yank/paste", icon = { icon = "󱉨 ", color = "yellow" } },
+        { K.copilotchat_prefix, group = "copilot", icon = { icon = " ", color = "yellow" } },
       },
       {
         mode = { "n" },

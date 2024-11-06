@@ -11,7 +11,7 @@ return {
     picker_find_git_files = "",
     picker_find_recent_files = "",
     picker_find_recent_files_cwd = "<leader>,",
-    picker_find_projects = "<leader>pp",
+    picker_find_projects = "<leader>fp",
     picker_git_commits = "",
     picker_git_status = "",
     picker_search_registers = "",

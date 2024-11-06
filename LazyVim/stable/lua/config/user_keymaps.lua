@@ -4,6 +4,7 @@ return {
   ranger_toggle = "<leader>E",
   toggle_settings_prefix = "<leader>T",
   yank_prefix = "<leader>y",
+  copilotchat_prefix = "<leader>pc",
   open_prefix = "<leader>o",
   database_prefix = "<leader>od",
   lsp_prefix = "<leader>l",
