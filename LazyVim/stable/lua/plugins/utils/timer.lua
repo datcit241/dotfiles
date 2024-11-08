@@ -1,6 +1,6 @@
 return {
   {
-    "SunnyTamang/pendulum.nvim",
+    "SunnyTamang/pendulum.nvim", -- Alternative: "epwalsh/pomo.nvim"
     opts = {},
     lazy = true,
     cmd = {

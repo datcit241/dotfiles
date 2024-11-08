@@ -3,6 +3,7 @@ return {
   opts = {
     ensure_installed = {
       -- shell
+      "bash-language-server",
       "shfmt",
       "shellcheck",
 

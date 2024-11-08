@@ -24,3 +24,8 @@ opt.autoread = true
 opt.swapfile = false
 
 opt.pumheight = 20 -- limit completion items
+
+vim.g.obsidian_vaults = {
+  "/home/dunix/projects/notes/Obsidian_Vault/",
+  "/home/dunix/projects/notes/Personal_Vault/",
+}

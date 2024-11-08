@@ -63,6 +63,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "plugins.extras.ui.nvchad" },
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
+    { import = "plugins.extras.utils.obsidian" },
+    { import = "plugins.extras.utils.image" },
     -- { import = "plugins.extras.lang.cs-nuget-cmp" },
     -- { import = "plugins.extras.lang.js-test" },
     -- { import = "plugins.extras.ui.nvchad-menu" },
