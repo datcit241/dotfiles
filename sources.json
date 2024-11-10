@@ -1,10 +1,12 @@
 {
   "unix": [
-    [".ideavimrc", "~/.ideavimrc.test"],
-    [".tmux.conf", "~/.tmux.conf.test"],
+    [".ideavimrc", "~/.ideavimrc"],
+    [".tmux.conf", "~/.tmux.conf"],
     ["./.config/wezterm", "~/.config/.wezterm"],
     [".zshrc", "~/.zshrc"],
-    [".zprofile", "~/.zprofile"]
+    [".zprofile", "~/.zprofile"],
+    ["./.p10k.zsh", "~/.p10k.zsh"],
+    ["./kitty", "~/.config/kitty"]
   ],
   "win": [
     [".ideavimrc", "%USERPROFILE%\\.ideavimrc"],
