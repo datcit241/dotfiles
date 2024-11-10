@@ -9,6 +9,6 @@ return {
   branch = "unstable",
   cmd = "URLOpenUnderCursor",
   opts = {
-    open_app = "wsl-open",
+    -- open_app = "wsl-open",
   },
 }

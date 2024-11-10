@@ -7,7 +7,7 @@ return {
     { "<leader>pg", "", desc = "Global note" },
     { "<leader>pgg", "<cmd>GlobalNote<CR>", desc = "Global note" },
     { "<leader>pgc", "<cmd>GlobalNoteCreate<CR>", desc = "Create note" },
-    { "<leader>pgp", "<cmd>GlobalNotePick<CR>", desc = "Create note" },
+    { "<leader>pgp", "<cmd>GlobalNotePick<CR>", desc = "Pick note" },
   },
   opts = function(_, opts)
     local get_project_name = function()
@@ -40,7 +40,7 @@ return {
       },
     })
 
-    local path = vim.g.obsidian_vaults[1]
+    local path = vim.g.obsidian_vaults[1] .. "Main/Notes/Categories/Nvim Notes"
 
     local stat = vim.loop.fs_stat(path)
     if stat ~= nil and stat.type == "directory" then

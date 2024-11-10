@@ -1,3 +1,7 @@
+if not LazyVim.has_extra("editor.telescope") then
+  return {}
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   opts = {

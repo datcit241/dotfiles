@@ -22,5 +22,4 @@ return {
       { K.timer_prefix .. "c", "<cmd>StartYourCustomTimer<CR>", desc = "Start custom timer" },
     },
   },
-  { "wakatime/vim-wakatime", lazy = true, event = "VeryLazy" },
 }

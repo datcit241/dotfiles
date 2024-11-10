@@ -2,7 +2,7 @@ return {
   select_all = "<leader>a",
   comment_toggle = "<leader>/",
   ranger_toggle = "<leader>E",
-  toggle_settings_prefix = "<leader>T",
+  toggle_settings_prefix = "<leader>S",
   yank_prefix = "<leader>y",
   copilotchat_prefix = "<leader>pc",
   open_prefix = "<leader>o",
@@ -15,5 +15,5 @@ return {
   json_to_types_prefix = "<leader>pj",
   codesnap_prefix = "<leader>ps",
   timer_prefix = "<leader>pt",
-  gitsigns_prefix = "<leader>Tg",
+  gitsigns_prefix = "<leader>Sg",
 }

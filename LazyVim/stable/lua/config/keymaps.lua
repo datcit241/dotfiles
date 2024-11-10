@@ -10,9 +10,11 @@ map("n", "fj", "<cmd>noh<CR>")
 
 map("n", "<leader>a", "ggVG", { desc = "Select all" })
 
+-- * is the system clipboard register on Linux and macOS
+-- + is the system clipboard register on Windows
 map("n", "<leader>ya", "<cmd>%y+<CR>", { desc = "Yank all" })
-map("v", "<leader>yy", '"+y', { desc = "Yank selected" })
 map("n", "<leader>yy", '"+yy', { desc = "Yank" })
+map("v", "<leader>yy", '"+y', { desc = "Yank selected" })
 map("n", "<leader>yp", '"+p', { desc = "Paste" })
 map("n", "<leader>yP", '"+P', { desc = "Paste" })
 
@@ -23,3 +25,11 @@ if not U.io.get_system_info().is_windows then
   new_cmd("SudoWrite", "lua U.sudo.sudo_write()", {})
   map("n", "<leader>pw", "<cmd>lua U.sudo.sudo_write()<cr>", { desc = "Sudo write" })
 end
+
+map("n", "<C-p>", function()
+  if require("lazyvim.util.pick").want() == "fzf" then
+    vim.cmd("FzfLua")
+  else
+    vim.cmd("Telescope")
+  end
+end, { desc = "Open command palette" })

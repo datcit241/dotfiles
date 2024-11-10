@@ -2,9 +2,9 @@ return {
   {
     "shellRaining/hlchunk.nvim",
     lazy = true,
-    event = { "BufRead" },
+    event = "BufRead",
     keys = {
-      { "<leader>Ti", "", desc = "Indent rainbow" },
+      { "<leader>Si", "", desc = "Indent rainbow" },
     },
     opts = {
       chunk = {
@@ -29,16 +29,11 @@ return {
       blank = {
         enable = false,
         chars = {
-          " ",
-        },
-        style = {
-          { bg = "#E06C75" },
-          { bg = "#E5C07B" },
-          { bg = "#61AFEF" },
-          { bg = "#D19A66" },
-          { bg = "#98C379" },
-          -- {bg = "#C678DD"},
-          { bg = "#56B6C2" },
+          -- "․",
+          -- "⁚",
+          -- "⁖",
+          -- "⁘",
+          "⁙",
         },
       },
     },
@@ -65,9 +60,9 @@ return {
           end,
         })
       end
-      register_mod("chunk", "<leader>Tic", "highlight chunk")
-      register_mod("indent", "<leader>Tii", "highlight indent")
-      register_mod("blank", "<leader>Tib", "highlight blank")
+      register_mod("chunk", "<leader>Sic", "highlight chunk")
+      register_mod("indent", "<leader>Sii", "highlight indent")
+      register_mod("blank", "<leader>Sib", "highlight blank")
     end,
   },
   {

@@ -22,11 +22,11 @@ return {
   lang_prev_reference = "[[",
   lang_cycle_next_reference = "<a-n>",
   lang_cycle_prev_reference = "<a-p>",
-  lang_organize_imports = "<leader>co",
+  lang_organize_imports = "<leader>lo",
   lang_add_missing_imports = "<leader>lM",
   lang_remove_unused_imports = "<leader>lu",
   lang_fix_all_diagnostics = "<leader>lD",
-  lang_select_lang_version = "<leader>cV",
+  lang_select_lang_version = "<leader>lV",
   extract = {
     lang_extract_prefix = "<leader>lx",
     lang_extract_method = "<leader>lxm",

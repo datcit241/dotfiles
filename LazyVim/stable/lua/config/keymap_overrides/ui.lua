@@ -1,6 +1,6 @@
 return {
   nvim_notify = {
-    nvimnotify_dismiss_all_notifications = "<leader>Tn",
+    nvimnotify_dismiss_all_notifications = "<leader>Sn",
   },
   bufferline = {
     bufferline_toggle_pin = "<leader>bp",

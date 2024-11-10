@@ -1,3 +1,7 @@
+if not LazyVim.has_extra("coding.copilot-chat") then
+  return {}
+end
+
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",

@@ -15,6 +15,7 @@ return {
         { K.comment_toggle, icon = { icon = "󰆉 ", color = "gray" } },
         { K.ranger_toggle, icon = { icon = "󰙅 ", color = "yellow" } },
         { K.toggle_settings_prefix, group = "toggle/settings", icon = { icon = " ", color = "cyan" } },
+        { K.gitsigns_prefix, group = "gitsigns", icon = { icon = " " } },
         { K.open_prefix, group = "open", icon = { icon = "󱓟 ", color = "cyan" } },
         { K.database_prefix, group = "database", icon = { icon = " ", color = "yellow" } },
         { K.lsp_problems_prefix, group = "problems", icon = { icon = " ", color = "red" } },

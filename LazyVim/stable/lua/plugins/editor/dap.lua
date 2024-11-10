@@ -1,3 +1,7 @@
+if not LazyVim.has_extra("dap.core") then
+  return {}
+end
+
 return {
   {
     "Weissle/persistent-breakpoints.nvim",

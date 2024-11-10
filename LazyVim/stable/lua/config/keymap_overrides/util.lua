@@ -6,6 +6,6 @@ return {
     persistence_skip_current_session = "<leader>qd",
   },
   mini_pairs = {
-    minipairs_toggle = "<leader>Tp",
+    minipairs_toggle = "<leader>Sp",
   },
 }

@@ -18,7 +18,7 @@ return {
     config = function(_, opts)
       require("rainbow-delimiters.setup").setup(opts)
       local rd = require("rainbow-delimiters")
-      LazyVim.toggle.map("<leader>TP", {
+      LazyVim.toggle.map("<leader>SP", {
         name = "rainbow parenthesis",
         get = function()
           local bufnr = vim.api.nvim_get_current_buf()

@@ -18,10 +18,10 @@ return {
     grugfar_open = "<leader>fr",
   },
   flash = {
-    flash_jump = "<leader>s",
-    flash_treesitter = "<leader>S",
-    flash_remote = "<leader>r",
-    flash_treesitter_search = "<leader>R",
+    flash_jump = "",
+    flash_treesitter = "<leader>s",
+    flash_remote = "",
+    flash_treesitter_search = "",
     flash_toggle = "", -- toggle when in command-line mode (: / ?)
   },
   which_key = {
