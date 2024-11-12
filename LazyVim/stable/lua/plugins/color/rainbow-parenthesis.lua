@@ -17,16 +17,17 @@ return {
     },
     config = function(_, opts)
       require("rainbow-delimiters.setup").setup(opts)
-      local rd = require("rainbow-delimiters")
+    end,
+    keys = function()
       LazyVim.toggle.map("<leader>SP", {
         name = "rainbow parenthesis",
         get = function()
           local bufnr = vim.api.nvim_get_current_buf()
-          return rd.is_enabled(bufnr)
+          return require("rainbow-delimiters").is_enabled(bufnr)
         end,
         set = function(state)
           local bufnr = vim.api.nvim_get_current_buf()
-          rd.toggle(bufnr)
+          require("rainbow-delimiters").toggle(bufnr)
         end,
       })
     end,

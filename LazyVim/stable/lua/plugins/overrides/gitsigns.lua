@@ -1,10 +1,9 @@
 return {
   "lewis6991/gitsigns.nvim",
-  opts = function(_, opts)
-    opts = vim.tbl_deep_extend("force", opts, {
-      current_line_blame = true, -- similar: https://github.com/braxtons12/blame_line.nvim
-    })
-
+  opts = {
+    current_line_blame = true, -- similar: https://github.com/braxtons12/blame_line.nvim
+  },
+  keys = function(_, keys)
     LazyVim.toggle.map(K.gitsigns_prefix .. "b", {
       name = "inline blame",
       get = function()
@@ -34,6 +33,6 @@ return {
         vim.cmd("Gitsigns toggle_word_diff")
       end,
     })
-    return opts
+    return keys
   end,
 }

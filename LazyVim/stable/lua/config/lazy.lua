@@ -67,7 +67,7 @@ require("lazy").setup({
     { import = "plugins.extras.utils.global-note" },
     { import = "plugins.extras.utils.pendulum" },
     { import = "plugins.extras.utils.vim-wakatime" },
-    -- { import = "plugins.extras.lang.cs-nuget-cmp" },
+    { import = "plugins.extras.lang.cs-nuget-cmp" },
     -- { import = "plugins.extras.lang.js-test" },
     -- { import = "plugins.extras.ui.nvchad-menu" },
     { import = "plugins" },
