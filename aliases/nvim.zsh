@@ -1,2 +1,3 @@
-alias v="nvim"
-alias vc="cd ~/.config/nvim && nvim init.lua"
+alias v="/usr/bin/nvim"
+alias vc="cd ~/.config/nvim && v init.lua"
+alias nvim=""
