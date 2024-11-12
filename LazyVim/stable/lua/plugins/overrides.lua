@@ -1,6 +1,8 @@
 return {
   require("plugins.overrides.blink"),
   require("plugins.overrides.bufferline"),
+  require("plugins.overrides.codeium"),
+  require("plugins.overrides.copilot-chat"),
   require("plugins.overrides.flash"),
   require("plugins.overrides.fzf-lua"),
   require("plugins.overrides.gitsigns"),
