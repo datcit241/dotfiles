@@ -46,19 +46,22 @@ return {
           mod:enable()
         end
 
-        LazyVim.toggle.map(lhs, {
-          name = name or ("Highlight " .. mod_name),
-          get = function()
-            return mod.conf.enable
-          end,
-          set = function(state)
-            if state then
-              mod:enable()
-            else
-              mod:disable()
-            end
-          end,
-        })
+        local snacks = require("snacks")
+        snacks
+          .toggle({
+            name = name or ("Highlight " .. mod_name),
+            get = function()
+              return mod.conf.enable
+            end,
+            set = function(state)
+              if state then
+                mod:enable()
+              else
+                mod:disable()
+              end
+            end,
+          })
+          :map(lhs)
       end
       register_mod("chunk", "<leader>Sic", "highlight chunk")
       register_mod("indent", "<leader>Sii", "highlight indent")

@@ -26,6 +26,8 @@ opt.swapfile = false
 opt.pumheight = 20 -- limit completion items
 opt.pumblend = 20
 
+opt.diffopt:append("context:1000") -- increase context for diff to 1000 lines
+
 vim.g.obsidian_vaults = {
   "/home/dunix/projects/notes/Obsidian_Vault/",
   "/home/dunix/projects/notes/Personal_Vault/",

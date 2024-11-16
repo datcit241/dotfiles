@@ -35,6 +35,9 @@ return {
           ["ctrl-x"] = actions.file_split,
         },
       },
+      oldfiles = {
+        include_current_session = true,
+      },
     }
   end,
 }

@@ -53,7 +53,7 @@ return {
     gitsigns_reset_buffer = "<leader>ghR",
     gitsigns_preview_hunk_inline = "<leader>ghp",
     gitsigns_blame_line = "",
-    gitsigns_blame_buffer = "<leader>gb",
+    gitsigns_blame_buffer = "",
     gitsigns_diff_index = "<leader>ghd",
     gitsigns_diff_commit = "<leader>ghD",
     gitsigns_select_hunk = "ih",

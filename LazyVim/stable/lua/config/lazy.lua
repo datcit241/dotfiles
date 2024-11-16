@@ -23,13 +23,13 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     {
       "dunix241/LazyVim",
-      branch = "feat/main",
+      branch = "customizable-keymaps",
       import = "lazyvim.plugins",
     },
     -- import/override with your plugins
-    { import = "lazyvim.plugins.extras.coding.codeium" },
-    { import = "lazyvim.plugins.extras.coding.copilot" },
-    { import = "lazyvim.plugins.extras.coding.copilot-chat" },
+    { import = "lazyvim.plugins.extras.ai.codeium" },
+    { import = "lazyvim.plugins.extras.ai.copilot" },
+    { import = "lazyvim.plugins.extras.ai.copilot-chat" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     { import = "lazyvim.plugins.extras.dap.core" },
     { import = "lazyvim.plugins.extras.editor.illuminate" },

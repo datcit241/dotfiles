@@ -22,7 +22,7 @@ return {
     buf_next_alt = "]b",
     buf_switch_to_other = "<leader>bb",
     buf_switch_to_other_alt = "<leader>`",
-    buf_delete = "<leader>bX",
+    buf_delete = "<leader>c",
     buf_delete_and_close = "<leader>bD",
   },
   clear_search_diff_update_and_redraw = "<leader>ur",

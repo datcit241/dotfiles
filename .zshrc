@@ -29,3 +29,8 @@ zstyle 'fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 source <(fzf --zsh)
 eval "$(zoxide init --cmd cd zsh)"
 
+echo "DISPLAY=${DISPLAY}\nXDG_SESSION_ID=${XDG_SESSION_ID}" > $HOME/.cache/env/SESSION.sh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

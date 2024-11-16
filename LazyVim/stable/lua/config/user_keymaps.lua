@@ -16,4 +16,5 @@ return {
   codesnap_prefix = "<leader>ps",
   timer_prefix = "<leader>pt",
   gitsigns_prefix = "<leader>Sg",
+  git_conflict_prefix = "<leader>gc",
 }

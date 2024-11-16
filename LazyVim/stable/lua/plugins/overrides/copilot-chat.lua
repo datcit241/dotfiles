@@ -13,7 +13,19 @@ return {
         },
       },
     },
+    cmd = { "CopilotChatLoad", "CopilotChatModel", "CopilotChatModels" },
     keys = {
+      {
+        "<leader>pcc",
+        function()
+          local focused = U.win_buf.window.try_focusing("copilot%-chat")
+          if not focused then
+            require("CopilotChat").toggle()
+          end
+        end,
+        desc = "Toggle (CopilotChat)",
+        mode = { "n", "v" },
+      },
       {
         "<leader>pcs",
         "<cmd>CopilotChatSave<cr>",
