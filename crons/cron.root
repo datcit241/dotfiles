@@ -1,0 +1,2 @@
+48 21 * * * /usr/bin/crontab /home/dunix/data/crons/cron.root
+50 21 * * * /usr/bin/shutdown -h now

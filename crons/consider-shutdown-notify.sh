@@ -1,0 +1,1 @@
+DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus notify-send "Shutdown" "It's close to 9:30, consider shutting down Arch to maintain a healthy lifestyle" --icon /home/dunix/data/crons/assets/lock.png --app-name "Warning" --urgency normal
