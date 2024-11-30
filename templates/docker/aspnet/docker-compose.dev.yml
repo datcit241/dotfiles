@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  project-portal-backend:
+    build:
+      context: ./Project_Portal_Backend
+
+      dockerfile: API/Dockerfile.dev
+    ports:
+      - "5001:5001"
+      - "5002:5002"
+    volumes:
+      - ./docker/https:/https
+      - ./Project_Portal_Backend:/app
+      - /app/.nuget/packages
+      - /root/.nuget/packages
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5001;https://+:5002
+      - Minio__Endpoint=minio:9000
+      - Minio__AccessKey=admin
+      - Minio__SecretKey=AdminSecretKey
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=cert
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    depends_on:
+      - minio
+
+  project-portal-frontend:
+    build:
+      context: ./Project_Portal_Frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./Project_Portal_Frontend:/app
+      - /app/node_modules # Cache node_modules to prevent npm install every time
+    environment:
+      - NEXT_PUBLIC_API_BASE_URL=https://localhost:5002
+      - NEXT_PUBLIC_API_VERSION=v1
+      - NEXT_PUBLIC_DISABLE_LOGS=false
+      - NEXT_PUBLIC_ENABLE_SERVER_LOGS=true
+    depends_on:
+      - project-portal-backend
+
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ACCESS_KEY: admin
+      MINIO_SECRET_KEY: AdminSecretKey
+    volumes:
+      - ./docker/minio/data:/data
+    command: server --console-address ":9001" /data
+
+  nginx-proxy-manager:
+    image: "jc21/nginx-proxy-manager:latest"
+    restart: unless-stopped
+    ports:
+      - "40080:80"
+      - "40081:81"
+      - "443:443"
+    volumes:
+      - ./docker/nginx/data:/data
+      - ./docker/nginx/letsencrypt:/etc/letsencrypt

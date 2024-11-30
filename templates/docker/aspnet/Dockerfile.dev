@@ -1,0 +1,18 @@
+# Use the .NET SDK for development (allows hot reloads, etc.)
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /app
+COPY . .
+
+WORKDIR /app/API
+
+# Install dependencies
+RUN dotnet restore
+
+ENV ASPNETCORE_URLS=http://+:5001;https://+:5002
+
+# Expose the development port
+EXPOSE 5001
+EXPOSE 5002
+
+# Run the app in development mode
+ENTRYPOINT ["dotnet", "run", "watch"]

@@ -1,0 +1,62 @@
+version: "3.8"
+
+services:
+  project-portal-backend:
+    build:
+      context: ./Project_Portal_Backend
+      dockerfile: API/Dockerfile
+    ports:
+      - "5001:5001"
+      - "5002:5002"
+    volumes:
+      - ./docker/https:/https
+      - ./Project_Portal_Backend/API/project-portal.db:/app/project-portal.db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # - ConnectionStrings__DefaultConnection=Server=mysql;Port=3307;Database=project_portal;User=root;Password=root; # Only enable if using mysql
+      - Minio__Endpoint=minio:9000
+      - Minio__AccessKey=admin
+      - Minio__SecretKey=AdminSecretKey
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=cert
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    depends_on:
+      # - mysql # Only enable if using mysql
+      - minio
+
+  project-portal-frontend:
+    build:
+      context: ./Project_Portal_Frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_BASE_URL=https://api.dunix.id.vn
+      - NEXT_PUBLIC_API_VERSION=v1
+      - NEXT_PUBLIC_DISABLE_LOGS=false
+      - NEXT_PUBLIC_ENABLE_SERVER_LOGS=true
+    depends_on:
+      - project-portal-backend
+
+  # Only enable if using mysql
+  #  mysql:
+  #     image: mysql:8.0
+  #     ports:
+  #       - "3307:3306"
+  #     environment:
+  #       MYSQL_ROOT_PASSWORD: root
+  #       MYSQL_DATABASE: project_portal
+  #     volumes:
+  #       - './db/data:/var/lib/mysql'
+  #       - './db/my.cnf:/etc/mysql/conf.d/my.cnf'
+  #       - './db/sql:/docker-entrypoint-initdb.d'
+
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ACCESS_KEY: admin
+      MINIO_SECRET_KEY: AdminSecretKey
+    volumes:
+      - ./docker/minio/data:/data
+    command: server --console-address ":9001" /data
