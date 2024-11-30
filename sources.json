@@ -6,7 +6,10 @@
     [".zshrc", "~/.zshrc"],
     [".zprofile", "~/.zprofile"],
     ["./.p10k.zsh", "~/.p10k.zsh"],
-    ["./kitty", "~/.config/kitty"]
+    ["./kitty", "~/.config/kitty"],
+    ["./hosts", "/etc/hosts"],
+    ["./templates", "~/templates"],
+    ["./crons", "~/data/crons"]
   ],
   "win": [
     [".ideavimrc", "%USERPROFILE%\\.ideavimrc"],

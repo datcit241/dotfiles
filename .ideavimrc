@@ -57,7 +57,7 @@ let g:NERDTreeMapActivateMode = 'l'
 
 let g:NERDTreeMapJumpParent = 'h'
 
-let mapleader = ','
+let mapleader = ' '
 
 # map escape
 imap fj <esc>
@@ -97,6 +97,28 @@ let g:WhichKeyDesc_split_vertically = "<leader>\\v Split vertically"
 map <leader>\\v <c-w>v<c-w>h:wq<CR><c-w>l
 
 map <BS> ge
+
+# Flash
+
+map t <Action>(flash.search)
+
+# Harpoon
+nmap <leader>! :action SetHarpoon1<cr>
+nmap <leader>@ :action SetHarpoon2<cr>
+nmap <leader># :action SetHarpoon3<cr>
+nmap <leader>$ :action SetHarpoon4<cr>
+nmap <leader>% :action SetHarpoon5<cr>
+
+nmap <leader>1 :action GotoHarpoon1<cr>
+nmap <leader>2 :action GotoHarpoon2<cr>
+nmap <leader>3 :action GotoHarpoon3<cr>
+nmap <leader>4 :action GotoHarpoon4<cr>
+nmap <leader>5 :action GotoHarpoon5<cr>
+
+let g:WhichKeyDesc_harpoonShow = "<leader>hh Show Harpoon"
+nmap <leader>hh :action ShowHarpoon<cr>
+let g:WhichKeyDesc_harpoon_add = "<leader>ha Add to Harpoon"
+nmap <leader>ha :action AddToHarpoon<cr>
 
 # move line
 imap <A-j> <Esc>:m .+1<CR>==gi
@@ -142,48 +164,48 @@ map <leader>m <Action>(ToggleBookmark)
 
 let g:WhichKeyDesc_openFile = "<leader>o Open File"
 map <leader>o <Action>(OpenFile)
-# Window
+# Open
 let g:WhichKeyDesc_explorer = "<leader>e Explorer"
 map <leader>e <Action>(ActivateProjectToolWindow)
 
-let g:WhichKeyDesc_window = "<leader>w Window"
-map <leader>w<esc> <esc>
+let g:WhichKeyDesc_window = "<leader>o Window"
+map <leader>o<esc> <esc>
 
-let g:WhichKeyDesc_hideAllWindows = "<leader>wq Toggle Hide All Windows"
-map <leader>wq <Action>(HideAllWindows)
+let g:WhichKeyDesc_hideAllWindows = "<leader>oq Toggle Hide All Windows"
+map <leader>oq <Action>(HideAllWindows)
 
-let g:WhichKeyDesc_bookmarks = "<leader>wb Bookmarks"
-map <leader>wb <Action>(ActivateBookmarksToolWindow)
+let g:WhichKeyDesc_bookmarks = "<leader>ob Bookmarks"
+map <leader>ob <Action>(ActivateBookmarksToolWindow)
 
-let g:WhichKeyDesc_todo = "<leader>wT TODO"
-map <leader>wT <Action>(ActivateTODOToolWindow)
+let g:WhichKeyDesc_todo = "<leader>oT TODO"
+map <leader>oT <Action>(ActivateTODOToolWindow)
 
-let g:WhichKeyDesc_services = "<leader>ws Services"
-map <leader>ws <Action>(ActivateServicesToolWindow)
+let g:WhichKeyDesc_services = "<leader>os Services"
+map <leader>os <Action>(ActivateServicesToolWindow)
 
-let g:WhichKeyDesc_terminal = "<leader>wt Terminal"
-map <leader>wt <Action>(ActivateTerminalToolWindow)
+let g:WhichKeyDesc_terminal = "<leader>ot Terminal"
+map <leader>ot <Action>(ActivateTerminalToolWindow)
 
-let g:WhichKeyDesc_run_window = "<leader>wr Run"
+let g:WhichKeyDesc_run_window = "<leader>or Run"
 map <leader>wr <Action>(ActivateRunToolWindow)
 
-let g:WhichKeyDesc_version = "<leader>wv Version control"
-map <leader>wv <Action>(ActivateVersionControlToolWindow)
+let g:WhichKeyDesc_version = "<leader>ov Version control"
+map <leader>ov <Action>(ActivateVersionControlToolWindow)
 
-let g:WhichKeyDesc_problemsView = "<leader>wp Problems"
-map <leader>wp <Action>(ActivateProblemsViewToolWindow)
+let g:WhichKeyDesc_problemsView = "<leader>op Problems"
+map <leader>op <Action>(ActivateProblemsViewToolWindow)
 
-let g:WhichKeyDesc_endpoints = "<leader>we Endpoints"
-map <leader>we <Action>(ActivateEndpointsToolWindow)
+let g:WhichKeyDesc_endpoints = "<leader>oe Endpoints"
+map <leader>oe <Action>(ActivateEndpointsToolWindow)
 
-let g:WhichKeyDesc_dependencies = "<leader>wd Dependencies"
-map <leader>wd <Action>(ActivateDependenciesToolWindow)
+let g:WhichKeyDesc_dependencies = "<leader>od Dependencies"
+map <leader>od <Action>(ActivateDependenciesToolWindow)
 
-let g:WhichKeyDesc_database = "<leader>wD Database"
-map <leader>wD <Action>(ActivateDatabaseToolWindow)
+let g:WhichKeyDesc_database = "<leader>oD Database"
+map <leader>oD <Action>(ActivateDatabaseToolWindow)
 
-let g:WhichKeyDesc_notifications = "<leader>wn Notifications"
-map <leader>wn <Action>(ActivateNotificationsToolWindow)
+let g:WhichKeyDesc_notifications = "<leader>on Notifications"
+map <leader>on <Action>(ActivateNotificationsToolWindow)
 
 let g:WhichKeyDesc_hide_window = "<leader>q Quit window"
 map q <Action>(HideActiveWindow)
@@ -219,40 +241,54 @@ map <leader>t <Action>(SearchEverywhere)
 let g:WhichKeyDesc_files = "<leader>f Find files"
 map <leader>f <Action>(GotoFile)
 
-let g:WhichKeyDesc_search = "<leader>s Search"
-map <leader>s<esc> <esc>
-let g:WhichKeyDesc_action = "<leader>sa Actions"
-map <leader>sa <Action>(GotoAction)
+let g:WhichKeyDesc_files_alt = "<leader><space> Find files"
+map <leader><space> <Action>(GotoFile)
 
-let g:WhichKeyDesc_old_files = "<leader>sr Recent files"
-map <leader>sr <Action>(RecentFiles)
+let g:WhichKeyDesc_search = "<leader>f Find"
+map <leader>f<esc> <esc>
+let g:WhichKeyDesc_action = "<leader>fa Actions"
+map <leader>fa <Action>(GotoAction)
 
-let g:WhichKeyDesc_files2 = "<leader>sf Find files"
-map <leader>sf <Action>(GotoFile)
+let g:WhichKeyDesc_old_files = "<leader>fo Recent files"
+map <leader>fo <Action>(RecentFiles)
 
-let g:WhichKeyDesc_find = "<leader>st Find"
-map <leader>st <Action>(Find)
-let g:WhichKeyDesc_find_in_path = "<leader>sT Find in path"
-map <leader>sT <Action>(FindInPath)
+let g:WhichKeyDesc_old_files_alt = "<leader>, Recent files"
+map <leader>, <Action>(RecentFiles)
 
-let g:WhichKeyDesc_replace = "<leader>ss Replace"
-map <leader>ss <Action>(Replace)
-let g:WhichKeyDesc_replace_in_path = "<leader>sS Replace in path"
-map <leader>sS <Action>(ReplaceInPath)
+let g:WhichKeyDesc_files2 = "<leader>ff Find files"
+map <leader>ff <Action>(GotoFile)
 
-let g:WhichKeyDesc_change_theme = "<leader>sc Change theme"
-map <leader>sc <Action>(ChangeLaf)
-let g:WhichKeyDesc_colorscheme = "<leader>sC Change editor color scheme"
-map <leader>sC <Action>(ChangeColorScheme)
-let g:WhichKeyDesc_material_theme = "<leader>sm Material theme chooser"
-map <leader>sm <Action>(MaterialTheme.ThemeChooser)
+let g:WhichKeyDesc_find = "<leader>ft Find"
+map <leader>ft <Action>(Find)
+let g:WhichKeyDesc_find_in_path = "<leader>fT Find in path"
+map <leader>fT <Action>(FindInPath)
+
+let g:WhichKeyDesc_find = "<leader>; Find"
+map <leader>; <Action>(Find)
+let g:WhichKeyDesc_find_in_path = "<leader>: Find in path"
+map <leader>: <Action>(FindInPath)
+
+let g:WhichKeyDesc_replace = "<leader>fs Replace"
+map <leader>fs <Action>(Replace)
+let g:WhichKeyDesc_replace_in_path = "<leader>fS Replace in path"
+map <leader>fS <Action>(ReplaceInPath)
+
+let g:WhichKeyDesc_change_theme = "<leader>fc Change theme"
+map <leader>fc <Action>(ChangeLaf)
+let g:WhichKeyDesc_colorscheme = "<leader>fC Change editor color scheme"
+map <leader>fC <Action>(ChangeColorScheme)
+let g:WhichKeyDesc_material_theme = "<leader>fm Material theme chooser"
+map <leader>fm <Action>(MaterialTheme.ThemeChooser)
 
 # Navigation
 let g:WhichKeyDesc_jump = "<leader>j Jump"
 map <leader>j<esc> <esc>
 
-let g:WhichKeyDesc_declaration = "<leader>jd Declaration or usages"
-map <leader>jd <Action>(GotoDeclaration)
+let g:WhichKeyDesc_def_type = "gy Type definition"
+map  <Action>(QuickTypeDefinition)
+
+let g:WhichKeyDesc_declaration = "gr Declaration or usages"
+map gr <Action>(GotoDeclaration)
 
 let g:WhichKeyDesc_compare = "<leader>jc Compare"
 let g:WhichKeyDesc_compare_files = "<leader>jcf Compare files"
@@ -282,11 +318,14 @@ map <leader>jcN <Action>(PreviousDiff)
 let g:WhichKeyDesc_last_change = "<leader>jr Last change"
 map <leader>jr <Action>(JumpToLastChange)
 
-let g:WhichKeyDesc_impl = "<leader>ji Implementation"
-map <leader>ji <Action>(GotoImplementation)
+let g:WhichKeyDesc_impl = "gi Implementation"
+map gi <Action>(GotoImplementation)
 
-let g:WhichKeyDesc_quick_impl = "<leader>jI Quick implementations"
-map <leader>jI <Action>(QuickImplementations)
+let g:WhichKeyDesc_quick_impl = "gI Quick implementations"
+map gI <Action>(QuickImplementations)
+
+let g:WhichKeyDesc_codeGroup = "gc Code group"
+map gc <Action>(GoToCodeGroup)
 
 let g:WhichKeyDesc_system_explorer = "<leader>je System Explorer"
 map <leader>je <Action>(RevealIn)
@@ -305,6 +344,9 @@ map <leader>jB <Action>(Forward)
 let g:WhichKeyDesc_project = "<leader>p Project"
 map <leader>p<esc> <esc>
 
+let g:WhichKeyDesc_recent_projects = "<leader>pcc Copilotchat"
+map <leader>pcc <Action>(ActivateGitHubCopilotChatToolWindow)
+
 let g:WhichKeyDesc_recent_projects = "<leader>pr Recent projects"
 map <leader>pr <Action>($LRU)
 
@@ -320,8 +362,8 @@ map <leader>pi <Action>(ImportProject)
 let g:WhichKeyDesc_vsc_project = "<leader>pv VSC project"
 map <leader>pv <Action>(ProjectFromVersionControl)
 
-let g:WhichKeyDesc_close_project = "<leader>pc Close project"
-map <leader>pc <Action>(CloseProject)
+let g:WhichKeyDesc_close_project = "<leader>pq Close project"
+map <leader>pq <Action>(CloseProject)
 
 # Debug
 let g:WhichKeyDesc_Debug = "<leader>d Debug"
@@ -411,9 +453,6 @@ map <leader>li <Action>(ImplementMethods)
 
 map <leader>le <Action>(GotoNextError)
 map <leader>lE <Action>(GotoPreviousError)
-
-let g:WhichKeyDesc_def_type = "<leader>K Type definition"
-map <leader>K <Action>(QuickTypeDefinition)
 
 # Buffer
 let g:WhichKeyDesc_buffer = "<leader>b Buffer"

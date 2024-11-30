@@ -3,6 +3,7 @@
     ["./nvim.zsh", "$ZSH_CUSTOM/nvim.zsh"],
     ["./dot.zsh", "$ZSH_CUSTOM/dot.zsh"],
     ["./proj.zsh", "$ZSH_CUSTOM/proj.zsh"],
-    ["./obsidian.zsh", "$ZSH_CUSTOM/obsidian.zsh"]
+    ["./obsidian.zsh", "$ZSH_CUSTOM/obsidian.zsh"],
+    ["./fzf.zsh", "$ZSH_CUSTOM/fzf.zsh"]
   ]
 }
