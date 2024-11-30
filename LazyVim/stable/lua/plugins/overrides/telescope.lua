@@ -1,9 +1,6 @@
-if not LazyVim.has_extra("editor.telescope") then
-  return {}
-end
-
 return {
   "nvim-telescope/telescope.nvim",
+  optional = true, -- or check LazyVim.has_extra("editor.telescope")
   opts = {
     defaults = {
       mappings = {

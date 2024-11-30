@@ -58,7 +58,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.editor.fzf" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
-    -- { import = "lazyvim.plugins.extras.coding.blink" },
+    { import = "lazyvim.plugins.extras.coding.blink" },
     { import = "lazyvim.plugins.extras.util.project" },
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
     { import = "plugins.extras.ui.nvchad" },
@@ -68,6 +68,7 @@ require("lazy").setup({
     { import = "plugins.extras.utils.pendulum" },
     { import = "plugins.extras.utils.vim-wakatime" },
     { import = "plugins.extras.lang.cs-nuget-cmp" },
+    { import = "plugins.extras.lang.vi-mongo" },
     -- { import = "plugins.extras.lang.js-test" },
     -- { import = "plugins.extras.ui.nvchad-menu" },
     { import = "plugins" },
@@ -80,6 +81,9 @@ require("lazy").setup({
     -- have outdated releases, which may break your Neovim install.
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
+  },
+  dev = {
+    path = "~/Projects/nvim",
   },
   -- install = { colorscheme = { "tokyonight", "habamax" } },
   install = { colorscheme = { "nvchad" } },

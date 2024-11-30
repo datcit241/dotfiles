@@ -1,9 +1,6 @@
-if not LazyVim.has_extra("editor.fzf") then
-  return {}
-end
-
 return {
   "ibhagwan/fzf-lua",
+  optional = true, -- or check LazyVim.has_extra("editor.fzf")
   opts = function()
     local actions = require("fzf-lua.actions")
 

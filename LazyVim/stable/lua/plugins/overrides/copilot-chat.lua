@@ -1,10 +1,7 @@
-if not LazyVim.has_extra("coding.copilot-chat") then
-  return {}
-end
-
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
+    optional = true, -- or check LazyVim.has_extra("coding.copilot-chat")
     opts = {
       mappings = {
         reset = {
@@ -28,13 +25,13 @@ return {
       },
       {
         "<leader>pcs",
-        "<cmd>CopilotChatSave<cr>",
+        ":CopilotChatSave",
         desc = "Save chat",
         mode = { "n", "v" },
       },
       {
         "<leader>pcl",
-        "<cmd>CopilotChatLoad<cr>",
+        ":CopilotChatLoad",
         desc = "Load chat",
         mode = { "n", "v" },
       },

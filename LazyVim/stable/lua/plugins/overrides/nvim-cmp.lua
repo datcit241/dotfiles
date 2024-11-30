@@ -1,9 +1,6 @@
-if LazyVim.has_extra("coding.blink") then
-  return {}
-end
-
 return {
   "hrsh7th/nvim-cmp",
+  optional = true, -- or check not LazyVim.has_extra("coding.blink")
   opts = function(_, opts)
     local cmp = require("cmp")
     opts.formatting = {

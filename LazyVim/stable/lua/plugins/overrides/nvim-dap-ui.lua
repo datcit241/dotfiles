@@ -1,9 +1,6 @@
-if not LazyVim.has_extra("dap.core") then
-  return {}
-end
-
 return {
   "rcarriga/nvim-dap-ui",
+  optional = true, -- or check LazyVim.has_extra("dap.core")
   opts = function()
     local dap = require("dap")
     local dapui = require("dapui")

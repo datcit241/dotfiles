@@ -11,7 +11,7 @@ return {
   lang_go_to_subjects = "gS",
   lang_hover = "K",
   lang_signature_help = "gK",
-  lang_insert_signature_help = "<c-k>",
+  lang_insert_signature_help = "<c-h>",
   lang_code_action = "<leader>la",
   lang_run_codelens = "<leader>lc",
   lang_refresh_codelens = "<leader>lC",
