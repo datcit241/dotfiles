@@ -75,7 +75,7 @@ function M.get_open_command(url)
   local info = M.get_system_info()
   if info.is_windows == "windows" or info.is_wsl then
     if vim.fn.executable("wsl-open") == 0 then
-      return { "cmd.exe", "/C", "start", url:gsub("&", "^&") }
+      return { "cmd.exe", "/C", "start", vim.fn.shellescape(url:gsub("&", "^&")) }
     end
     return { "wsl-open", url }
   elseif info.os == "linux" then
@@ -87,7 +87,8 @@ end
 
 ---@param url string
 function M.shell_open(url)
-  local command = M.get_open_command(vim.fn.shellescape(url))
+  local command = M.get_open_command(url)
+
   M.shell_execute(command)
   -- vim.fn.system(command)
 end

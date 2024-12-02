@@ -63,7 +63,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
     { import = "plugins.extras.ui.nvchad" },
     { import = "plugins.extras.utils.obsidian" },
-    -- { import = "plugins.extras.utils.image" },
+    { import = "plugins.extras.utils.image" },
     { import = "plugins.extras.utils.global-note" },
     { import = "plugins.extras.utils.pendulum" },
     { import = "plugins.extras.utils.vim-wakatime" },
