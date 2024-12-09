@@ -47,7 +47,7 @@ return {
       --   end,
     }
     opts.mapping = {
-      ["<Down>"] = cmp.mapping(function(fallback)
+      ["<c-j>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
         elseif require("luasnip").expand_or_jumpable() then
@@ -57,7 +57,7 @@ return {
         end
       end, { "i", "s" }),
 
-      ["<Up>"] = cmp.mapping(function(fallback)
+      ["<c-k>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
         elseif require("luasnip").jumpable(-1) then
@@ -76,6 +76,18 @@ return {
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         fallback()
       end),
+    }
+
+    opts.window = {
+      completion = {
+        -- border = "rounded",
+        -- winhighlight = "Normal:CmpNormal",
+        winblend = 0,
+      },
+      documentation = {
+        -- winhighlight = "Normal:CmpDocNormal",
+        winblend = 0,
+      },
     }
 
     return opts

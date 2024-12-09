@@ -1,3 +1,5 @@
+local colors = require("colors.palette-options").palette
+
 return {
   {
     "shellRaining/hlchunk.nvim",
@@ -10,20 +12,27 @@ return {
       chunk = {
         enable = true,
         style = {
-          { fg = "#C678DD" },
+          { fg = colors.violet },
           { fg = "#c21f30" },
         },
       },
       indent = {
         enable = true,
         style = {
-          "#E06C75",
-          "#E5C07B",
-          "#61AFEF",
-          "#D19A66",
-          "#98C379",
-          -- "#C678DD",
-          "#56B6C2",
+          colors.red,
+          colors.yellow,
+          colors.blue,
+          colors.orange,
+          colors.green,
+          -- colors.violet
+          colors.cyan,
+          -- "#E06C75",
+          -- "#E5C07B",
+          -- "#61AFEF",
+          -- "#D19A66",
+          -- "#98C379",
+          -- -- "#C678DD",
+          -- "#56B6C2",
         },
       },
       blank = {

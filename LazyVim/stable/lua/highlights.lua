@@ -3,46 +3,91 @@
 
 local M = {}
 
+local extra_palette = require("colors.extra-palette")
+local opts = require("colors.palette-options")
+
+-- default with italics
+-- ["@keyword"] = { italic = shouldItalize, fg = M.colors.cyan },
+-- ["@constructor"] = { italic = shouldItalize, fg = M.colors.cyan },
+-- Include = { italic = true, fg = M.colors.blue },
 ---@type Base46HLGroupsList
 M.override = {
-  Comment = { italic = true, fg = "#BBBBBB" },
-  ["@comment"] = { italic = true, fg = "#BBBBBB" },
-  NvimTreeGitNew = { fg = "#98C379" },
-  NvimTreeGitDeleted = { fg = "#E06C75" },
-  NvimTreeGitDirty = { fg = "#E5C07B" },
-  NvimTreeGitRenamed = { fg = "#E5C07B" },
-  NvimTreeGitStaged = { fg = "#98C379" },
-  NvimTreeGitUnstaged = { fg = "#E5C07B" },
-  TelescopeResultsTitle = { fg = "#192330", bg = "#61AFEF" },
-  TelescopePromptBorder = { fg = "#E06C75" },
+  NvimTreeGitNew = { fg = opts.palette.green },
+  NvimTreeGitStaged = { fg = opts.palette.green },
+  NvimTreeGitDirty = { fg = opts.palette.yellow },
+  NvimTreeGitRenamed = { fg = opts.palette.yellow },
+  NvimTreeGitUnstaged = { fg = opts.palette.red },
+  NvimTreeGitDeleted = { fg = opts.palette.danger },
+
+  TelescopeResultsTitle = { fg = opts.picker_palette.dark1, bg = opts.picker_palette.blue },
+  TelescopePromptBorder = { fg = opts.picker_palette.red },
+
+  WinSeparator = { fg = extra_palette.gray_500 },
+
+  Comment = { italic = true, fg = opts.palette.light1 },
+  ["@comment"] = { italic = true, fg = opts.palette.light1 },
+  ["@tag.attribute"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.red },
+  ["@keyword.function"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+  ["@keyword.return"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+  ["@keyword"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+  ["@constructor"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+  ["@variable"] = { fg = opts.palette.orange },
+  ["@variable.member"] = { fg = opts.palette.red },
+  ["@variable.builtin"] = { fg = opts.palette.red },
+  Include = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
 }
 
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
-  LineNr = { fg = "#D4D4D4" },
-  CursorLineNr = { fg = "#E5C07B" },
-  Operator = { fg = "#FFFFFF" },
-  BufferLineBufferVisible = { fg = "#FFFFFF" },
-  BufferLineBufferSelected = { fg = "#FFFFFF" },
-  BufferLineBuffer = { fg = "#FFFFFF" },
-  BufferLineDiagnostic = { fg = "#FFFFFF" },
-  NeoTreeGitUnstaged = { link = "GitSignsDelete" },
-  NeoTreeGitUntracked = { link = "GitSignsDelete" },
-  RainbowRed = { fg = "#E06C75" },
-  RainbowYellow = { fg = "#E5C07B" },
-  RainbowBlue = { fg = "#61AFEF" },
-  RainbowOrange = { fg = "#D19A66" },
-  RainbowGreen = { fg = "#98C379" },
-  RainbowViolet = { fg = "#C678DD" },
-  RainbowCyan = { fg = "#56B6C2" },
-  TelescopeResultsBorder = { fg = "#61AFEF" },
-  TelescopePreviewBorder = { fg = "#98C379" },
-  URLOpenHighlightCursor = { fg = "#61AFEF" },
-  FzfLuaBorder = { fg = "#61AFEF" },
-  FzfLuaTitle = { fg = "#192330", bg = "#61AFEF" },
-  FzfLuaPreviewBorder = { fg = "#98C379" },
-  FzfLuaPreviewTitle = { fg = "#192330", bg = "#98C379" },
+  LineNr = { fg = extra_palette.gray_300 },
+  CursorLineNr = { fg = opts.palette.yellow },
+  Operator = { fg = opts.palette.light3 },
+
+  BufferLineBufferVisible = { fg = opts.palette.dark5 },
+  BufferLineBufferSelected = { bold = true, italic = true, fg = opts.palette.violet },
+  BufferLineBuffer = { fg = opts.palette.dark2 },
+
+  NeoTreeExpander = { fg = extra_palette.gray_400 },
+  NeoTreeIndentMarker = { fg = extra_palette.gray_500 },
+  NeoTreeFileStatsHeader = { italic = true, bold = true, fg = extra_palette.gray_400 },
+  NeoTreeFileStats = { fg = extra_palette.gray_500 },
+  NeoTreeDotfile = { fg = extra_palette.gray_500 },
+  NeoTreeMessage = { italic = true, fg = extra_palette.gray_500 },
+  NeoTreeGitAdded = { fg = opts.neotree_palette.green },
+  NeoTreeGitStaged = { fg = opts.neotree_palette.green },
+  NeoTreeGitModified = { fg = opts.neotree_palette.yellow },
+  NeoTreeGitRenamed = { fg = opts.neotree_palette.yellow },
+  NeoTreeGitUnstaged = { fg = opts.neotree_palette.red },
+  NeoTreeGitUntracked = { fg = opts.neotree_palette.red },
+  NeoTreeGitConflict = { italic = true, bold = true, fg = opts.neotree_palette.orange },
+  NeoTreeGitDeleted = { fg = opts.neotree_palette.danger },
+  NeoTreeTitleBar = { bg = opts.neotree_palette.blue, fg = opts.neotree_palette.dark1 },
+  Directory = { fg = opts.neotree_palette.blue },
+
+  Base46Red = { fg = opts.palette.red },
+  Base46Yellow = { fg = opts.palette.yellow },
+  Base46Blue = { fg = opts.palette.blue },
+  Base46Orange = { fg = opts.palette.orange },
+  Base46Green = { fg = opts.palette.green },
+  Base46Violet = { fg = opts.palette.violet },
+  Base46Cyan = { fg = opts.palette.cyan },
+
+  TelescopeResultsBorder = { fg = opts.picker_palette.blue },
+  TelescopePreviewBorder = { fg = opts.picker_palette.green },
+
+  FzfLuaBorder = { fg = opts.picker_palette.blue },
+  FzfLuaTitle = { fg = opts.palette.dark1, bg = opts.picker_palette.blue },
+  FzfLuaPreviewBorder = { fg = opts.picker_palette.green },
+  FzfLuaPreviewTitle = { fg = opts.palette.dark1, bg = opts.picker_palette.green },
+
+  GitSignsCurrentLineBlame = { fg = extra_palette.gray_500 },
+
+  SagaFileName = { fg = opts.palette.light1 },
+  SagaFolderName = { fg = opts.palette.light1 },
+
+  ["@lsp.mod.defaultLibrary.javascript"] = { fg = opts.palette.red },
+  ["@lsp.typemod.method.defaultLibrary.javascript"] = { fg = opts.palette.blue },
 }
 
 return M

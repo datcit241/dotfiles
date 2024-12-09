@@ -33,3 +33,7 @@ map("n", "<C-p>", function()
     vim.cmd("Telescope")
   end
 end, { desc = "Open command palette" })
+
+map("n", "!", "m", { noremap = true })
+map("n", "@", "`", { noremap = true })
+map("n", "@@", "``", { noremap = true })

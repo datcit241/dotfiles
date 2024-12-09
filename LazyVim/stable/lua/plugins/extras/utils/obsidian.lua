@@ -7,11 +7,13 @@ for _, path in ipairs(vim.g.obsidian_vaults or {}) do
   local stat = vim.loop.fs_stat(path)
   local exists = stat ~= nil and stat.type == "directory"
   if exists then
-    table.insert(config.event, "BufReadPre " .. path .. "**.md")
-    table.insert(config.event, "BufNewFile " .. path .. "**.md")
+    table.insert(config.event, "BufReadPre " .. path .. "*.md")
+    table.insert(config.event, "BufNewFile " .. path .. "*.md")
     table.insert(config.workspaces, { name = vim.fn.fnamemodify(path, ":t"), path = path })
   end
 end
+
+-- vim.notify(vim.inspect(config), vim.log.levels.INFO)
 
 return #config.workspaces == 0 and {}
   or {

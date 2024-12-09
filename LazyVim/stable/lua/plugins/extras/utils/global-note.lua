@@ -6,8 +6,10 @@ return {
   keys = {
     { "<leader>pg", "", desc = "Global note" },
     { "<leader>pgg", "<cmd>GlobalNote<CR>", desc = "Global note" },
-    { "<leader>pgc", "<cmd>GlobalNoteCreate<CR>", desc = "Create note" },
-    { "<leader>pgp", "<cmd>GlobalNotePick<CR>", desc = "Pick note" },
+    { "<leader>pgc", "<cmd>GlobalNoteCreate global<CR>", desc = "Create global note" },
+    { "<leader>pgC", "<cmd>GlobalNoteCreate local<CR>", desc = "Create local note" },
+    { "<leader>pgp", "<cmd>GlobalNotePick global<CR>", desc = "Pick global note" },
+    { "<leader>pgP", "<cmd>GlobalNotePick local<CR>", desc = "Pick local note" },
   },
   opts = function(_, opts)
     local get_project_name = function()

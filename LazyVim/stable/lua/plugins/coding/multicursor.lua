@@ -12,6 +12,7 @@ return {
     end
 
     return {
+      { "!", "m", desc = "Mark", remap = true },
       { "m", "", desc = "Multicursors", mode = { "n", "v" } },
       {
         mode = { "n", "v" },

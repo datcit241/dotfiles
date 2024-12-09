@@ -6,7 +6,7 @@ local highlights = require("highlights")
 ---@type ChadrcConfig
 local options = {
   base46 = {
-    theme = "nightfox", -- default theme
+    theme = require("colors.palette-options").main_palette, -- default theme
     hl_add = highlights.add,
     hl_override = highlights.override,
     integrations = {},
