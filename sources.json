@@ -7,6 +7,8 @@
     [".zprofile", "~/.zprofile"],
     ["./.p10k.zsh", "~/.p10k.zsh"],
     ["./kitty", "~/.config/kitty"],
+    ["./neofetch", "~/.config/neofetch"],
+    ["./vi-mongo", "~/.config/vi-mongo"],
     ["./hosts", "/etc/hosts"],
     ["./templates", "~/templates"],
     ["./crons", "~/data/crons"]
