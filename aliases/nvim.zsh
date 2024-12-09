@@ -1,3 +1,4 @@
 alias v="/usr/bin/nvim"
+alias v.="/usr/bin/nvim ."
 alias vc="cd ~/.config/nvim && v init.lua"
 alias nvim=""

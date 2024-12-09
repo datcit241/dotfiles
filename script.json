@@ -1,0 +1,6 @@
+{
+  "unix": [
+    ["./stash.sh", "~/.local/bin/stash"],
+    ["./scripts/iclip.sh", "~/.local/bin/iclip"]
+  ]
+}

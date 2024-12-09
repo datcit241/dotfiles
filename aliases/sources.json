@@ -4,6 +4,7 @@
     ["./dot.zsh", "$ZSH_CUSTOM/dot.zsh"],
     ["./proj.zsh", "$ZSH_CUSTOM/proj.zsh"],
     ["./obsidian.zsh", "$ZSH_CUSTOM/obsidian.zsh"],
-    ["./fzf.zsh", "$ZSH_CUSTOM/fzf.zsh"]
+    ["./fzf.zsh", "$ZSH_CUSTOM/fzf.zsh"],
+    ["./cl.zsh", "$ZSH_CUSTOM/cl.zsh"]
   ]
 }
