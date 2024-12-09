@@ -1,0 +1,33 @@
+version: 1.0.0
+log:
+    path: /tmp/vi-mongo.log
+    level: info
+    prettyPrint: true
+editor:
+    command: nvim
+    env: ""
+showConnectionPage: true
+showWelcomePage: true
+currentConnection: VSIP
+connections:
+    - url: mongodb://mongoadmin:secret@localhost:27017
+      host: localhost
+      port: 27017
+      database: ""
+      username: ""
+      password: ""
+      name: Default
+      timeout: 5
+      options: {}
+    - url: mongodb://AdminSammy:ttsxtm@103.129.80.172:27017/
+      host: 103.129.80.172
+      port: 27017
+      database: ""
+      username: ""
+      password: ""
+      name: VSIP
+      timeout: 5
+      options: {}
+styles:
+    betterSymbols: true
+    currentStyle: nightfox.yaml
