@@ -70,12 +70,12 @@ return {
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
       }),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        fallback()
-      end),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        fallback()
-      end),
+      -- ["<Tab>"] = cmp.mapping(function(fallback)
+      --   fallback()
+      -- end),
+      -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+      --   fallback()
+      -- end),
     }
 
     opts.window = {

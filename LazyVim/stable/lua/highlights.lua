@@ -40,13 +40,16 @@ M.override = {
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
-  LineNr = { fg = extra_palette.gray_300 },
+  LineNr = { italic = true, fg = extra_palette.gray_300 },
   CursorLineNr = { fg = opts.palette.yellow },
   Operator = { fg = opts.palette.light3 },
 
   BufferLineBufferVisible = { fg = opts.palette.dark5 },
   BufferLineBufferSelected = { bold = true, italic = true, fg = opts.palette.violet },
   BufferLineBuffer = { fg = opts.palette.dark2 },
+  BufferLineCloseButtonSelected = { fg = opts.palette.red },
+  -- BufferLineBackground = { fg = "#abb2bf", bg = opts.palette.dark1 },
+  -- BufferLineFill = { fg = "#abb2bf", bg = opts.palette.dark1 },
 
   NeoTreeExpander = { fg = extra_palette.gray_400 },
   NeoTreeIndentMarker = { fg = extra_palette.gray_500 },
@@ -81,13 +84,18 @@ M.add = {
   FzfLuaPreviewBorder = { fg = opts.picker_palette.green },
   FzfLuaPreviewTitle = { fg = opts.palette.dark1, bg = opts.picker_palette.green },
 
-  GitSignsCurrentLineBlame = { fg = extra_palette.gray_500 },
+  GitSignsCurrentLineBlame = { italic = true, fg = extra_palette.gray_400 },
 
   SagaFileName = { fg = opts.palette.light1 },
   SagaFolderName = { fg = opts.palette.light1 },
 
   ["@lsp.mod.defaultLibrary.javascript"] = { fg = opts.palette.red },
   ["@lsp.typemod.method.defaultLibrary.javascript"] = { fg = opts.palette.blue },
+
+  -- ColorColumn = { bg = extra_palette.gray_500 },
+  -- NonText = { fg = extra_palette.gray_600 },
+  ColorColumn = { bg = extra_palette.gray_600 },
+  -- VirtColumn = { bg = extra_palette.gray_600 },
 }
 
 return M

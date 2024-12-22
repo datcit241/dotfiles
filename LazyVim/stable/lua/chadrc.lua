@@ -11,7 +11,7 @@ local options = {
     hl_override = highlights.override,
     integrations = {},
     changed_themes = {},
-    transparency = false,
+    transparency = true,
     theme_toggle = { "nightfox", "onenord" },
   },
 

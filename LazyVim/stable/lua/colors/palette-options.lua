@@ -1,11 +1,11 @@
 local M = {
-  main_palette = "everforest",
+  main_palette = "onedark",
 }
 
 M = {
-  palette = require("colors.get-palette")("nightfox"),
+  palette = require("colors.get-palette")("onedark"),
   picker_palette = require("colors.get-palette")(M.main_palette),
-  neotree_palette = require("colors.get-palette")("nightfox"),
+  neotree_palette = require("colors.get-palette")("onedark"),
   shouldItalizeKeywords = false,
 }
 

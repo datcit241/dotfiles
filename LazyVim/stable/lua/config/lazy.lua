@@ -31,6 +31,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.test.core" },
 
     { import = "lazyvim.plugins.extras.formatting.prettier" },
+    -- { import = "lazyvim.plugins.extras.formatting.biome" },
+    -- { import = "lazyvim.plugins.extras.formatting.black" },
     -- { import = "lazyvim.plugins.extras.linting.eslint" },
     -- { import = "lazyvim.plugins.extras.lsp.none-ls" },
     { import = "lazyvim.plugins.extras.lsp.neoconf" }, -- manage global and local project settings
@@ -38,6 +40,10 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ai.codeium" },
     { import = "lazyvim.plugins.extras.ai.copilot" },
     { import = "lazyvim.plugins.extras.ai.copilot-chat" },
+    { import = "lazyvim.plugins.extras.ai.tabnine" },
+    { import = "lazyvim.plugins.extras.ai.supermaven" },
+    { import = "plugins.extras.ai.codecompanion" },
+    -- { import = "plugins.extras.ai.avante" },
 
     { import = "lazyvim.plugins.extras.coding.luasnip" },
 
@@ -70,11 +76,15 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.editor.inc-rename" },
     -- { import = "lazyvim.plugins.extras.editor.refactoring" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
+    { import = "lazyvim.plugins.extras.editor.mini-files" },
 
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
     { import = "plugins.extras.ui.nvchad" },
     -- { import = "plugins.extras.ui.nvchad-menu" },
     { import = "plugins.extras.ui.drop" },
+    -- { import = "plugins.extras.ui.cyclist" },
+    -- { import = "plugins.extras.ui.virtcolumn" },
+    -- { import = "plugins.extras.ui.deadcolumn" },
     -- { import = "lazyvim.plugins.extras.ui.smear-cursor" },
 
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
@@ -84,11 +94,15 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.rest" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+    -- { import = "lazyvim.plugins.extras.util.startuptime" },
+    -- { import = "lazyvim.plugins.extras.util.dot" },
 
     { import = "plugins.extras.utils.pendulum" },
     { import = "plugins.extras.utils.vim-wakatime" },
     { import = "plugins.extras.utils.global-note" },
     { import = "plugins.extras.utils.obsidian" },
+    -- { import = "plugins.extras.utils.hardtime" },
+    -- { import = "plugins.extras.utils.precognition" },
 
     { import = "plugins.extras.utils.image-clip" },
     -- { import = "plugins.extras.utils.image-viewer" },

@@ -17,7 +17,7 @@ return {
         },
       },
       indent = {
-        enable = true,
+        enable = false,
         style = {
           colors.red,
           colors.yellow,
@@ -36,13 +36,29 @@ return {
         },
       },
       blank = {
-        enable = false,
+        enable = true,
         chars = {
           -- "․",
-          -- "⁚",
+          "⁚",
           -- "⁖",
           -- "⁘",
-          "⁙",
+          -- "⁙",
+        },
+        style = {
+          colors.red,
+          colors.yellow,
+          colors.blue,
+          colors.orange,
+          colors.green,
+          -- colors.violet
+          colors.cyan,
+          -- "#E06C75",
+          -- "#E5C07B",
+          -- "#61AFEF",
+          -- "#D19A66",
+          -- "#98C379",
+          -- -- "#C678DD",
+          -- "#56B6C2",
         },
       },
     },
