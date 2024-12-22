@@ -1,2 +1,3 @@
 @reboot /usr/bin/crontab /home/dunix/data/crons/cron.root
-55 22 * * * /usr/bin/shutdown -h now
+55 21 * * * /usr/bin/shutdown -h now
+25 21 * * * /usr/bin/shutdown -h now

@@ -9,3 +9,4 @@
 00 18 * * * /usr/bin/zsh /home/dunix/data/crons/lock-screen.sh
 20 21 * * * /usr/bin/zsh /home/dunix/data/crons/consider-shutdown-notify.sh
 54 21 * * * /usr/bin/zsh /home/dunix/data/crons/shutdown-notify.sh
+24 21 * * * /usr/bin/zsh /home/dunix/data/crons/shutdown-notify.sh
