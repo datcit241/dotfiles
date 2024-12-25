@@ -1,3 +1,6 @@
 {
-  "unix": [["./config", "~/.config/hypr"]]
+  "unix": [
+    ["./config", "~/.config/hypr"],
+    ["./kitty", "~/.config/kitty"]
+  ]
 }
