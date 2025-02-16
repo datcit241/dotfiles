@@ -1,1 +1,1 @@
-DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus notify-send "Check out" "Don't forget to check out" --icon /home/dunix/data/crons/assets/shutdown.png --app-name "Cautious!!" --urgency critical
+DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus notify-send "Check out" "Don't forget to check out" --icon /srv/shared/dotfiles/crons/assets/shutdown.png --app-name "Cautious!!" --urgency critical

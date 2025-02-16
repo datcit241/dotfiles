@@ -1,0 +1,14 @@
+@reboot /usr/bin/crontab /srv/shared/dotfiles/crons/cron.user
+
+10 06 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/lock-screen-notify.sh
+15 06 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/lock-screen.sh
+55 11 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/lock-screen-notify.sh
+00 12 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/lock-screen.sh
+30 16 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/checkout-notify.sh
+55 17 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/lock-screen-notify.sh
+00 18 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/lock-screen.sh
+20 21 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/consider-shutdown-notify.sh
+54 21 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/shutdown-notify.sh
+24 21 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/shutdown-notify.sh
+30 8 * * 1 /usr/bin/zsh /srv/shared/dotfiles/crons/pay-notify.sh
+30 10 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/order-notify.sh

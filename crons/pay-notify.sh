@@ -1,0 +1,1 @@
+DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus notify-send "Pay" "Don't forget to pay for food bill" --icon /srv/shared/dotfiles/crons/assets/bill.png --app-name "Cautious!!" --urgency critical

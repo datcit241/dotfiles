@@ -1,1 +1,1 @@
-DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus notify-send "Screen lock" "Arch will lock in less than 5 minutes" --icon /home/dunix/data/crons/assets/lock.png --app-name "Warning" --urgency normal
+DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus notify-send "Screen lock" "Arch will lock in less than 5 minutes" --icon /srv/shared/dotfiles/crons/assets/lock.png --app-name "Warning" --urgency normal
