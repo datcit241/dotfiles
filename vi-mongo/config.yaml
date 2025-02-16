@@ -8,7 +8,7 @@ editor:
     env: ""
 showConnectionPage: true
 showWelcomePage: true
-currentConnection: VSIP
+currentConnection: Default
 connections:
     - url: mongodb://mongoadmin:secret@localhost:27017
       host: localhost

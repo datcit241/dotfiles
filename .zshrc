@@ -34,6 +34,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)
 
-source $HOME/.cache/env/PAT.sh
+[ -f "$HOME/.cache/env/PAT.sh" ] && source "$HOME/.cache/env/PAT.sh"
+
+pokemon-colorscripts --no-title -r 1,3,6
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
