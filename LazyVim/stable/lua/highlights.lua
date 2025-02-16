@@ -26,15 +26,6 @@ M.override = {
 
   Comment = { italic = true, fg = opts.palette.light1 },
   ["@comment"] = { italic = true, fg = opts.palette.light1 },
-  ["@tag.attribute"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.red },
-  ["@keyword.function"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
-  ["@keyword.return"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
-  ["@keyword"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
-  ["@constructor"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
-  ["@variable"] = { fg = opts.palette.orange },
-  ["@variable.member"] = { fg = opts.palette.red },
-  ["@variable.builtin"] = { fg = opts.palette.red },
-  Include = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
 }
 
 ---@type HLTable
@@ -89,13 +80,30 @@ M.add = {
   SagaFileName = { fg = opts.palette.light1 },
   SagaFolderName = { fg = opts.palette.light1 },
 
-  ["@lsp.mod.defaultLibrary.javascript"] = { fg = opts.palette.red },
-  ["@lsp.typemod.method.defaultLibrary.javascript"] = { fg = opts.palette.blue },
-
   -- ColorColumn = { bg = extra_palette.gray_500 },
-  -- NonText = { fg = extra_palette.gray_600 },
-  ColorColumn = { bg = extra_palette.gray_600 },
+  -- NonText = { fg = extra_palette.gray_200 },
+  ColorColumn = { bg = extra_palette.gray_800 },
+  -- ColorColumn = { bg = "NONE" },
   -- VirtColumn = { bg = extra_palette.gray_600 },
 }
+
+if opts.shouldOverrideKeywords then
+  vim.notify("overriding keywords", vim.log.levels.INFO)
+  M.override = vim.tbl_deep_extend("force", M.override, {
+    ["@tag.attribute"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.red },
+    ["@keyword.function"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+    ["@keyword.return"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+    ["@keyword"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+    ["@constructor"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+    ["@variable"] = { fg = opts.palette.orange },
+    ["@variable.member"] = { fg = opts.palette.red },
+    ["@variable.builtin"] = { fg = opts.palette.red },
+    Include = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },
+  })
+  M.add = vim.tbl_deep_extend("force", M.add, {
+    ["@lsp.mod.defaultLibrary.javascript"] = { fg = opts.palette.red },
+    ["@lsp.typemod.method.defaultLibrary.javascript"] = { fg = opts.palette.blue },
+  })
+end
 
 return M

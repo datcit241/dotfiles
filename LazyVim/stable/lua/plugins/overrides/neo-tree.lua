@@ -61,6 +61,13 @@ return {
             [","] = "toggle_hidden",
           },
         },
+        follow_current_file = {
+          enabled = true, -- This will find and focus the file in the active buffer every time
+          --               -- the current file is changed while the tree is open.
+          leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+        },
+        -- use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+        -- instead of relying on nvim autocmd events.
       },
       git_status = {
         window = {
@@ -85,7 +92,7 @@ return {
     },
   },
   {
-    "dunix241/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     keys = {
       {
         k.neotree_toggle_cwd,
@@ -98,7 +105,6 @@ return {
         end,
       },
     },
-    branch = "feat-add-rename-basename",
     opts = {
       window = {
         mappings = {
@@ -116,15 +122,6 @@ return {
             desc = "Open with System Explorer",
           },
         },
-      },
-      filesystem = {
-        follow_current_file = {
-          enabled = true, -- This will find and focus the file in the active buffer every time
-          --               -- the current file is changed while the tree is open.
-          leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-        },
-        use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
-        -- instead of relying on nvim autocmd events.
       },
     },
   },

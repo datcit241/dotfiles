@@ -1,6 +1,5 @@
 return {
-  "dunix241/nvim-notify",
-  branch = "feat/add-support-fzf",
+  "rcarriga/nvim-notify",
   keys = {
     {
       "<leader>on",

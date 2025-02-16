@@ -36,6 +36,6 @@ opt.colorcolumn = "80"
 opt.listchars = { eol = "↵", tab = "»·", trail = "·", extends = "→", precedes = "←" }
 
 vim.g.obsidian_vaults = {
-  "/home/dunix/projects/notes/Obsidian_Vault/",
-  "/home/dunix/projects/notes/Personal_Vault/",
+  "/srv/shared/projects/notes/Obsidian_Vault/",
+  "/srv/shared/projects/notes/Personal_Vault/",
 }

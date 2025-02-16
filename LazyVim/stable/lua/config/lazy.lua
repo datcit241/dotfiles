@@ -69,6 +69,7 @@ require("lazy").setup({
     { import = "plugins.extras.lang.cs-nuget-cmp" },
     { import = "plugins.extras.lang.vi-mongo" },
     -- { import = "plugins.extras.lang.js-test" },
+    { import = "plugins.extras.lang.roslyn" },
 
     { import = "lazyvim.plugins.extras.editor.telescope" },
     { import = "lazyvim.plugins.extras.editor.fzf" },
@@ -81,7 +82,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
     { import = "plugins.extras.ui.nvchad" },
     -- { import = "plugins.extras.ui.nvchad-menu" },
-    { import = "plugins.extras.ui.drop" },
+    -- { import = "plugins.extras.ui.drop" },
     -- { import = "plugins.extras.ui.cyclist" },
     -- { import = "plugins.extras.ui.virtcolumn" },
     -- { import = "plugins.extras.ui.deadcolumn" },
