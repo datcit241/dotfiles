@@ -1,0 +1,42 @@
+font-size = 10
+font-family = JetBrainsMono Nerd Font
+font-family-bold = JetBrainsMono Nerd Font
+#font-family = CaskaydiaCove Nerd Font Mono
+#font-family-bold = CaskaydiaCove Nerd Font Mono
+font-family-italic = Maple Mono
+# background-opacity = 0.85
+# #background-blur-radius = 20
+cursor-style-blink = true
+window-decoration = false
+window-padding-x = 10
+window-padding-y = 10
+
+background = #16173B
+foreground = #FFFFFF
+selection-foreground = #16173B
+selection-background = #FFFFFF
+
+# black
+palette = 0=#292A52
+palette = 8=#57598F
+
+# red
+palette = 1=#FFCCD6
+palette = 9=#F0AAB8
+
+# green
+palette = 2=#FFCCE8
+palette = 1=#F0AAD1
+
+# yellow
+palette = 3=#CCE2FF
+palette = 1=#AAC8F0
+
+# blue
+palette = 4=#9A9CE6
+palette = 1=#9A9CE6
+
+# magenta
+palette = 5=#E69AC4
+palette = 1=#E69AC4
+
