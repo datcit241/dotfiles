@@ -1,6 +1,8 @@
 {
   "unix": [
     ["./config", "~/.config/hypr"],
-    ["./kitty", "~/.config/kitty"]
+    ["./kitty", "~/.config/kitty"],
+    ["./waybar", "~/.config/waybar"],
+    ["./dunst", "~/.config/dunst"]
   ]
 }
