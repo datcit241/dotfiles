@@ -1,250 +1,240 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Atom One Dark",
-    "tabnine.experimentalAutoImports": true,
-    "editor.formatOnPaste": true,
-    "editor.lineNumbers": "relative",
-    "editor.cursorBlinking": "expand",
-    "editor.fontLigatures": true,
-    "editor.guides.bracketPairs": true,
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "window.menuBarVisibility": "toggle",
+  "editor.fontSize": 12,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "security.workspace.trust.startupPrompt": "never",
+  "security.workspace.trust.enabled": false,
+  "editor.minimap.side": "right",
+  "editor.fontFamily": "'Maple Mono', 'monospace', monospace",
+  "extensions.autoUpdate": false,
+  "workbench.statusBar.visible": false,
+  "terminal.integrated.fontFamily": "'CaskaydiaCove NF', 'monospace', monospace",
+  "terminal.external.linuxExec": "kitty",
+  "terminal.explorerKind": "both",
+  "terminal.sourceControlRepositoriesKind": "both",
+  "telemetry.telemetryLevel": "off",
+
+  "tabnine.experimentalAutoImports": true,
+  "editor.formatOnPaste": true,
+  "editor.lineNumbers": "relative",
+  "editor.cursorBlinking": "expand",
+  "editor.fontLigatures": true,
+  "editor.guides.bracketPairs": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "vim.vimrc.path": "/home/hyprland/.vimrc",
+  "vim.vimrc.enable": true,
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  "vim.smartcase": true,
+  "vim.autoindent": true,
+  "vim.highlightedyank.enable": true,
+  "vim.leader": " ",
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["f", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["leader"],
+      "commands": ["whichkey.show"]
     },
-    "emmet.triggerExpansionOnTab": true,
-    "vim.vimrc.path": "c:\\Users\\datvo\\.vimrc",
-    "vim.vimrc.enable": true,
-    "vim.incsearch": true,
-    "vim.hlsearch": true,
-    "vim.smartcase": true,
-    "vim.autoindent": true,
-    "vim.highlightedyank.enable": true,
-    "vim.leader": ",",
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "f",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "leader"
-            ],
-            "commands": [
-                "whichkey.show"
-            ]
-        },
-        {
-            "before": [
-                "<S-k>"
-            ],
-            "commands": [
-                "editor.action.showDefinitionPreviewHover"
-            ]
-        },
-        {
-            "before": [
-                ":"
-            ],
-            "commands": [
-                "vim.showQuickpickCmdLine",
-            ],
-            "silent": true
-        },
-    ],
-    "vim.visualModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "f",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        },
-        {
-            "before": [
-                "leader"
-            ],
-            "commands": [
-                "whichkey.show"
-            ]
-        },
-    ],
-    "whichkey.delay": 0,
-    "whichkey.sortOrder": "alphabetically",
-    "whichkey.bindings": [
-        {
-            "key": "e",
-            "name": "Open explorer",
-            "type": "command",
-            "command": "workbench.view.explorer"
-        },
-        {
-            "key": "a",
-            "name": "Copy All",
-            "type": "command",
-            "command": "runCommands",
-            "args": {
-                "commands": [
-                    "editor.action.selectAll",
-                    "editor.action.clipboardCopyAction",
-                    "extension.vim_escape"
-                ]
-            }
-        },
-        {
-            "key": "l",
-            "name": "LSP",
-            "type": "bindings",
-            "bindings": [
-                {
-                    "key": "a",
-                    "name": "Action",
-                    "type": "command",
-                    "command": "editor.action.codeAction"
-                },
-                {
-                    "key": "f",
-                    "name": "Format",
-                    "type": "command",
-                    "command": "editor.action.formatDocument"
-                },
-                {
-                    "key": "o",
-                    "name": "Optimize imports",
-                    "type": "command",
-                    "command": "editor.action.organizeImports"
-                },
-                {
-                    "key": "r",
-                    "name": "Rename",
-                    "type": "command",
-                    "command": "editor.action.rename"
-                },
-                // window
-                {
-                    "key": "p",
-                    "name": "Problems",
-                    "type": "command",
-                    "command": "workbench.actions.view.problems"
-                }
-            ]
-        },
-        {
-            "key": "h",
-            "name": "No highlight",
-            "type": "command",
-            "command": "vim.remap",
-            "args": {
-                "commands": [
-                    {
-                        "command": ":noh"
-                    }
-                ]
-            }
-        },
-        {
-            "key": "j",
-            "name": "Jump to",
-            "type": "bindings",
-            "bindings": [
-                {
-                    "key": "r",
-                    "name": "References",
-                    "type": "command",
-                    "command": "editor.action.goToReferences"
-                },
-                {
-                    "key": "d",
-                    "name": "Definition",
-                    "type": "command",
-                    "command": "editor.action.revealDefinition"
-                }
-            ]
-        },
-        {
-            "key": "c",
-            "name": "Close tab",
-            "type": "command",
-            "command": "workbench.action.closeActiveEditor",
-        },
-        {
-            "key": "s",
-            "name": "Search",
-            "type": "bindings",
-            "bindings": [
-                {
-                    "key": "r",
-                    "name": "Recent files",
-                    "type": "command",
-                    "command": "workbench.action.quickOpen"
-                },
-                {
-                    "key": "t",
-                    "name": "Text",
-                    "type": "command",
-                    "command": "actions.find"
-                },
-                {
-                    "key": "T",
-                    "name": "Text in Project",
-                    "type": "command",
-                    "command": "workbench.view.search"
-                },
-                {
-                    "key": "s",
-                    "name": "Replace",
-                    "type": "command",
-                    "command": "editor.action.startFindReplaceAction"
-                },
-            ]
-        },
-        {
-            "key": "i",
-            "name": "IDE",
-            "type": "bindings",
-            "bindings": [
-                {
-                    "key": "p",
-                    "name": "Plugin",
-                    "type": "command",
-                    "command": "workbench.view.extensions"
-                },
-                {
-                    "key": "s",
-                    "name": "Settings",
-                    "type": "command",
-                    "command": "workbench.action.openSettings"
-                },
-                {
-                    "key": "S",
-                    "name": "Settings Json",
-                    "type": "command",
-                    "command": "workbench.action.openSettingsJson"
-                },
-            ]
-        },
-        {
-            "key": "w",
-            "name": "Window",
-            "type": "bindings",
-            "bindings": [
-                {
-                    "key": "t",
-                    "name": "toggleTerminal",
-                    "type": "command",
-                    "command": "workbench.action.terminal.toggleTerminal"
-                },
-            ]
-        }
-    ],
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+    {
+      "before": ["<S-k>"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
     },
+    {
+      "before": [":"],
+      "commands": ["vim.showQuickpickCmdLine"],
+      "silent": true
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["f", "j"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["leader"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+  "whichkey.delay": 0,
+  "whichkey.sortOrder": "alphabetically",
+  "whichkey.bindings": [
+    {
+      "key": "e",
+      "name": "Open explorer",
+      "type": "command",
+      "command": "workbench.view.explorer"
+    },
+    {
+      "key": "a",
+      "name": "Copy All",
+      "type": "command",
+      "command": "runCommands",
+      "args": {
+        "commands": [
+          "editor.action.selectAll",
+          "editor.action.clipboardCopyAction",
+          "extension.vim_escape"
+        ]
+      }
+    },
+    {
+      "key": "l",
+      "name": "LSP",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "a",
+          "name": "Action",
+          "type": "command",
+          "command": "editor.action.codeAction"
+        },
+        {
+          "key": "f",
+          "name": "Format",
+          "type": "command",
+          "command": "editor.action.formatDocument"
+        },
+        {
+          "key": "o",
+          "name": "Optimize imports",
+          "type": "command",
+          "command": "editor.action.organizeImports"
+        },
+        {
+          "key": "r",
+          "name": "Rename",
+          "type": "command",
+          "command": "editor.action.rename"
+        },
+        // window
+        {
+          "key": "p",
+          "name": "Problems",
+          "type": "command",
+          "command": "workbench.actions.view.problems"
+        }
+      ]
+    },
+    {
+      "key": "h",
+      "name": "No highlight",
+      "type": "command",
+      "command": "vim.remap",
+      "args": {
+        "commands": [
+          {
+            "command": ":noh"
+          }
+        ]
+      }
+    },
+    {
+      "key": "j",
+      "name": "Jump to",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "r",
+          "name": "References",
+          "type": "command",
+          "command": "editor.action.goToReferences"
+        },
+        {
+          "key": "d",
+          "name": "Definition",
+          "type": "command",
+          "command": "editor.action.revealDefinition"
+        }
+      ]
+    },
+    {
+      "key": "c",
+      "name": "Close tab",
+      "type": "command",
+      "command": "workbench.action.closeActiveEditor"
+    },
+    {
+      "key": "s",
+      "name": "Search",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "r",
+          "name": "Recent files",
+          "type": "command",
+          "command": "workbench.action.quickOpen"
+        },
+        {
+          "key": "t",
+          "name": "Text",
+          "type": "command",
+          "command": "actions.find"
+        },
+        {
+          "key": "T",
+          "name": "Text in Project",
+          "type": "command",
+          "command": "workbench.view.search"
+        },
+        {
+          "key": "s",
+          "name": "Replace",
+          "type": "command",
+          "command": "editor.action.startFindReplaceAction"
+        }
+      ]
+    },
+    {
+      "key": "i",
+      "name": "IDE",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "p",
+          "name": "Plugin",
+          "type": "command",
+          "command": "workbench.view.extensions"
+        },
+        {
+          "key": "s",
+          "name": "Settings",
+          "type": "command",
+          "command": "workbench.action.openSettings"
+        },
+        {
+          "key": "S",
+          "name": "Settings Json",
+          "type": "command",
+          "command": "workbench.action.openSettingsJson"
+        }
+      ]
+    },
+    {
+      "key": "w",
+      "name": "Window",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "t",
+          "name": "toggleTerminal",
+          "type": "command",
+          "command": "workbench.action.terminal.toggleTerminal"
+        }
+      ]
+    }
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 }
