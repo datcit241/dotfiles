@@ -3,6 +3,7 @@
     ["./config", "~/.config/hypr"],
     ["./kitty", "~/.config/kitty"],
     ["./waybar", "~/.config/waybar"],
-    ["./dunst", "~/.config/dunst"]
+    ["./dunst", "~/.config/dunst"],
+    ["./htop/htoprc", "~/.config/htop/htoprc"]
   ]
 }
