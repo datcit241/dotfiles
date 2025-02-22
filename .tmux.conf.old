@@ -1,0 +1,94 @@
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'catppuccin/tmux#v2.1.2' # See https://github.com/catppuccin/tmux/tags for additional tags
+# set -g @plugin "nordtheme/tmux"
+set -g @plugin 'tmux-plugins/tmux-sensible'
+# set -g @plugin 'olimorris/tmux-pomodoro-plus'
+# set -g @plugin 'jamesoff/tmux-loadavg'
+# set -g @plugin 'catppuccin/tmux'
+# set -g @plugin 'thewtex/tmux-mem-cpu-load'
+set -g @plugin 'alexwforsythe/tmux-which-key'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+# set -g @plugin 'ofirgall/tmux-window-name'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+set -g mouse on
+set -g default-shell /bin/zsh
+set -g set-clipboard on
+# set-option -g status-position top
+
+## make colors inside tmux look the same as outside of tmux
+# see https://github.com/tmux/tmux/issues/696
+# see https://stackoverflow.com/a/41786092
+# set -g default-terminal "screen-256color"
+# set-option -g default-terminal "tmux-256color""
+
+# set-option -g default-terminal "screen-256color"
+set -g default-terminal "xterm-256color"
+# set-option -ga terminal-overrides ",xterm-256color:Tc"
+
+# set -g default-terminal "${TERM}"
+set -gq allow-passthrough on
+set -g visual-activity off
+
+# set -ag terminal-overrides ",xterm-256color:RGB"
+# set  -g default-terminal "tmux-256color"
+
+# set -g default-terminal 'tmux-256color'
+# set -as terminal-overrides ',xterm*:Tc:sitm=\E[3m'
+
+unbind C-Space
+set -g prefix C-Space
+bind C-Space send-prefix
+
+setw -g mode-keys vi
+
+bind | split-window -hc "#{pane_current_path}"
+bind "_" split-window -vc "#{pane_current_path}"
+bind - split-window -vc "#{pane_current_path}"
+bind "\\" split-window -hc "#{pane_current_path}"
+unbind c
+bind c new-window -c "#{pane_current_path}"
+
+# unbind C
+# bind C new-window -c "/mnt/c/Program\\ Files/PowerShell/7/pwsh.exe #{pane_current_path}"
+# bind | split-window -h "/mnt/c/Program\\ Files/PowerShell/7/pwsh.exe #{pane_current_path}"
+# bind "_" split-window -v "/mnt/c/Program\\ Files/PowerShell/7/pwsh.exe #{pane_current_path}"
+# bind Wc new-window "/mnt/c/Program\\ Files/PowerShell/7/pwsh.exe"
+# bind W| split-window -hc "/mnt/c/Program\\ Files/PowerShell/7/pwsh.exe"
+# bind W- split-window -vc "/mnt/c/Program\\ Files/PowerShell/7/pwsh.exe"
+
+bind -r "<" swap-window -d -t -1
+bind -r ">" swap-window -d -t +1
+
+bind-key -n Home send Escape "OH"
+bind-key -n End send Escape "OF"
+
+# Use v to trigger selection    
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+
+# Use y to yank current selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+# set -g @continuum-restore 'on'
+set -g @continuum-save-interval '1'
+
+set -g status-interval 1
+set -g status-left-length 100
+set -g status-right-length 100
+
+set -g @catppuccin_flavor "mocha"
+set -g @catppuccin_window_status_style "rounded"
+
+set -g status-left ""
+set -g @catppuccin_window_text " #{b:pane_current_path}"
+set -g @catppuccin_window_current_text " #{b:pane_current_path}"
+set -ogq @catppuccin_window_current_number "#I"
+
+
+set -g status-right "#{E:@catppuccin_status_application}#{E:@catppuccin_status_uptime}"
+# directory application session cpu uptime battery date_time load pomodoro_plus
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
