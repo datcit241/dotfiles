@@ -27,7 +27,7 @@ return {
   which_key = {
     group = {
       tabs_prefix = "<leader><tab>",
-      code_prefix = "<leader>c",
+      code_prefix = "",
       file_find_prefix = "<leader>f",
       git_prefix = "<leader>g",
       hunks_prefix = "<leader>gh",

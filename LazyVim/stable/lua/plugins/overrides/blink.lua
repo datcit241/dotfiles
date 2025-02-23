@@ -2,10 +2,9 @@ return {
   "saghen/blink.cmp",
   optional = true, -- or check LazyVim.has_extra("coding.blink")
   opts = {
-    nerd_font_variant = "normal",
-    windows = {
-      autocomplete = {
-        max_height = 15,
+    completion = {
+      menu = {
+        max_height = 20,
       },
     },
     keymap = {

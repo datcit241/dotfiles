@@ -23,8 +23,9 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     {
       "dunix241/LazyVim",
-      branch = "customizable-keymaps",
+      branch = "feat/main",
       import = "lazyvim.plugins",
+      -- tag = "v13.8.0",
     },
     -- import/override with your plugins
     { import = "lazyvim.plugins.extras.dap.core" },
