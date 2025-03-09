@@ -1,6 +1,6 @@
 {
   "workbench.colorTheme": "Catppuccin Mocha",
-  "window.menuBarVisibility": "toggle",
+  "window.menuBarVisibility": "compact",
   "editor.fontSize": 12,
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 0,
@@ -16,7 +16,6 @@
   "terminal.explorerKind": "both",
   "terminal.sourceControlRepositoriesKind": "both",
   "telemetry.telemetryLevel": "off",
-
   "tabnine.experimentalAutoImports": true,
   "editor.formatOnPaste": true,
   "editor.lineNumbers": "relative",
@@ -27,6 +26,15 @@
     "javascript": "javascriptreact"
   },
   "emmet.triggerExpansionOnTab": true,
+  "multiCommand.commands": [
+    {
+      "command": "multiCommand.openFileAndCloseSidebar",
+      "sequence": [
+        "list.select",
+        "workbench.action.closeSidebar"
+      ]
+    }
+  ],
   "vim.vimrc.path": "/home/hyprland/.vimrc",
   "vim.vimrc.enable": true,
   "vim.incsearch": true,
@@ -37,33 +45,59 @@
   "vim.leader": " ",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["f", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "f",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["leader"],
-      "commands": ["whichkey.show"]
+      "before": [
+        "leader"
+      ],
+      "commands": [
+        "whichkey.show"
+      ]
     },
     {
-      "before": ["<S-k>"],
-      "commands": ["editor.action.showDefinitionPreviewHover"]
+      "before": [
+        "<S-k>"
+      ],
+      "commands": [
+        "editor.action.showDefinitionPreviewHover"
+      ]
     },
     {
-      "before": [":"],
-      "commands": ["vim.showQuickpickCmdLine"],
+      "before": [
+        ":"
+      ],
+      "commands": [
+        "vim.showQuickpickCmdLine"
+      ],
       "silent": true
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
-      "before": ["f", "j"],
-      "after": ["<Esc>"]
+      "before": [
+        "f",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     },
     {
-      "before": ["leader"],
-      "commands": ["whichkey.show"]
+      "before": [
+        "leader"
+      ],
+      "commands": [
+        "whichkey.show"
+      ]
     }
   ],
   "whichkey.delay": 0,
@@ -165,6 +199,30 @@
       "command": "workbench.action.closeActiveEditor"
     },
     {
+      "key": ";",
+      "name": "Text",
+      "type": "command",
+      "command": "actions.find"
+    },
+    {
+      "key": ":",
+      "name": "Text in Project",
+      "type": "command",
+      "command": "workbench.view.search"
+    },
+    {
+      "key": " ",
+      "name": "Recent files",
+      "type": "command",
+      "command": "workbench.action.quickOpen"
+    },
+    {
+      "key": ",",
+      "name": "Recent files",
+      "type": "command",
+      "command": "workbench.action.quickOpen"
+    },
+    {
       "key": "s",
       "name": "Search",
       "type": "bindings",
@@ -221,7 +279,7 @@
       ]
     },
     {
-      "key": "w",
+      "key": "o",
       "name": "Window",
       "type": "bindings",
       "bindings": [
@@ -237,4 +295,8 @@
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
+  "vscode_custom_css.imports": [
+    null,
+    "file:///home/hyprland/.vscode/extensions/yesitsfebreeze.smearcursor-1.1.2/_smearcursor.js"
+  ],
 }

@@ -19,28 +19,77 @@
     "command": "workbench.action.navigateRight",
     "when": "!codeActionMenuVisible && !inQuickOpen && !suggestWidgetVisible && !parameterHintsVisible && !isInDiffEditor"
   },
-
   {
-    "key": "ctrl+h",
-    "command": "list.collapse",
-    "when": "listFocus && !inputFocus"
+    "key": "q",
+    "command": "workbench.action.closePanel",
+    "when": "vim.mode != 'Insert'"
   },
   {
-    "key": "ctrl+l",
-    "command": "list.expand",
-    "when": "listFocus && !inputFocus"
+    "key": "q",
+    "command": "workbench.action.closeSidebar",
+    "when": "sideBarFocus && vim.mode != 'Insert'"
+  },
+  {
+    "key": "enter",
+    "command": "multiCommand.openFileAndCloseSidebar",
+    "when": "sideBarFocus && vim.mode == 'Normal'"
   },
   {
     "key": "ctrl+j",
-    "command": "list.focusDown",
-    "when": "listFocus && !inputFocus"
+    "command": "workbench.action.quickOpenNavigateNext",
+    "when": "inQuickOpen"
   },
   {
     "key": "ctrl+k",
-    "command": "list.focusUp",
-    "when": "listFocus && !inputFocus"
+    "command": "workbench.action.quickOpenNavigatePrevious",
+    "when": "inQuickOpen"
   },
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.splitEditorRight",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+s",
+    "command": "workbench.action.splitEditorDown",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetVisible && vim.mode == 'Insert'"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "editorTextFocus && suggestWidgetVisible && vim.mode == 'Insert'"
+  },
+//   {
+//     "key": "g k",
+//     "command": "editor.action.goToDeclaration",
+//     "when": "editorTextFocus && vim.mode == 'Normal'"
+// },
 
+  // {
+  //   "key": "ctrl+h",
+  //   "command": "list.collapse",
+  //   "when": "listFocus && !inputFocus"
+  // },
+  // {
+  //   "key": "ctrl+l",
+  //   "command": "list.expand",
+  //   "when": "listFocus && !inputFocus"
+  // },
+  // {
+  //   "key": "ctrl+j",
+  //   "command": "list.focusDown",
+  //   "when": "listFocus && !inputFocus"
+  // },
+  // {
+  //   "key": "ctrl+k",
+  //   "command": "list.focusUp",
+  //   "when": "listFocus && !inputFocus"
+  // },
   {
     "key": "tab",
     "command": "workbench.action.nextEditorInGroup",
@@ -51,7 +100,6 @@
     "command": "workbench.action.previousEditorInGroup",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
-
   // Coding
   {
     "key": "alt-j",
@@ -63,7 +111,6 @@
     "command": "editor.action.moveLinesUpAction",
     "when": "vim.mode != 'Insert && editorTextFocus"
   },
-
   // Explorer
   {
     "key": "r",
