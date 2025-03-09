@@ -5,6 +5,15 @@ return {
     local cmp = require("cmp")
     opts.formatting = {
       format = function(entry, item)
+        if require("lazy.core.config").plugins["colorful-menu.nvim"] then
+          local highlights_info = require("colorful-menu").cmp_highlights(entry)
+
+          if highlights_info ~= nil then
+            item.abbr_hl_group = highlights_info.highlights
+            item.abbr = highlights_info.text
+          end
+        end
+
         local icons = LazyVim.config.icons.kinds
         if icons[item.kind] then
           if entry.source.name == "buffer" then
