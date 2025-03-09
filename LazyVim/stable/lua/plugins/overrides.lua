@@ -24,10 +24,10 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = false,
+    -- enabled = false,
   },
   {
     "folke/tokyonight.nvim",
-    enabled = false,
+    -- enabled = false,
   },
 }

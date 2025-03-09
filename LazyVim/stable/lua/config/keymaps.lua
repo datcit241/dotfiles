@@ -27,7 +27,7 @@ if not U.io.get_system_info().is_windows then
 end
 
 map("n", "<C-p>", function()
-  if require("lazyvim.util.pick").want() == "fzf" then
+  if LazyVim.pick.picker.name == "fzf" then
     vim.cmd("FzfLua")
   else
     vim.cmd("Telescope")

@@ -3,18 +3,22 @@ return {
   {
     "HiPhish/rainbow-delimiters.nvim",
     lazy = true,
-    event = "BufRead",
-    opts = {
-      highlight = {
-        "Base46Red",
-        "Base46Yellow",
-        "Base46Blue",
-        "Base46Orange",
-        "Base46Green",
-        -- Base46Violet",
-        "Base46Cyan",
-      },
-    },
+    event = "User HighlightsInitiated",
+    opts = function(_, opts)
+      local colors = require("colors").groups
+      opts = vim.tbl_deep_extend("force", {}, opts, {
+        highlight = {
+          colors.red,
+          colors.yellow,
+          colors.blue,
+          colors.orange,
+          colors.green,
+          -- Base46Violet",
+          colors.cyan,
+        },
+      })
+      return opts
+    end,
     config = function(_, opts)
       require("rainbow-delimiters.setup").setup(opts)
     end,

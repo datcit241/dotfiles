@@ -17,6 +17,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.lazyvim_keymaps = require("config.keymap_overrides")
+vim.g.use_nvchad = false
 
 require("lazy").setup({
   spec = {
@@ -81,7 +82,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.mini-files" },
 
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
-    { import = "plugins.extras.ui.nvchad" },
+    vim.g.use_nvchad and { import = "plugins.extras.ui.nvchad" } or {},
     -- { import = "plugins.extras.ui.nvchad-menu" },
     -- { import = "plugins.extras.ui.drop" },
     -- { import = "plugins.extras.ui.cyclist" },
@@ -92,6 +93,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     -- { import = "lazyvim.plugins.extras.coding.blink" },
+    { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
 
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.rest" },
@@ -103,6 +105,10 @@ require("lazy").setup({
     { import = "plugins.extras.utils.vim-wakatime" },
     { import = "plugins.extras.utils.global-note" },
     { import = "plugins.extras.utils.obsidian" },
+    { import = "plugins.extras.utils.firenvim" },
+    { import = "plugins.extras.utils.typr" },
+    { import = "plugins.extras.utils.timerly" },
+    { import = "plugins.extras.ui.showkeys" },
     -- { import = "plugins.extras.utils.hardtime" },
     -- { import = "plugins.extras.utils.precognition" },
 
@@ -123,8 +129,8 @@ require("lazy").setup({
   dev = {
     path = "~/Projects/nvim",
   },
-  -- install = { colorscheme = { "tokyonight", "habamax" } },
-  install = { colorscheme = { "nvchad" } },
+  install = vim.g.use_nvchad and {} or { colorscheme = { "tokyonight", "habamax" } },
+  -- install = { colorscheme = { "nvchad" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update

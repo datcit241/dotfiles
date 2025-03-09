@@ -19,6 +19,10 @@ return {
 ]],
       },
     },
+    image = {},
+    indent = {
+      enabled = false,
+    },
   },
   keys = {
     { "<leader>on", "<cmd>lua Snacks.notifier.show_history()<cr>", desc = "Snack history" },

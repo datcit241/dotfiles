@@ -3,3 +3,10 @@
 -- Add any additional autocmds here
 
 local autocmd = vim.api.nvim_create_autocmd
+
+local m = require("colors")
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = m.init,
+})

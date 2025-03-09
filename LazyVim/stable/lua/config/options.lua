@@ -39,3 +39,16 @@ vim.g.obsidian_vaults = {
   "/srv/shared/projects/notes/Obsidian_Vault/",
   "/srv/shared/projects/notes/Personal_Vault/",
 }
+
+vim.g.firenvim_config = {
+  globalSettings = { alt = "all" },
+  localSettings = {
+    [".*"] = {
+      cmdline = "neovim",
+      content = "text",
+      priority = 0,
+      selector = "textarea",
+      takeover = "never",
+    },
+  },
+}

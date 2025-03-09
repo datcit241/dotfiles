@@ -88,7 +88,6 @@ M.add = {
 }
 
 if opts.shouldOverrideKeywords then
-  vim.notify("overriding keywords", vim.log.levels.INFO)
   M.override = vim.tbl_deep_extend("force", M.override, {
     ["@tag.attribute"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.red },
     ["@keyword.function"] = { italic = opts.shouldItalizeKeywords, fg = opts.palette.violet },

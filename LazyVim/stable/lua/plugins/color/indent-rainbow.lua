@@ -1,67 +1,79 @@
-local colors = require("colors.palette-options").palette
+-- local colors = require("colors.palette-options").palette
 
 return {
   {
     "shellRaining/hlchunk.nvim",
     lazy = true,
-    event = "BufRead",
+    event = "User HighlightsInitiated",
     keys = {
       { "<leader>Si", "", desc = "Indent rainbow" },
     },
-    opts = {
-      chunk = {
-        enable = true,
-        style = {
-          { fg = colors.violet },
-          { fg = "#c21f30" },
+    opts = function(_, opts)
+      local colors = require("colors").colors
+      opts = vim.tbl_deep_extend("force", {}, opts, {
+        chunk = {
+          enable = true,
+          style = {
+            { fg = colors.special },
+            -- { fg = "#c21f30" },
+
+            -- { fg = "#7f1d1d" },
+            -- { fg = "#991b1b" },
+            -- { fg = "#b91c1c" },
+
+            -- { fg = "#8b0836" },
+            { fg = "#a50036" },
+            -- { fg = "#c70036" },
+          },
         },
-      },
-      indent = {
-        enable = false,
-        style = {
-          colors.red,
-          colors.yellow,
-          colors.blue,
-          colors.orange,
-          colors.green,
-          -- colors.violet
-          colors.cyan,
-          -- "#E06C75",
-          -- "#E5C07B",
-          -- "#61AFEF",
-          -- "#D19A66",
-          -- "#98C379",
-          -- -- "#C678DD",
-          -- "#56B6C2",
+        indent = {
+          enable = false,
+          style = {
+            colors.red,
+            colors.yellow,
+            colors.blue,
+            colors.orange,
+            colors.green,
+            -- colors.violet
+            colors.cyan,
+            -- "#E06C75",
+            -- "#E5C07B",
+            -- "#61AFEF",
+            -- "#D19A66",
+            -- "#98C379",
+            -- -- "#C678DD",
+            -- "#56B6C2",
+          },
         },
-      },
-      blank = {
-        enable = true,
-        chars = {
-          -- "․",
-          "⁚",
-          -- "⁖",
-          -- "⁘",
-          -- "⁙",
+        blank = {
+          enable = true,
+          chars = {
+            --   -- "․",
+            "⁚",
+            --   -- "⁖",
+            --   -- "⁘",
+            --   -- "⁙",
+          },
+          -- style = {
+          --   colors.red,
+          --   colors.yellow,
+          --   colors.blue,
+          --   colors.orange,
+          --   colors.green,
+          --   -- colors.violet
+          --   colors.cyan,
+          --   -- "#E06C75",
+          --   -- "#E5C07B",
+          --   -- "#61AFEF",
+          --   -- "#D19A66",
+          --   -- "#98C379",
+          --   -- -- "#C678DD",
+          --   -- "#56B6C2",
+          -- },
         },
-        style = {
-          colors.red,
-          colors.yellow,
-          colors.blue,
-          colors.orange,
-          colors.green,
-          -- colors.violet
-          colors.cyan,
-          -- "#E06C75",
-          -- "#E5C07B",
-          -- "#61AFEF",
-          -- "#D19A66",
-          -- "#98C379",
-          -- -- "#C678DD",
-          -- "#56B6C2",
-        },
-      },
-    },
+      })
+      return opts
+    end,
     config = function(_, opts)
       local function register_mod(mod_name, lhs, name)
         local Mod = require("hlchunk.mods." .. mod_name)
