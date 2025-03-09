@@ -73,6 +73,8 @@ require("lazy").setup({
     -- { import = "plugins.extras.lang.js-test" },
     { import = "plugins.extras.lang.roslyn" },
 
+    { import = "plugins.extras.lang.nvim-html-css" },
+
     { import = "lazyvim.plugins.extras.editor.telescope" },
     { import = "lazyvim.plugins.extras.editor.fzf" },
     -- { import = "lazyvim.plugins.extras.editor.illuminate" },
@@ -101,6 +103,8 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.util.startuptime" },
     -- { import = "lazyvim.plugins.extras.util.dot" },
 
+    { import = "plugins.extras.coding.colorful-menu" },
+
     { import = "plugins.extras.utils.pendulum" },
     { import = "plugins.extras.utils.vim-wakatime" },
     { import = "plugins.extras.utils.global-note" },
@@ -108,12 +112,15 @@ require("lazy").setup({
     { import = "plugins.extras.utils.firenvim" },
     { import = "plugins.extras.utils.typr" },
     { import = "plugins.extras.utils.timerly" },
-    { import = "plugins.extras.ui.showkeys" },
     -- { import = "plugins.extras.utils.hardtime" },
     -- { import = "plugins.extras.utils.precognition" },
+    { import = "plugins.extras.utils.devdocs" },
+    { import = "plugins.extras.utils.helpview" },
 
     { import = "plugins.extras.utils.image-clip" },
     -- { import = "plugins.extras.utils.image-viewer" },
+
+    { import = "plugins.extras.ui.showkeys" },
 
     { import = "plugins" },
   },
