@@ -10,11 +10,12 @@ return {
     },
     opts = function(_, opts)
       local colors = require("colors").colors
+
       opts = vim.tbl_deep_extend("force", {}, opts, {
         chunk = {
           enable = true,
           style = {
-            { fg = colors.special },
+            { fg = colors.specialChar },
             -- { fg = "#c21f30" },
 
             -- { fg = "#7f1d1d" },
@@ -48,12 +49,17 @@ return {
         blank = {
           enable = true,
           chars = {
-            --   -- "․",
+            -- "  ",
+            -- "․",
             "⁚",
-            --   -- "⁖",
-            --   -- "⁘",
-            --   -- "⁙",
+            -- "⁖",
+            -- "⁘",
+            -- "⁙",
           },
+          -- style = {
+          --   { bg = extra_palette.gray_950 },
+          --   { bg = "", fg = "" },
+          -- },
           -- style = {
           --   colors.red,
           --   colors.yellow,

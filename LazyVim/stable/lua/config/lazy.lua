@@ -18,6 +18,11 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.lazyvim_keymaps = require("config.keymap_overrides")
 vim.g.use_nvchad = false
+vim.g.custom_colorscheme = "solarized-osaka"
+-- everforest, gruvbox-material, onenord, kanagawa, solarized-osaka, material, nordic, nightfly,
+-- sonokai, nightfox, night-owl, eldritch, bamboo, hybrid, evergarden, onedark, edge,
+-- dracula, fluoromachine, synthweave, melange,
+-- rose-pine, kanagawa-paper, oxocarbon, bluloco, miasma, moonlight, everblush, vscode
 
 require("lazy").setup({
   spec = {
@@ -48,6 +53,9 @@ require("lazy").setup({
     -- { import = "plugins.extras.ai.avante" },
 
     { import = "lazyvim.plugins.extras.coding.luasnip" },
+    not vim.g.use_nvchad and vim.g.custom_colorscheme and {
+      import = "plugins.extras.colorschemes." .. vim.g.custom_colorscheme,
+    } or {},
 
     { import = "lazyvim.plugins.extras.lang.angular" },
     -- { import = "lazyvim.plugins.extras.lang.astro" },
@@ -95,7 +103,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.coding.yanky" },
     -- { import = "lazyvim.plugins.extras.coding.blink" },
-    { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
+    -- { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
 
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.rest" },
@@ -103,7 +111,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.util.startuptime" },
     -- { import = "lazyvim.plugins.extras.util.dot" },
 
-    { import = "plugins.extras.coding.colorful-menu" },
+    -- { import = "plugins.extras.coding.colorful-menu" },
 
     { import = "plugins.extras.utils.pendulum" },
     { import = "plugins.extras.utils.vim-wakatime" },
@@ -119,6 +127,9 @@ require("lazy").setup({
 
     { import = "plugins.extras.utils.image-clip" },
     -- { import = "plugins.extras.utils.image-viewer" },
+
+    { import = "plugins.extras.games.nvimesweeper" },
+    { import = "plugins.extras.games.sudoku" },
 
     { import = "plugins.extras.ui.showkeys" },
 
@@ -136,7 +147,7 @@ require("lazy").setup({
   dev = {
     path = "~/Projects/nvim",
   },
-  install = vim.g.use_nvchad and {} or { colorscheme = { "tokyonight", "habamax" } },
+  install = not vim.g.use_nvchad and { colorscheme = { "tokyonight", "habamax" } } or {},
   -- install = { colorscheme = { "nvchad" } },
   checker = {
     enabled = true, -- check for plugin updates periodically

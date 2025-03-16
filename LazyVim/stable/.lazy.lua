@@ -15,4 +15,12 @@ return {
       },
     },
   },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      notifier = {
+        level = vim.log.levels.TRACE,
+      },
+    },
+  },
 }

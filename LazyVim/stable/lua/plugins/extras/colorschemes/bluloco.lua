@@ -1,0 +1,3 @@
+return {
+  "uloco/bluloco.nvim",
+}
