@@ -23,6 +23,9 @@ return {
     indent = {
       enabled = false,
     },
+    notifier = {
+      level = vim.log.levels.WARN,
+    },
   },
   keys = {
     { "<leader>on", "<cmd>lua Snacks.notifier.show_history()<cr>", desc = "Snack history" },

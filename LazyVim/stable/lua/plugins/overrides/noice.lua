@@ -8,7 +8,7 @@ return {
           auto_open = { enabled = false },
         },
         hover = {
-          eanbled = true,
+          enabled = true,
           silent = true,
         },
       },
