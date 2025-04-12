@@ -87,6 +87,26 @@ for PAIR in $SELECTED_PAIRS; do
     fi
   fi
 
+  # Check if the destination already exists
+  if [ -e "$DESTINATION" ] || [ -L "$DESTINATION" ]; then
+    read -p "File '$DESTINATION' already exists. Overwrite? (y/N): " OVERWRITE
+    if [[ "$OVERWRITE" =~ ^[Yy]$ ]]; then
+      read -p "Are you sure you want to overwrite '$DESTINATION'? (y/N): " CONFIRM
+      if [[ "$CONFIRM" =~ ^[Yy]$ ]]; then
+        BACKUP_FILE="${DESTINATION}.backup-$(date +%Y%m%d-%H%M%S)"
+        echo "Creating backup: ${DESTINATION} -> ${BACKUP_FILE}"
+        if ! mv "$DESTINATION" "$BACKUP_FILE" 2>/dev/null; then
+          sudo mv "$DESTINATION" "$BACKUP_FILE"
+        fi
+        echo "Backup created at ${BACKUP_FILE}"
+        rm -f "$DESTINATION" 2>/dev/null || sudo rm -f "$DESTINATION"
+      fi
+    else
+      echo "Skipping '$DESTINATION'"
+      continue
+    fi
+  fi
+
   # Create the soft link
   echo "Creating symlink: ${SOURCE} -> ${DESTINATION}"
   if ln -s "$SOURCE" "$DESTINATION" 2>/dev/null; then
