@@ -22,7 +22,7 @@ vim.g.custom_colorscheme = "solarized-osaka"
 -- everforest, gruvbox-material, onenord, kanagawa, solarized-osaka, material, nordic, nightfly,
 -- sonokai, nightfox, night-owl, eldritch, bamboo, hybrid, evergarden, onedark, edge,
 -- dracula, fluoromachine, synthweave, melange,
--- rose-pine, kanagawa-paper, oxocarbon, bluloco, miasma, moonlight, everblush, vscode
+-- rose-pine, kanagawa-paper, oxocarbon, bluloco, miasma, moonlight, everblush, angelic, vscode
 
 require("lazy").setup({
   spec = {
@@ -90,6 +90,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.editor.refactoring" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.editor.mini-files" },
+    -- { import = "lazyvim.plugins.extras.editor.mini-diff" },
 
     -- { import = "lazyvim.plugins.extras.ui.edgy" },
     vim.g.use_nvchad and { import = "plugins.extras.ui.nvchad" } or {},
@@ -104,6 +105,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.coding.yanky" },
     -- { import = "lazyvim.plugins.extras.coding.blink" },
     -- { import = "lazyvim.plugins.extras.coding.nvim-cmp" },
+    { import = "plugins.extras.coding.blink-ripgrep" },
 
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.util.rest" },

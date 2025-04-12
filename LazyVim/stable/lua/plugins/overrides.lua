@@ -12,6 +12,7 @@ return {
   require("plugins.overrides.neo-tree"),
   require("plugins.overrides.noice"),
   require("plugins.overrides.nvim-cmp"),
+  require("plugins.overrides.nvim-dap"),
   require("plugins.overrides.nvim-dap-ui"),
   require("plugins.overrides.nvim-lspconfig"),
   -- require("plugins.overrides.nvim-notify"),

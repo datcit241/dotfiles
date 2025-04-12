@@ -15,6 +15,9 @@ return {
       {
         "<leader>pcc",
         function()
+          if not _G.U or not _G.U.win_buf then
+            _G.U = require("utils")
+          end
           local focused = U.win_buf.window.try_focusing("copilot%-chat")
           if not focused then
             require("CopilotChat").toggle()
