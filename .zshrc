@@ -38,6 +38,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 [ -f "$HOME/.cache/env/PAT.sh" ] && source "$HOME/.cache/env/PAT.sh"
 
-pokemon-colorscripts --no-title -r 1,3,6
+pokemon-colorscripts-go --no-title -r 1,3,6
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet

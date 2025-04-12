@@ -1,6 +1,0 @@
-# Static table lookup for hostnames.
-# See hosts(5) for details.
-
-103.129.80.172 gitlab.pr
-172.17.100.203 monitor.pr
-103.129.80.171 jenkins.pr
