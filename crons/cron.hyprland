@@ -1,0 +1,4 @@
+@reboot /srv/shared/secrets/portability/packages/scripts/export-official-packages.sh
+@reboot /srv/shared/secrets/portability/packages/scripts/export-aur-packages.sh
+
+*/5 * * * * /srv/shared/dotfiles/crons/auto-commit.sh /srv/shared/secrets

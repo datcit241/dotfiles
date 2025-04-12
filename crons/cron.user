@@ -1,5 +1,3 @@
-@reboot /usr/bin/crontab /srv/shared/dotfiles/crons/cron.user
-
 10 06 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/lock-screen-notify.sh
 15 06 * * * /srv/shared/dotfiles/crons/lock-screen.sh
 55 11 * * * /usr/bin/zsh /srv/shared/dotfiles/crons/lock-screen-notify.sh
