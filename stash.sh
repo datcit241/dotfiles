@@ -68,7 +68,7 @@ for PAIR in $SELECTED_PAIRS; do
     # SOURCE="$SOURCE_DIR/$SOURCE"
     cd "$SOURCE_DIR" || return $? # Change directory to the source path
     SOURCE=$(readlink -f "$SOURCE")
-    cd -
+    cd - || return $? # Change back to the original directory
   fi
 
   # Convert relative source path to absolute path
@@ -76,7 +76,23 @@ for PAIR in $SELECTED_PAIRS; do
     SOURCE="$PWD/$SOURCE"
   fi
 
+  DEST_PARENT_DIR=$(dirname "$DESTINATION")
+  if [ ! -d "$DEST_PARENT_DIR" ]; then
+    echo "Creating directory: $DEST_PARENT_DIR"
+    if mkdir -p "$DEST_PARENT_DIR" 2>/dev/null; then
+      echo "Directory created successfully."
+    else
+      echo "Permission denied. Attempting with sudo..."
+      sudo mkdir -p "$DEST_PARENT_DIR"
+    fi
+  fi
+
   # Create the soft link
-  echo "ln -s ${SOURCE} ${DESTINATION}"
-  ln -s "$SOURCE" "$DESTINATION"
+  echo "Creating symlink: ${SOURCE} -> ${DESTINATION}"
+  if ln -s "$SOURCE" "$DESTINATION" 2>/dev/null; then
+    echo "Symlink created successfully."
+  else
+    echo "Permission denied. Attempting with sudo..."
+    sudo ln -s "$SOURCE" "$DESTINATION"
+  fi
 done
