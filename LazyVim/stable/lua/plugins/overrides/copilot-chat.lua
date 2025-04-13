@@ -3,6 +3,8 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     optional = true, -- or check LazyVim.has_extra("coding.copilot-chat")
     opts = {
+      model = "claude-3.7-sonnet-thought",
+      agent = "copilot",
       mappings = {
         reset = {
           normal = "",
