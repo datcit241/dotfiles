@@ -126,6 +126,7 @@ require("lazy").setup({
     -- { import = "plugins.extras.utils.precognition" },
     { import = "plugins.extras.utils.devdocs" },
     { import = "plugins.extras.utils.helpview" },
+    { import = "plugins.extras.utils.qalc" },
 
     { import = "plugins.extras.utils.image-clip" },
     -- { import = "plugins.extras.utils.image-viewer" },
