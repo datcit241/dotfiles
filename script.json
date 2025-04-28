@@ -2,6 +2,7 @@
   "unix": [
     ["./stash.sh", "~/.local/bin/stash"],
     ["./scripts/iclip.sh", "~/.local/bin/iclip"],
-    ["./scripts/snowjob.sh", "~/.local/bin/snowjob"]
+    ["./scripts/snowjob.sh", "~/.local/bin/snowjob"],
+    ["./scripts/ewl.sh", "~/.local/bin/ewl"]
   ]
 }
