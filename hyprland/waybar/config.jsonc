@@ -153,7 +153,7 @@
 		"format": "{icon}",
 		"rotate": 0,
 		"icon-size": 18,
-		"icon-theme": "Tela-circle-grey",
+		"icon-theme": "Tela-circle-pink",
         "spacing": 0,
 		"tooltip-format": "{title}",
 		"on-click": "activate",

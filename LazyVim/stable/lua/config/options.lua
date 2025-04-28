@@ -17,6 +17,7 @@ if U.io.get_system_info().is_windows then
 end
 
 opt.clipboard = ""
+-- vim.g.clipboard = "osc52"
 
 -- sync buffers automatically
 opt.autoread = true
