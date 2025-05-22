@@ -1,4 +1,4 @@
-local colorscheme = vim.g.custom_colorscheme or "catppuccin"
+local colorscheme = vim.g.custom_colorscheme or vim.g.default_colorscheme or "tokyonight"
 
 return {
   vim.g.use_nvchad and require("plugins.colorschemes.init") or {},

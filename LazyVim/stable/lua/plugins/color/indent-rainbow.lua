@@ -10,6 +10,7 @@ return {
     },
     opts = function(_, opts)
       local colors = require("colors").colors
+      local extra_palette = require("colors.extra-palette")
 
       opts = vim.tbl_deep_extend("force", {}, opts, {
         chunk = {
@@ -56,10 +57,10 @@ return {
             -- "⁘",
             -- "⁙",
           },
-          -- style = {
-          --   { bg = extra_palette.gray_950 },
-          --   { bg = "", fg = "" },
-          -- },
+          style = {
+            { fg = extra_palette.gray_500 },
+            -- { bg = "", fg = "" },
+          },
           -- style = {
           --   colors.red,
           --   colors.yellow,

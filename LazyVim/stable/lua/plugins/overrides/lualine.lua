@@ -2,36 +2,39 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
   opts = function()
-    local colors = require("colors.palette-options").palette
+    local colors = require("colors").colors
+    local extra_palette = require("colors.extra-palette")
 
-    local bg = colors.dark1 -- default "#2C2E33"
+    -- local bg = colors.dark1 -- default "#2C2E33"
+    local dark_bg = require("colors").get_bg("BufferLineFill")
+    local light_bg = "#ffffff"
     local shouldTransparent = require("chadrc").base46 and require("chadrc").base46.transparency
     local c_bg = shouldTransparent and "NONE" or colors.dark2
 
     local theme = {
       normal = {
-        a = { fg = bg, bg = colors.blue },
-        b = { fg = colors.blue, bg = bg },
+        a = { fg = light_bg, bg = colors.blue },
+        b = { fg = colors.blue, bg = light_bg },
         c = { fg = colors.light1, bg = c_bg },
       },
       insert = {
-        a = { fg = bg, bg = colors.green },
-        b = { fg = colors.green, bg = bg },
+        a = { fg = dark_bg, bg = colors.green },
+        b = { fg = colors.green, bg = dark_bg },
         c = { fg = colors.light1, bg = c_bg },
       },
       visual = {
-        a = { fg = bg, bg = colors.cyan },
-        b = { fg = colors.cyan, bg = bg },
+        a = { fg = dark_bg, bg = colors.cyan },
+        b = { fg = colors.cyan, bg = dark_bg },
         c = { fg = colors.light1, bg = c_bg },
       },
       inactive = {
-        a = { fg = colors.dark5, bg = bg },
-        b = { fg = colors.dark5, bg = bg },
+        a = { fg = colors.dark5, bg = dark_bg },
+        b = { fg = colors.dark5, bg = dark_bg },
         c = { fg = colors.dark5, bg = c_bg },
       },
       terminal = {
-        a = { fg = bg, bg = colors.red },
-        b = { fg = colors.red, bg = bg },
+        a = { fg = light_bg, bg = colors.red },
+        b = { fg = colors.red, bg = light_bg },
         c = { fg = colors.light1, bg = c_bg },
       },
     }

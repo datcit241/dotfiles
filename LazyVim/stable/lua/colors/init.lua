@@ -7,18 +7,18 @@ local function int_to_hex(int)
   return string.format("#%06x", int)
 end
 
-local function get_highlight(name)
+function M.get_highlight(name)
   local hl = vim.api.nvim_get_hl(0, { name = name })
   if hl and hl.link then
-    return get_highlight(hl.link)
+    return M.get_highlight(hl.link)
   end
   return hl and hl.fg and int_to_hex(hl.fg) or nil
 end
 
-local function get_bg(name)
+function M.get_bg(name)
   local hl = vim.api.nvim_get_hl(0, { name = name })
   if hl and hl.link then
-    return get_bg(hl.link)
+    return M.get_bg(hl.link)
   end
   return hl and hl.bg and int_to_hex(hl.bg) or nil
 end
@@ -47,7 +47,7 @@ local highlights = {
 
 M.init = function()
   for name, hl in pairs(highlights) do
-    M.colors[name] = get_highlight(hl)
+    M.colors[name] = M.get_highlight(hl)
     M.groups[name] = hl
   end
 
@@ -55,9 +55,11 @@ M.init = function()
 
   local set_hl = vim.api.nvim_set_hl
   local extra_palette = require("colors.extra-palette")
-  local bg = get_bg("Normal")
+  local bg = M.get_bg("Normal")
 
-  set_hl(0, "LineNr", { fg = extra_palette.gray_500 })
+  set_hl(0, "LineNr", { fg = extra_palette.gray_400 })
+  set_hl(0, "LineNrAbove", { fg = extra_palette.gray_400 })
+  set_hl(0, "LineNrBelow", { fg = extra_palette.gray_400 })
   set_hl(0, "CursorLineNr", { link = M.groups.orange })
 
   set_hl(0, "Comment", { italic = true, fg = extra_palette.gray_400 })

@@ -1,6 +1,7 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.util.dot"
+    "lazyvim.plugins.extras.util.dot",
+    "plugins.extras.colorschemes.gruvbox-material"
   ],
   "install_version": 7,
   "news": {

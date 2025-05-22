@@ -18,7 +18,9 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.lazyvim_keymaps = require("config.keymap_overrides")
 vim.g.use_nvchad = false
-vim.g.custom_colorscheme = "solarized-osaka"
+vim.g.custom_colorscheme = false
+vim.g.default_colorscheme = "tokyonight"
+
 -- everforest, gruvbox-material, onenord, kanagawa, solarized-osaka, material, nordic, nightfly,
 -- sonokai, nightfox, night-owl, eldritch, bamboo, hybrid, evergarden, onedark, edge,
 -- dracula, fluoromachine, synthweave, melange,
