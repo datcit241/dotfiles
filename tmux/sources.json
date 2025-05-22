@@ -1,0 +1,8 @@
+{
+  "unix": [
+    [".tmux.conf", "~/.tmux.conf"],
+    [".tmux.catppuccin.conf", "~/.tmux.catppuccin.conf"],
+    [".tmux.tokyo-night.conf", "~/.tmux.tokyo-night.conf"],
+    [".tmux.nordtheme.conf", "~/.tmux.nordtheme.conf"]
+  ]
+}

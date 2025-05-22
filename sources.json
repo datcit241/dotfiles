@@ -1,7 +1,6 @@
 {
   "unix": [
     [".ideavimrc", "~/.ideavimrc"],
-    [".tmux.conf", "~/.tmux.conf"],
     ["./.config/wezterm", "~/.config/.wezterm"],
     [".zshrc", "~/.zshrc"],
     [".zprofile", "~/.zprofile"],
