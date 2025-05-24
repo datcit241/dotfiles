@@ -16,8 +16,11 @@ if U.io.get_system_info().is_windows then
   opt.shellxquote = ""
 end
 
-opt.clipboard = ""
--- vim.g.clipboard = "osc52"
+if vim.env.SSH_TTY then
+  vim.g.clipboard = "osc52"
+else
+  opt.clipboard = ""
+end
 
 -- sync buffers automatically
 opt.autoread = true
